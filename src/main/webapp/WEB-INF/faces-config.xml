@@ -34,37 +34,9 @@
         <converter-class>jm.com.dpbennett.business.entity.converter.ActiveEmployeeConverter</converter-class>
     </converter>
     <converter>
-        <converter-id>serviceConverter</converter-id>
-        <converter-class>jm.com.dpbennett.business.entity.converter.ServiceConverter</converter-class>
-    </converter> 
-    <converter>
-        <converter-id>clientContactConverter</converter-id>
-        <converter-class>jm.com.dpbennett.business.entity.converter.ClientContactConverter</converter-class>
-    </converter> 
-    <converter>
         <converter-id>businessConverter</converter-id>
         <converter-class>jm.com.dpbennett.business.entity.converter.BusinessConverter</converter-class>
-    </converter> 
-    <validator>
-        <validator-id>accountingCodeValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.AccountingCodeValidator</validator-class>
-    </validator>  
-    <validator>
-        <validator-id>systemOptionValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.SystemOptionValidator</validator-class>
-    </validator>   
-    <validator>
-        <validator-id>clientValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.ClientValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>jobClientValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.JobClientValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>generalClientValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.GeneralClientValidator</validator-class>
-    </validator>
+    </converter>  
     <validator>
         <validator-id>requiredFieldValidator</validator-id>
         <validator-class>jm.com.dpbennett.business.entity.validator.RequiredFieldValidator</validator-class>
@@ -73,30 +45,6 @@
         <validator-id>businessEntityValidator</validator-id>
         <validator-class>jm.com.dpbennett.business.entity.validator.BusinessEntityValidator</validator-class>
     </validator>
-    <validator>
-        <validator-id>jobNumberValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.JobNumberValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>subcontractedDepartmentValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.SubcontractedDepartmentValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>addressValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.AddressValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>turnaroundTimeValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.TurnaroundTimeValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>addressLineValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.AddressLineValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>contactValidator</validator-id>
-        <validator-class>jm.com.dpbennett.business.entity.validator.ContactValidator</validator-class>
-    </validator> 
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
@@ -147,15 +95,16 @@
         </navigation-case>
     </navigation-rule>
     <lifecycle>
-        <phase-listener id="nocache">jm.com.dpbennett.jmts.utils.CacheControlPhaseListener</phase-listener>
+        <phase-listener id="nocache">jm.com.dpbennett.wal.utils.CacheControlPhaseListener</phase-listener>
     </lifecycle>
     
     <!--
     <managed-bean>
-        <managed-bean-name>clientManager</managed-bean-name>
-        <managed-bean-class>jm.com.dpbennett.business.entity.management.ClientManager</managed-bean-class>
+        <managed-bean-name>jobManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.wal.managers.JobManager</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>    
-    -->
+    </managed-bean> 
+    -->   
+   
    
 </faces-config>
