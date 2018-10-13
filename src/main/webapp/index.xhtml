@@ -1,5 +1,5 @@
 <!--
-Job Management & Tracking System (JMTS) 
+Purhasing 
 Copyright (C) 2017  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -40,14 +40,11 @@ Email: info@dpbennett.com.jm
             mainTabViewVar.select(0);" >
 
         <ui:include src="common/commonDialogs.xhtml" />                       
-        <ui:include src="common/loginDialog.xhtml"/>
-        <ui:include src="accpac/accPacClientInformationDialog.xhtml"/>               
-        <ui:include src="job/jobAlertDialogs.xhtml"/>
-        <ui:include src="job/jobMessageDialogs.xhtml"/>   
+        <ui:include src="common/loginDialog.xhtml"/>        
         <ui:include src="common/generalAlertDialogs.xhtml"/>
         <ui:include src="common/longProcessDialog.xhtml"/>   
         <ui:include src="common/preferencesDialog.xhtml"/>   
-        
+
         <p:layout id="JMTSWeb" fullPage="true" widgetVar="layoutVar" >
             <p:ajax event="toggle" listener="#{jobManager.handleLayoutUnitToggle}" />
 
@@ -133,28 +130,29 @@ Email: info@dpbennett.com.jm
 
 
                         <p:tab title="#{t.name}" closable="true"  >
-                            
-                            <h:panelGroup rendered="#{t.id == 'Job Browser'}">                                
-                                <ui:include src="job/jobBrowser.xhtml" />   
-                            </h:panelGroup>                                
-                            <h:panelGroup rendered="#{t.id == 'Document Browser'}">                                
-                                <ui:include src="legal/documentBrowser.xhtml" />   
-                            </h:panelGroup> 
-                            <h:panelGroup rendered="#{t.id == 'Survey Browser'}">                                
-                                <ui:include src="compliance/surveyBrowser.xhtml" />   
-                            </h:panelGroup>
-                            <h:panelGroup  rendered="#{t.id == 'Financial Administration'}">
-                                <ui:include src="admin/financialAdminTab.xhtml" /> 
-                            </h:panelGroup>
-                            <h:panelGroup rendered="#{t.id == 'System Administration'}" >
-                                <ui:include src="admin/generalAdminTab.xhtml" /> 
-                            </h:panelGroup>                           
-                            <h:panelGroup rendered="#{t.id == 'Clients'}" >
-                                <ui:include src="client/clientsTab.xhtml" />                                                                
-                            </h:panelGroup>
-                            <h:panelGroup rendered="#{t.id == 'Reports'}" >
-                                <ui:include src="report/reportsTab.xhtml" />                                                                
-                            </h:panelGroup>
+                            <ui:remove>
+                                <h:panelGroup rendered="#{t.id == 'Job Browser'}">                                
+                                    <ui:include src="job/jobBrowser.xhtml" />   
+                                </h:panelGroup>                                
+                                <h:panelGroup rendered="#{t.id == 'Document Browser'}">                                
+                                    <ui:include src="legal/documentBrowser.xhtml" />   
+                                </h:panelGroup> 
+                                <h:panelGroup rendered="#{t.id == 'Survey Browser'}">                                
+                                    <ui:include src="compliance/surveyBrowser.xhtml" />   
+                                </h:panelGroup>
+                                <h:panelGroup  rendered="#{t.id == 'Financial Administration'}">
+                                    <ui:include src="admin/financialAdminTab.xhtml" /> 
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'System Administration'}" >
+                                    <ui:include src="admin/generalAdminTab.xhtml" /> 
+                                </h:panelGroup>                           
+                                <h:panelGroup rendered="#{t.id == 'Clients'}" >
+                                    <ui:include src="client/clientsTab.xhtml" />                                                                
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Reports'}" >
+                                    <ui:include src="report/reportsTab.xhtml" />                                                                
+                                </h:panelGroup>
+                            </ui:remove>
                         </p:tab>
                     </p:tabView>
 
@@ -208,51 +206,51 @@ Email: info@dpbennett.com.jm
                                 listener="#{jobManager.onDashboardTabChange}" />
 
                         <p:tab title="#{t.name}" > 
+                            <ui:remove>
+                                <h:panelGroup rendered="#{t.id == 'Job Management'}">
+                                    <ui:include src="dashboard/jobs/jobsTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Job Management'}">
-                                <ui:include src="dashboard/jobs/jobsTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Standards Compliance'}">
+                                    <ui:include src="dashboard/compliance/complianceTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Standards Compliance'}">
-                                <ui:include src="dashboard/compliance/complianceTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Document Management'}">                               
+                                    <ui:include src="dashboard/legal/documentsTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Document Management'}">                               
-                                <ui:include src="dashboard/legal/documentsTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Client Management'}">
+                                    <ui:include src="dashboard/client/clientsTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Client Management'}">
-                                <ui:include src="dashboard/client/clientsTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Foods Inspectorate'}">
+                                    <ui:include src="dashboard/foods/foodsTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Foods Inspectorate'}">
-                                <ui:include src="dashboard/foods/foodsTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Legal Metrology'}">
+                                    <ui:include src="dashboard/metrology/metrologyTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Legal Metrology'}">
-                                <ui:include src="dashboard/metrology/metrologyTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Standards'}">
+                                    <ui:include src="dashboard/standards/standardsTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Standards'}">
-                                <ui:include src="dashboard/standards/standardsTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Certification'}">
+                                    <ui:include src="dashboard/certification/certificationTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Certification'}">
-                                <ui:include src="dashboard/certification/certificationTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'Service Request'}">
+                                    <ui:include src="dashboard/service/serviceTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'Service Request'}">
-                                <ui:include src="dashboard/service/serviceTab.xhtml" />
-                            </h:panelGroup>
+                                <h:panelGroup rendered="#{t.id == 'System Administration'}">
+                                    <ui:include src="dashboard/admin/generalAdminTab.xhtml" />
+                                </h:panelGroup>
 
-                            <h:panelGroup rendered="#{t.id == 'System Administration'}">
-                                <ui:include src="dashboard/admin/generalAdminTab.xhtml" />
-                            </h:panelGroup>
-
-                            <h:panelGroup rendered="#{t.id == 'Financial Administration'}">
-                                <ui:include src="dashboard/finance/financialAdminTab.xhtml" />
-                            </h:panelGroup>
-
+                                <h:panelGroup rendered="#{t.id == 'Financial Administration'}">
+                                    <ui:include src="dashboard/finance/financialAdminTab.xhtml" />
+                                </h:panelGroup>
+                            </ui:remove>
                         </p:tab>   
 
                     </p:accordionPanel>      
