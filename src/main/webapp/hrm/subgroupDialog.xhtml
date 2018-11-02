@@ -58,7 +58,7 @@ Email: info@dpbennett.com.jm
                     <p:inputText value="#{humanResourceManager.selectedSubgroup.name}"
                                  style="width:300px"
                                  validator="requiredFieldValidator" /> 
-                    
+
                     <h:outputText value="Head:" style="font-weight: bold;" />
                     <p:autoComplete var="subgroupHead"
                                     id="subgroupHead"
@@ -122,7 +122,7 @@ Email: info@dpbennett.com.jm
                                  var="department"
                                  style="margin-bottom: 1px;margin-top: 1px;"
                                  value="#{humanResourceManager.selectedSubgroup.departments}">
-                        
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Name" />
@@ -168,7 +168,26 @@ Email: info@dpbennett.com.jm
                         </ui:remove>
 
                     </p:dataTable>
+                    <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit department list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addSubgroupDepartments}"
+                                             update=":subgroupDialogForm:subgroupdialog_growl"
+                                             onstart="PF('longProcessDialogVar').show();"
+                                             oncomplete="PF('longProcessDialogVar').hide();"
+                                             onerror="PF('connectionErrorDialog').show();"
+                                             global="true"
+                                             process="@this"
+                                             icon="ui-icon ui-icon-pencil">
 
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addSubgroupDepartmentsDialogReturn}"
+                                        update="departmentsTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar> 
                 </p:tab>                           
 
             </p:tabView>
