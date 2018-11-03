@@ -153,6 +153,26 @@ Email: info@dpbennett.com.jm
                         </ui:remove>
 
                     </p:dataTable>
+                    <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit subgroup list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addDivisionSubgroups}"
+                                             update=":divisionDialogForm:divisiondialog_growl"
+                                             onstart="PF('longProcessDialogVar').show();"
+                                             oncomplete="PF('longProcessDialogVar').hide();"
+                                             onerror="PF('connectionErrorDialog').show();"
+                                             global="true"
+                                             process="@this"
+                                             icon="ui-icon ui-icon-pencil">
+
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addDivisionSubgroupsDialogReturn}"
+                                        update="subgroupsTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar> 
                 </p:tab>
                 <p:tab title="Departments">
                     <p:toolbar>
@@ -225,9 +245,27 @@ Email: info@dpbennett.com.jm
                                 </p:menuButton>                   
                             </p:column>
                         </ui:remove>
-
                     </p:dataTable>
+                    <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit department list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addDivisionDepartments}"
+                                             update=":divisionDialogForm:divisiondialog_growl"
+                                             onstart="PF('longProcessDialogVar').show();"
+                                             oncomplete="PF('longProcessDialogVar').hide();"
+                                             onerror="PF('connectionErrorDialog').show();"
+                                             global="true"
+                                             process="@this"
+                                             icon="ui-icon ui-icon-pencil">
 
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addDivisionDepartmentsDialogReturn}"
+                                        update="departmentsTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar> 
                 </p:tab>                           
 
             </p:tabView>
