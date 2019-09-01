@@ -24,48 +24,15 @@
           before building this project -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>web-application-library</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <artifactId>system-management-lib</artifactId>
+            <version>1.0.0</version>
         </dependency>          
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management</artifactId>
             <version>0.1.0-SNAPSHOT</version>
             <type>war</type>
-        </dependency>         
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>client-management</artifactId>
-            <version>1.0.0</version>
-            <type>war</type>
-        </dependency> 
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>standards-compliance</artifactId>
-            <version>1.0.0</version>
-            <type>war</type>
-        </dependency>
-        <!--
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>purchase-management</artifactId>
-            <version>1.0.0</version>
-            <type>war</type>
-        </dependency>
-        -->
-        
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>financial-management</artifactId>
-            <version>1.0.0</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>legal-office</artifactId>
-            <version>1.0.0</version>
-            <type>war</type>
-        </dependency>
+        </dependency>  
     </dependencies>
     <build>
         <plugins>
@@ -96,28 +63,6 @@
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>system-management</artifactId>
-                        </overlay>
-                        <overlay>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>client-management</artifactId>
-                        </overlay>
-                        <overlay>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>standards-compliance</artifactId>
-                        </overlay>
-                        <overlay>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>financial-management</artifactId>
-                        </overlay>
-                        <!--
-                        <overlay>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>purchase-management</artifactId>
-                        </overlay>
-                        -->
-                        <overlay>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>legal-office</artifactId>
                         </overlay>
                     </overlays> 
                     

@@ -19,25 +19,28 @@ Email: info@dpbennett.com.jm
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:p="http://primefaces.org/ui"> 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
 
     <p:toolbar>
-        <p:toolbarGroup align="left">
-            <p:commandButton value="New"
-                             title="Add new sample(s)"
-                             actionListener="#{jobSampleManager.createNewJobSample}"                         
-                             onstart="PF('longProcessDialogVar').show();"
+        <p:toolbarGroup>
+            <p:commandButton value="Ok"
+                             actionListener="#{humanResourceManager.okPickList}"
+                             onstart="PF('longProcessDialogVar').show();" 
                              oncomplete="PF('longProcessDialogVar').hide();"
-                             icon="ui-icon-plus"
-                             process="@this" >
-
-                <p:ajax event="dialogReturn" 
-                        listener="#{jobSampleManager.jobSampleDialogReturn}"                    
-                        update=":jobDialogForm:jobDetailToolbar1,:jobDialogForm:growl2,:jobDialogForm:jobFormTabView:jobSamples,:jobDialogForm:jobFormTabView:jobNumber"
-                        process="@this"/>
-
-            </p:commandButton>                
+                             icon="ui-icon ui-icon-check"
+                             process="@form"/>
+            <p:spacer width="5" />
+            <p:commandButton value="Cancel" 
+                             immediate="true"
+                             actionListener="#{humanResourceManager.closeDialog}"
+                             onstart="PF('longProcessDialogVar').show();"                                
+                             oncomplete="PF('longProcessDialogVar').hide();"
+                             icon="ui-icon-close"/>
         </p:toolbarGroup>
-    </p:toolbar>
+    </p:toolbar> 
 
 </html>
+
+
