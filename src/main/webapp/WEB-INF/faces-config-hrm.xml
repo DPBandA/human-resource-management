@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+      
+    <converter>
+        <converter-id>activeEmployeePositionConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.ActiveEmployeePositionConverter</converter-class>
+    </converter> 
+    <converter>
+        <converter-id>activeSubgroupConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.ActiveSubgroupConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>activeDepartmentConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.ActiveDepartmentConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>addressConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.AddressConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>businessOfficeConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.BusinessOfficeConverter</converter-class>
+    </converter> 
+    <converter>
+        <converter-id>activeEmployeeConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.ActiveEmployeeConverter</converter-class>
+    </converter> 
+    <converter>
+        <converter-id>businessConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.BusinessConverter</converter-class>
+    </converter>
+    <validator>
+        <validator-id>addressValidator</validator-id>
+        <validator-class>jm.com.dpbennett.hrm.validator.AddressValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>addressLineValidator</validator-id>
+        <validator-class>jm.com.dpbennett.hrm.validator.AddressLineValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>contactValidator</validator-id>
+        <validator-class>jm.com.dpbennett.hrm.validator.ContactValidator</validator-class>
+    </validator>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>employeePositionDialog</from-outcome>
+            <to-view-id>/hrm/employeePositionDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>employeeDialog</from-outcome>
+            <to-view-id>/hrm/employeeDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>departmentDialog</from-outcome>
+            <to-view-id>/hrm/departmentDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>departmentPickListDialog</from-outcome>
+            <to-view-id>/hrm/departmentPickListDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>    
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>subgroupPickListDialog</from-outcome>
+            <to-view-id>/hrm/subgroupPickListDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>businessDialog</from-outcome>
+            <to-view-id>/hrm/businessDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>subgroupDialog</from-outcome>
+            <to-view-id>/hrm/subgroupDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>     
+    
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>divisionDialog</from-outcome>
+            <to-view-id>/hrm/divisionDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <managed-bean>
+        <managed-bean-name>systemManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.hrm.managers.SystemManager</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>  
+       
+    <managed-bean>
+        <managed-bean-name>humanResourceManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.hrm.managers.HumanResourceManager</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>    
+    
+</faces-config>
