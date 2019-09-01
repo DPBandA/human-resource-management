@@ -78,4 +78,5 @@
     <welcome-file-list>
         <welcome-file>hrm/index.xhtml</welcome-file>
     </welcome-file-list>   
+
 </web-app>
