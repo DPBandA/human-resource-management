@@ -1,5 +1,8 @@
 ### General
-- Impl interfaces and login in HR module as is done in JM. Remember to reset
-  dashboard and main tab view.
+- Setup HRM module in database entities and UI.
+- Set up tabs.
 - Add email templates management.
 
+### Database Update
+- modules table: HRMMODULE
+- privilege table: CANACCESSHRMUNIT
