@@ -118,20 +118,8 @@
     
     <lifecycle>
         <phase-listener id="nocache">jm.com.dpbennett.sm.util.CacheControlPhaseListener</phase-listener>
-    </lifecycle>
-    
-    <managed-bean>
-        <managed-bean-name>authentication</managed-bean-name>
-        <managed-bean-class>jm.com.dpbennett.sm.Authentication</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
-    
-    <managed-bean>
-        <managed-bean-name>systemManager</managed-bean-name>
-        <managed-bean-class>jm.com.dpbennett.sm.manager.SystemManager</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>  
-       
+    </lifecycle>    
+   
     <managed-bean>
         <managed-bean-name>humanResourceManager</managed-bean-name>
         <managed-bean-class>jm.com.dpbennett.hrm.manager.HumanResourceManager</managed-bean-class>

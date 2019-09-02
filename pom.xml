@@ -26,7 +26,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management-lib</artifactId>
             <version>1.0.0</version>
-        </dependency>          
+        </dependency>    
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>human-resource-management-lib</artifactId>
+            <version>1.0.0</version>
+        </dependency>      
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management</artifactId>
