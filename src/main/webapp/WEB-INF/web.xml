@@ -56,7 +56,10 @@
 
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/WEB-INF/faces-config-sm.xml, /WEB-INF/faces-config-hrm.xml</param-value>
+        <param-value>
+            /WEB-INF/faces-config-sm.xml, 
+            /WEB-INF/faces-config-hrm.xml
+        </param-value>
     </context-param>  
        
     <servlet>
