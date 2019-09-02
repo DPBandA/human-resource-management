@@ -29,29 +29,35 @@ Email: info@dpbennett.com.jm
                scrollable="false"
                dynamic="true">
 
-        <p:tab id="employeesTab" title="Employees">                  
-            <ui:include src="employeesTab.xhtml"/>    
+        <p:tab id="UsersTab" title="User Profiles">
+            <ui:include src="usersTab.xhtml"/>  
         </p:tab>
 
-        <p:tab id="departmentsTab" title="Departments">
-            <ui:include src="departmentsTab.xhtml"/>  
-        </p:tab>
+        <ui:remove>
+            <p:tab id="employeesTab" title="Employees">                  
+                <ui:include src="employeesTab.xhtml"/>    
+            </p:tab>
 
-        <p:tab id="subgroupsTab" title="Subgroups">
-            <ui:include src="subgroupsTab.xhtml"/>  
-        </p:tab>
+            <p:tab id="departmentsTab" title="Departments">
+                <ui:include src="departmentsTab.xhtml"/>  
+            </p:tab>
 
-        <p:tab id="divisionsTab" title="Divisions">
-            <ui:include src="divisionsTab.xhtml"/>  
-        </p:tab>
+            <p:tab id="subgroupsTab" title="Subgroups">
+                <ui:include src="subgroupsTab.xhtml"/>  
+            </p:tab>
 
-        <p:tab id="organizationsTab" title="Organizations">
-            <ui:include src="organizationsTab.xhtml"/>  
-        </p:tab>  
-        
-        <p:tab id="positionsTab" title="Employment Positions">
-            <ui:include src="employeePositionsTab.xhtml"/>  
-        </p:tab>
+            <p:tab id="divisionsTab" title="Divisions">
+                <ui:include src="divisionsTab.xhtml"/>  
+            </p:tab>
+
+            <p:tab id="organizationsTab" title="Organizations">
+                <ui:include src="organizationsTab.xhtml"/>  
+            </p:tab>  
+
+            <p:tab id="positionsTab" title="Employment Positions">
+                <ui:include src="employeePositionsTab.xhtml"/>  
+            </p:tab>
+        </ui:remove>
 
     </p:tabView>
 

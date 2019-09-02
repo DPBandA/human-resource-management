@@ -1,8 +1,6 @@
 ### General
-- Setup HRM module in database entities and UI.
-- Set up tabs.
+- Set up dashboard and main tab view tabs:
+  * Impl opening the hrm user dialog instead of the sm dialog.
 - Add email templates management.
+- Add full user management with privileges, module access etc.
 
-### Database Update
-- modules table: HRMMODULE
-- privilege table: CANACCESSHRMUNIT
