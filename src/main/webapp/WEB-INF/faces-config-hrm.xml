@@ -61,58 +61,71 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
+            <from-outcome>userDialog</from-outcome>
+            <to-view-id>/admin/userDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
             <from-outcome>employeePositionDialog</from-outcome>
-            <to-view-id>/hrm/employeePositionDialog.xhtml</to-view-id>
+            <to-view-id>/admin/employeePositionDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>employeeDialog</from-outcome>
-            <to-view-id>/hrm/employeeDialog.xhtml</to-view-id>
+            <to-view-id>/admin/employeeDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>departmentDialog</from-outcome>
-            <to-view-id>/hrm/departmentDialog.xhtml</to-view-id>
+            <to-view-id>/admin/departmentDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>departmentPickListDialog</from-outcome>
-            <to-view-id>/hrm/departmentPickListDialog.xhtml</to-view-id>
+            <to-view-id>/admin/departmentPickListDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>    
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>subgroupPickListDialog</from-outcome>
-            <to-view-id>/hrm/subgroupPickListDialog.xhtml</to-view-id>
+            <to-view-id>/admin/subgroupPickListDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>businessDialog</from-outcome>
-            <to-view-id>/hrm/businessDialog.xhtml</to-view-id>
+            <to-view-id>/admin/businessDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>subgroupDialog</from-outcome>
-            <to-view-id>/hrm/subgroupDialog.xhtml</to-view-id>
+            <to-view-id>/admin/subgroupDialog.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>     
-    
+    </navigation-rule>    
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>divisionDialog</from-outcome>
-            <to-view-id>/hrm/divisionDialog.xhtml</to-view-id>
+            <to-view-id>/admin/divisionDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>emailTemplateDialog</from-outcome>
+            <to-view-id>/admin/emailTemplateDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     

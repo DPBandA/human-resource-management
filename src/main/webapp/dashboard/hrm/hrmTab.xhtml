@@ -1,5 +1,5 @@
 <!--
-Job Management & Tracking System (JMTS) 
+Human Resource Management (HRM) 
 Copyright (C) 2019  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ Email: info@dpbennett.com.jm
 
             <p:commandButton title="Add new user"                                  
                              value="New"                                                     
-                             actionListener="#{systemManager.createNewUser}"
+                             actionListener="#{humanResourceManager.createNewUser}"
                              onstart="PF('longProcessDialogVar').show();" 
                              oncomplete="PF('longProcessDialogVar').hide();"
                              onerror="PF('connectionErrorDialog').show();"
@@ -36,31 +36,29 @@ Email: info@dpbennett.com.jm
                              icon="ui-icon ui-icon-plus">
 
                 <p:ajax event="dialogReturn" 
-                        listener="#{systemManager.doUserSearch}"
+                        listener="#{humanResourceManager.doUserSearch}"
                         update=":mainTabViewForm:mainTabView:humanResourceTabView:usersTable"/>
 
             </p:commandButton>       
 
         </p:toolbarGroup>
 
-        <ui:remove>
-            <p:toolbarGroup align="right">
+        <p:toolbarGroup align="right">
 
-                <p:menuButton value="Tools" >  
+            <p:menuButton value="Tools" >  
 
-                    <p:menuitem>                       
-                        <p:commandButton value="System Browser"
-                                         style="text-align: left;background: none;border: 0;"
-                                         title="Open System Browser"
-                                         onstart="PF('longProcessDialogVar').show();" 
-                                         actionListener="#{systemManager.openSystemBrowser}" 
-                                         oncomplete="longProcessDialogVar.hide();"
-                                         process="@this" />
-                    </p:menuitem>
+                <p:menuitem>                       
+                    <p:commandButton value="Human Resource Browser"
+                                     style="text-align: left;background: none;border: 0;"
+                                     title="Open Human Resource Browser"
+                                     onstart="PF('longProcessDialogVar').show();" 
+                                     actionListener="#{humanResourceManager.openHumanResourceBrowser}" 
+                                     oncomplete="longProcessDialogVar.hide();"
+                                     process="@this" />
+                </p:menuitem>
 
-                </p:menuButton>         
-            </p:toolbarGroup>
-        </ui:remove>
+            </p:menuButton>         
+        </p:toolbarGroup>
 
     </p:toolbar>
 

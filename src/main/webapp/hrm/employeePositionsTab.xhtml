@@ -39,7 +39,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doEmployeePositionSearch}"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:positionsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:positionsTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
@@ -50,7 +50,7 @@ Email: info@dpbennett.com.jm
                         global="false"
                         onstart="PF('longProcessDialogVar').show();" 
                         oncomplete="PF('longProcessDialogVar').hide();"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:positionsTable"
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:positionsTable"
                         listener="#{humanResourceManager.doEmployeePositionSearch}"
                         process="@this"/>
             </p:inputText>
@@ -62,7 +62,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeEmployeePositionsOnly"
                                          value="#{humanResourceManager.isActiveEmployeePositionsOnly}" >
-                    <p:ajax  update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:positionsTable"
+                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:positionsTable"
                              listener="#{humanResourceManager.doEmployeePositionSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -131,7 +131,7 @@ Email: info@dpbennett.com.jm
                 <f:setPropertyActionListener value="#{position}"                                                                    
                                              target="#{humanResourceManager.selectedEmployeePosition}" />
                 <p:ajax event="dialogReturn" 
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:positionsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:positionsTable"/>
 
             </p:commandButton>           
         </p:column>

@@ -1,5 +1,5 @@
 <!--
-Job Management & Tracking System (JMTS) 
+Human Resource Management (HRM) 
 Copyright (C) 2017  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -43,7 +43,7 @@ Email: info@dpbennett.com.jm
             <p:toolbar style="margin-bottom: 1px;">
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
-                                     actionListener="#{systemManager.saveSelectedEmail}"
+                                     actionListener="#{humanResourceManager.saveSelectedEmail}"
                                      onstart="PF('longProcessDialogVar').show();"
                                      oncomplete="PF('longProcessDialogVar').hide()"
                                      icon="ui-icon ui-icon-check"
@@ -51,7 +51,7 @@ Email: info@dpbennett.com.jm
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"
-                                     actionListener="#{systemManager.cancelDialogEdit}"
+                                     actionListener="#{humanResourceManager.cancelDialogEdit}"
                                      oncomplete="PF('longProcessDialogVar').hide();"
                                      immediate="true"
                                      icon="ui-icon ui-icon-close" />            
@@ -64,26 +64,26 @@ Email: info@dpbennett.com.jm
                         <p:outputLabel for="emailActive" value="Active:" style="font-weight: bold;" />               
                         <p:selectBooleanCheckbox id="emailActive"
                                                  style="vertical-align: middle"
-                                                 value="#{systemManager.selectedEmail.active}" />                       
+                                                 value="#{humanResourceManager.selectedEmail.active}" />                       
 
                         <h:outputText value="Name:" style="font-weight: bold;" />
-                        <p:inputText value="#{systemManager.selectedEmail.name}"
+                        <p:inputText value="#{humanResourceManager.selectedEmail.name}"
                                      style="width: 300px;"
                                      id="emailName" 
                                      validator="requiredFieldValidator" /> 
 
                         <h:outputText value="Category:" style="font-weight: bold;" />
-                        <p:selectOneMenu value="#{systemManager.selectedEmail.category}" 
+                        <p:selectOneMenu value="#{humanResourceManager.selectedEmail.category}" 
                                          id="emailCategory" >
 
                             <f:validator validatorId="requiredFieldValidator" />
 
-                            <f:selectItems value="#{systemManager.emailCategories}"/>
+                            <f:selectItems value="#{humanResourceManager.emailCategories}"/>
 
                         </p:selectOneMenu>
 
                         <h:outputText value="Subject:" style="font-weight: bold;" />
-                        <p:inputText value="#{systemManager.selectedEmail.subject}"
+                        <p:inputText value="#{humanResourceManager.selectedEmail.subject}"
                                      style="width: 300px;"
                                      id="emailSubject" 
                                      validator="requiredFieldValidator" /> 
@@ -91,15 +91,15 @@ Email: info@dpbennett.com.jm
                         <h:outputText value="Content template:" style="font-weight: bold;" />                            
                         <h:panelGroup>
                             <h:panelGrid columns="2">                            
-                                <p:inputText value="#{systemManager.selectedEmail.templateFile}"
-                                             disabled="#{!systemManager.selectedEmail.usePackagedTemplate}"
+                                <p:inputText value="#{humanResourceManager.selectedEmail.templateFile}"
+                                             disabled="#{!humanResourceManager.selectedEmail.usePackagedTemplate}"
                                              style="margin-left: -3px;width: 300px;"
                                              id="emailTemplate" 
                                              validator="requiredFieldValidator" />
 
                                 <p:selectBooleanCheckbox itemLabel="use template"                                                         
                                                          title="Check if this email content template is packaged with the application"
-                                                         value="#{systemManager.selectedEmail.usePackagedTemplate}" >
+                                                         value="#{humanResourceManager.selectedEmail.usePackagedTemplate}" >
 
                                     <p:ajax event="change"
                                             update="emailTemplateDialogForm"
@@ -111,28 +111,28 @@ Email: info@dpbennett.com.jm
                         </h:panelGroup>
 
                         <h:outputText id="emailContentLabel" 
-                                      rendered="#{!systemManager.selectedEmail.usePackagedTemplate}"
+                                      rendered="#{!humanResourceManager.selectedEmail.usePackagedTemplate}"
                                       value="Content:" />
-                        <p:inputTextarea  value="#{systemManager.selectedEmail.content}"
+                        <p:inputTextarea  value="#{humanResourceManager.selectedEmail.content}"
                                           id="emailContent"
-                                          rendered="#{!systemManager.selectedEmail.usePackagedTemplate}"
+                                          rendered="#{!humanResourceManager.selectedEmail.usePackagedTemplate}"
                                           maxlength="2000"
                                           autoResize="false"
                                           rows="4"
                                           style="width:300px;" />
 
                         <h:outputText value="Content type:" style="font-weight: bold;" />                   
-                        <p:selectOneMenu value="#{systemManager.selectedEmail.contentType}" 
+                        <p:selectOneMenu value="#{humanResourceManager.selectedEmail.contentType}" 
                                          id="emailContentType" >
 
                             <f:validator validatorId="requiredFieldValidator" />
 
-                            <f:selectItems value="#{systemManager.contentTypes}"/>
+                            <f:selectItems value="#{humanResourceManager.contentTypes}"/>
 
                         </p:selectOneMenu>
 
                         <h:outputText value="Description:" style="font-weight: bold;" />
-                        <p:inputTextarea  value="#{systemManager.selectedEmail.description}"
+                        <p:inputTextarea  value="#{humanResourceManager.selectedEmail.description}"
                                           id="emailDescription"
                                           maxlength="1000"
                                           autoResize="false"
@@ -149,7 +149,7 @@ Email: info@dpbennett.com.jm
             <p:toolbar>
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
-                                     actionListener="#{systemManager.saveSelectedEmail}"
+                                     actionListener="#{humanResourceManager.saveSelectedEmail}"
                                      onstart="PF('longProcessDialogVar').show();"
                                      oncomplete="PF('longProcessDialogVar').hide()"
                                      icon="ui-icon ui-icon-check"
@@ -157,7 +157,7 @@ Email: info@dpbennett.com.jm
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"
-                                     actionListener="#{systemManager.cancelDialogEdit}"
+                                     actionListener="#{humanResourceManager.cancelDialogEdit}"
                                      oncomplete="PF('longProcessDialogVar').hide();"
                                      immediate="true"
                                      icon="ui-icon ui-icon-close" />            

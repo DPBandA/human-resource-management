@@ -39,7 +39,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doDepartmentSearch}"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:departmentsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:departmentsTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
@@ -50,7 +50,7 @@ Email: info@dpbennett.com.jm
                         global="false"
                         onstart="PF('longProcessDialogVar').show();" 
                         oncomplete="PF('longProcessDialogVar').hide();"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:departmentsTable"
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:departmentsTable"
                         listener="#{humanResourceManager.doDepartmentSearch}"
                         process="@this"/>
             </p:inputText>
@@ -62,7 +62,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeDepartmentsOnly"
                                          value="#{humanResourceManager.isActiveDepartmentsOnly}" >
-                    <p:ajax  update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:departmentsTable"
+                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:departmentsTable"
                              listener="#{humanResourceManager.doDepartmentSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -113,7 +113,7 @@ Email: info@dpbennett.com.jm
                 <f:setPropertyActionListener value="#{department}"                                                                    
                                              target="#{humanResourceManager.selectedDepartment}" />
                 <p:ajax event="dialogReturn" 
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:departmentsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:departmentsTable"/>
 
             </p:commandButton>           
         </p:column>

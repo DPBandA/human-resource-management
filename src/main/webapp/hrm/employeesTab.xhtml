@@ -39,7 +39,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn"
                         listener="#{humanResourceManager.doEmployeeSearch}"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:employeesTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:employeesTable"/>
 
             </p:commandButton>
                      
@@ -51,7 +51,7 @@ Email: info@dpbennett.com.jm
                 <p:ajax event="keyup"
                         onstart="PF('longProcessDialogVar').show();" 
                         oncomplete="PF('longProcessDialogVar').hide();"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:employeesTable"
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:employeesTable"
                         listener="#{humanResourceManager.doEmployeeSearch}"
                         process="@this"/>
             </p:inputText>
@@ -64,7 +64,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeEmployeesOnly"
                                          value="#{humanResourceManager.isActiveEmployeesOnly}" >
-                    <p:ajax  update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:employeesTable"
+                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:employeesTable"
                              listener="#{humanResourceManager.doEmployeeSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -133,7 +133,7 @@ Email: info@dpbennett.com.jm
                                              target="#{humanResourceManager.selectedEmployee}" />
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doEmployeeSearch}"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:employeesTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:employeesTable"/>
 
             </p:commandButton>           
         </p:column>

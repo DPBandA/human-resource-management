@@ -39,7 +39,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doSubgroupSearch}"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:subgroupsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:subgroupsTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
@@ -50,7 +50,7 @@ Email: info@dpbennett.com.jm
                         global="false"
                         onstart="PF('longProcessDialogVar').show();" 
                         oncomplete="PF('longProcessDialogVar').hide();"
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:subgroupsTable"
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:subgroupsTable"
                         listener="#{humanResourceManager.doSubgroupSearch}"
                         process="@this"/>
             </p:inputText>
@@ -63,7 +63,7 @@ Email: info@dpbennett.com.jm
                     <p:selectBooleanCheckbox style="vertical-align: middle"
                                              id="activeSubgroupsOnly"
                                              value="#{humanResourceManager.isActiveSubgroupsOnly}" >
-                        <p:ajax  update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:subgroupsTable"
+                        <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:subgroupsTable"
                                  listener="#{humanResourceManager.doSubgroupSearch}"
                                  event="change"                                      
                                  process="@this"/>
@@ -131,7 +131,7 @@ Email: info@dpbennett.com.jm
                 <f:setPropertyActionListener value="#{subgroup}"                                                                    
                                              target="#{humanResourceManager.selectedSubgroup}" />
                 <p:ajax event="dialogReturn" 
-                        update=":mainTabViewForm:mainTabView:centerTabView:humanResourceTabView:subgroupsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:subgroupsTable"/>
 
             </p:commandButton>           
         </p:column>

@@ -1,5 +1,5 @@
 <!--
-Job Management & Tracking System (JMTS) 
+Human Resource Management (HRM) 
 Copyright (C) 2017  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="left" >   
             <p:commandButton title="Add new email template"                                  
                              value="New"
-                             actionListener="#{systemManager.createNewEmailTemplate}"
+                             actionListener="#{humanResourceManager.createNewEmailTemplate}"
                              update=":headerForm:growl3"
                              onstart="PF('longProcessDialogVar').show();"                              
                              oncomplete="PF('longProcessDialogVar').hide();"
@@ -38,20 +38,20 @@ Email: info@dpbennett.com.jm
                              icon="ui-icon ui-icon-plus">
 
                 <p:ajax event="dialogReturn" 
-                        listener="#{systemManager.doEmailSearch}"
-                        update=":mainTabViewForm:mainTabView:centerTabView:dataListsTabView:emailsTable"/>
+                        listener="#{humanResourceManager.doEmailSearch}"
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:emailsTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
             <p:inputText id="emailSearchText" 
-                         value="#{systemManager.emailSearchText}"
+                         value="#{humanResourceManager.emailSearchText}"
                          style="width:150px" placeholder="Enter any part of subject">
                 <p:ajax event="keyup"
                         global="false"
                         onstart="PF('longProcessDialogVar').show();" 
                         oncomplete="PF('longProcessDialogVar').hide();"
-                        update=":mainTabViewForm:mainTabView:centerTabView:dataListsTabView:emailsTable"
-                        listener="#{systemManager.doEmailSearch}"
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:emailsTable"
+                        listener="#{humanResourceManager.doEmailSearch}"
                         process="@this"/>
             </p:inputText>
         </p:toolbarGroup>
@@ -61,9 +61,9 @@ Email: info@dpbennett.com.jm
             <h:panelGroup>
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeEmailsOnly"
-                                         value="#{systemManager.isActiveEmailsOnly}" >
-                    <p:ajax  update=":mainTabViewForm:mainTabView:centerTabView:dataListsTabView:emailsTable"
-                             listener="#{systemManager.doEmailSearch}"
+                                         value="#{humanResourceManager.isActiveEmailsOnly}" >
+                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:emailsTable"
+                             listener="#{humanResourceManager.doEmailSearch}"
                              event="change"                                      
                              process="@this"/>
                 </p:selectBooleanCheckbox>            
@@ -81,7 +81,7 @@ Email: info@dpbennett.com.jm
                  style="margin-top: 1px;"
                  widgetVar="emailsTableVar"
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                 value="#{systemManager.foundEmails}">
+                 value="#{humanResourceManager.foundEmails}">
 
         <f:facet name="header">
             Email Templates
@@ -117,7 +117,7 @@ Email: info@dpbennett.com.jm
 
         <p:column style="width:32px">
             <p:commandButton title="View or edit email template"   
-                             actionListener="#{systemManager.editEmailTemplate}"
+                             actionListener="#{humanResourceManager.editEmailTemplate}"
                              onstart="PF('longProcessDialogVar').show();"
                              oncomplete="PF('longProcessDialogVar').hide();"
                              onerror="PF('connectionErrorDialog').show();"
@@ -125,9 +125,9 @@ Email: info@dpbennett.com.jm
                              process="@this"
                              icon="ui-icon ui-icon-pencil">
                 <f:setPropertyActionListener value="#{email}"                                                                    
-                                             target="#{systemManager.selectedEmail}" />
+                                             target="#{humanResourceManager.selectedEmail}" />
                 <p:ajax event="dialogReturn" 
-                        update=":mainTabViewForm:mainTabView:centerTabView:dataListsTabView:emailsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:emailsTable"/>
 
             </p:commandButton>           
         </p:column>
