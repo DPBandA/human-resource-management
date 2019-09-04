@@ -384,6 +384,16 @@ Email: info@dpbennett.com.jm
                                     process="@this"/>
 
                         </p:selectBooleanCheckbox>
+                        
+                        <p:selectBooleanCheckbox id="canAccessHRMUnit" 
+                                                 itemLabel="Human Resource"
+                                                 value="#{humanResourceManager.selectedUser.privilege.canAccessHRMUnit}" >
+
+                            <p:ajax listener="#{humanResourceManager.updateModuleAccess}"
+                                    global="false"
+                                    process="@this"/>
+
+                        </p:selectBooleanCheckbox>
 
 
                     </h:panelGrid>
