@@ -142,6 +142,15 @@ Email: info@dpbennett.com.jm
                                     global="false"
                                     process="@this"/>
                         </p:selectBooleanCheckbox>
+                        
+                        <p:selectBooleanCheckbox id="hrmUnit" 
+                                                 itemLabel="Human Resource Management"
+                                                 rendered="#{humanResourceManager.user.privilege.canAccessHRMUnit}"
+                                                 value="#{humanResourceManager.user.modules.hrmModule}" >
+                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
+                                    global="false"
+                                    process="@this"/>
+                        </p:selectBooleanCheckbox>
 
                     </h:panelGrid> 
                 </p:tab>
