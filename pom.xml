@@ -61,7 +61,10 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     
                     <dependentWarExcludes>
-                        WEB-INF/web.xml, WEB-INF/glassfish-web.xml, index.xhtml                       
+                        WEB-INF/web.xml,
+                        WEB-INF/glassfish-web.xml, 
+                        index.xhtml,
+                        common/preferencesDialog.xhtml                       
                     </dependentWarExcludes>
                     
                     <overlays>
