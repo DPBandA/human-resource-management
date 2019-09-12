@@ -19,14 +19,6 @@
     </properties>
 
     <dependencies>  
-        <!-- The web-application-library dependency is not needed since it is already added to 
-          the system-management project. It is added to avoid the need to build system-management
-          before building this project -->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>system-management-lib</artifactId>
-            <version>1.0.0</version>
-        </dependency>    
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>human-resource-management-lib</artifactId>
