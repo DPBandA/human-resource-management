@@ -29,18 +29,20 @@ Email: info@dpbennett.com.jm
                scrollable="false"
                dynamic="true">
 
-        <p:tab id="UsersTab" title="User Profiles">
+        <p:tab id="UsersTab" 
+               rendered="#{humanResourceManager.user.modules.adminModule}"
+               title="User Profiles">
             <ui:include src="usersTab.xhtml"/>  
         </p:tab>
 
         <p:tab id="employeesTab" title="Employees">                  
             <ui:include src="employeesTab.xhtml"/>    
         </p:tab>
-        
+
         <p:tab id="positionsTab" title="Employment Positions">
             <ui:include src="employeePositionsTab.xhtml"/>  
         </p:tab>
-        
+
         <p:tab title="Email templates">
             <ui:include src="emailTemplatesTab.xhtml" /> 
         </p:tab>
