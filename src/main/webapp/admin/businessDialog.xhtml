@@ -59,6 +59,7 @@ Email: info@dpbennett.com.jm
                                      immediate="true"
                                      icon="ui-icon ui-icon-close" />            
                 </p:toolbarGroup>
+
             </p:toolbar>
 
             <p:panel style="margin-bottom: 1px;">
@@ -95,23 +96,41 @@ Email: info@dpbennett.com.jm
                 <p:tab title="Departments">
                     <p:toolbar>
                         <p:toolbarGroup align="left" >   
-                            <p:commandButton title="Edit department list"                                  
-                                             value="Edit"
-                                             actionListener="#{humanResourceManager.addBusinessDepartments}"
-                                             update=":businessDialogForm:businessdialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
-                                             onerror="PF('connectionErrorDialog').show();"
-                                             global="true"
-                                             process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                            <h:panelGrid>
+                                <p:commandButton title="Edit department list"                                  
+                                                 value="Edit"
+                                                 actionListener="#{humanResourceManager.addBusinessDepartments}"
+                                                 update=":businessDialogForm:businessdialog_growl"
+                                                 onstart="PF('longProcessDialogVar').show();"
+                                                 oncomplete="PF('longProcessDialogVar').hide();"
+                                                 onerror="PF('connectionErrorDialog').show();"
+                                                 global="true"
+                                                 process="@this"
+                                                 icon="ui-icon ui-icon-pencil">
 
-                                <p:ajax event="dialogReturn" 
-                                        listener="#{humanResourceManager.addBusinessDepartmentsDialogReturn}"
-                                        update="departmentsTable"/>
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{humanResourceManager.addBusinessDepartmentsDialogReturn}"
+                                            update="departmentsTable"/>
 
-                            </p:commandButton>                           
-                        </p:toolbarGroup>                    
+                                </p:commandButton>   
+                            </h:panelGrid>
+                        </p:toolbarGroup>    
+
+                        <p:toolbarGroup align="right">
+                            <h:panelGrid columns="2">
+                                <p:outputLabel value="Department label: " />
+                                <p:selectOneMenu id="departmentLabel"     
+                                                 style="width: 200px;"
+                                                 value="#{humanResourceManager.selectedBusiness.departmentLabel}">
+
+                                    <f:selectItems  value="#{humanResourceManager.departmentLabelList}"
+                                                    var="deptLabel"                            
+                                                    itemValue="#{deptLabel}"
+                                                    itemLabel="#{deptLabel}"/>
+
+                                </p:selectOneMenu>  
+                            </h:panelGrid>
+                        </p:toolbarGroup>
                     </p:toolbar>    
                     <p:dataTable id="departmentsTable"
                                  paginator="true"
