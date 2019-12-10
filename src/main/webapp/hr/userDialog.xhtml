@@ -82,6 +82,7 @@ Email: info@dpbennett.com.jm
                                     title="#{humanResourceManager.selectedUser.employee}"
                                     itemLabel="#{employee.name}"
                                     itemValue="#{employee}"
+                                    validator="businessEntityValidator"
                                     converter="activeEmployeeConverter"
                                     forceSelection="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
