@@ -65,6 +65,10 @@ Email: info@dpbennett.com.jm
                     <p:selectBooleanCheckbox id="employeeActive"
                                              style="vertical-align: middle"
                                              value="#{humanResourceManager.selectedEmployee.active}" />    
+                    
+                    <h:outputLabel value="ID/Number:" for="id_number" />
+                    <p:inputText value="#{humanResourceManager.selectedEmployee.number}"
+                                 id="id_number" />
 
                     <h:outputText value="Title:" style="font-weight: bold;" />
                     <p:selectOneMenu value="#{humanResourceManager.selectedEmployee.title}" >

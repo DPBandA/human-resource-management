@@ -21,6 +21,7 @@ Email: info@dpbennett.com.jm
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <h:head>
@@ -123,6 +124,68 @@ Email: info@dpbennett.com.jm
                 </h:panelGrid>
             </p:panel>
             <p:tabView >
+                 <p:tab title="Staff">
+                    <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit staff list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addDepartmentStaff}"
+                                             update=":departmentDialogForm:departmentdialog_growl"
+                                             onstart="PF('longProcessDialogVar').show();"
+                                             oncomplete="PF('longProcessDialogVar').hide();"
+                                             global="true"
+                                             process="@this"
+                                             icon="ui-icon ui-icon-pencil">
+
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addDepartmentStaffDialogReturn}"
+                                        update="staffTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar>    
+                    <p:dataTable id="staffTable"
+                                 paginator="true"
+                                 rows="15"
+                                 var="employee"
+                                 style="margin-bottom: 1px;margin-top: 1px;"
+                                 value="#{humanResourceManager.selectedDepartment.staff}">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Name" />
+                            </f:facet>
+                            <h:outputText value="#{employee.name}" />
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="ID/Number" />
+                            </f:facet>
+                            <h:outputText value="#{employee.number}" />
+                        </p:column>
+                        
+                    </p:dataTable>
+                     <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit staff list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addDepartmentStaff}"
+                                             update=":departmentDialogForm:departmentdialog_growl"
+                                             onstart="PF('longProcessDialogVar').show();"
+                                             oncomplete="PF('longProcessDialogVar').hide();"
+                                             global="true"
+                                             process="@this"
+                                             icon="ui-icon ui-icon-pencil">
+
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addDepartmentStaffDialogReturn}"
+                                        update="staffTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar> 
+                </p:tab>
                 <p:tab title="Job Privileges">
                     <h:panelGrid columns="3" cellspacing="10">
                         <p:selectBooleanCheckbox id="canEnterJob" 

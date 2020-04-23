@@ -80,7 +80,14 @@
             <from-outcome>departmentPickListDialog</from-outcome>
             <to-view-id>/hr/departmentPickListDialog.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>    
+    </navigation-rule>   
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>employeePickListDialog</from-outcome>
+            <to-view-id>/hr/employeePickListDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>  
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
