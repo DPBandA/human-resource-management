@@ -160,6 +160,16 @@ Email: info@dpbennett.com.jm
                                     process="@this"/>
 
                         </p:selectBooleanCheckbox>
+                        
+                        <p:selectBooleanCheckbox id="canEditDisabledJobField" 
+                                                 itemLabel="Edit disabled job field"
+                                                 value="#{humanResourceManager.selectedUser.privilege.canEditDisabledJobField}">
+
+                            <p:ajax listener="#{humanResourceManager.updatePrivileges}"   
+                                    event="change"
+                                    process="@this"/>
+
+                        </p:selectBooleanCheckbox>
 
                         <p:selectBooleanCheckbox id="canApproveJobCosting" 
                                                  itemLabel="Approve job costing for department"
