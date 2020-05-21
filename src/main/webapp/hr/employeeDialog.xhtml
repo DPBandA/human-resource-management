@@ -75,12 +75,12 @@ Email: info@dpbennett.com.jm
                         <f:selectItems value="#{humanResourceManager.personalTitles}" />
                     </p:selectOneMenu>
 
-                    <h:outputLabel value="Firstname:" for="firstName" style="font-weight: bold;"/>
+                    <h:outputLabel value="First name:" for="firstName" style="font-weight: bold;"/>
                     <p:inputText value="#{humanResourceManager.selectedEmployee.firstName}"
                                  id="firstName" 
                                  validator="requiredFieldValidator" />
 
-                    <h:outputLabel value="LastName:" for="lastName" style="font-weight: bold;" />
+                    <h:outputLabel value="Last name:" for="lastName" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedEmployee.lastName}"
                                  id="lastName"                                  
                                  validator="requiredFieldValidator" />
