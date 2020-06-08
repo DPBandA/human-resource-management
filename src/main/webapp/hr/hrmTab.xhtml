@@ -29,6 +29,10 @@ Email: info@dpbennett.com.jm
                scrollable="false"
                dynamic="true">
 
+        <p:ajax event="tabChange" 
+                onstart="PF('longProcessDialogVar').show();"  
+                oncomplete="PF('longProcessDialogVar').hide();" />  
+
         <p:tab id="UsersTab" 
                rendered="#{humanResourceManager.user.modules.adminModule}"
                title="User Profiles">
@@ -42,7 +46,7 @@ Email: info@dpbennett.com.jm
         <p:tab id="positionsTab" title="Employment Positions">
             <ui:include src="employeePositionsTab.xhtml"/>  
         </p:tab>
-        
+
         <p:tab id="departmentsTab" title="Departments">
             <ui:include src="departmentsTab.xhtml"/>  
             <a href="divisionsTab.xhtml"></a>
@@ -59,7 +63,7 @@ Email: info@dpbennett.com.jm
         <p:tab id="organizationsTab" title="Organizations">
             <ui:include src="organizationsTab.xhtml"/>  
         </p:tab>  
-        
+
         <p:tab title="Email Templates">
             <ui:include src="emailTemplatesTab.xhtml" /> 
         </p:tab>
