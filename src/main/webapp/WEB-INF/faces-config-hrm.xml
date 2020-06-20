@@ -35,6 +35,10 @@
         <converter-class>jm.com.dpbennett.hrm.converter.BusinessConverter</converter-class>
     </converter>
     <validator>
+        <validator-id>manufacturerValidator</validator-id>
+        <validator-class>jm.com.dpbennett.hrm.validator.ManufacturerValidator</validator-class>
+    </validator>
+    <validator>
         <validator-id>addressValidator</validator-id>
         <validator-class>jm.com.dpbennett.hrm.validator.AddressValidator</validator-class>
     </validator>

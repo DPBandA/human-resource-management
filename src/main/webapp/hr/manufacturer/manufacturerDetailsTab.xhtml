@@ -25,181 +25,38 @@ Email: info@dpbennett.com.jm
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
     <h:panelGrid id="generalDetailsPanelGrid" columns="3" cellspacing="5" >
 
-        <p:outputLabel for="clientActive" value="Active: " style="font-weight: bold;" />  
+        <p:outputLabel for="manufacturerActive" value="Active: " style="font-weight: bold;" />  
         <h:panelGroup>
             <p:selectBooleanCheckbox style="vertical-align: middle"
-                                     id="clientActive"
-                                     disabled="#{!clientManager.user.privilege.canBeJMTSAdministrator}"
-                                     value="#{clientManager.selectedClient.active}" >
+                                     id="manufacturerActive"
+                                     value="#{humanResourceManager.selectedManufacturer.active}" >
 
-                <p:ajax listener="#{clientManager.updateClient}"
+                <p:ajax listener="#{humanResourceManager.updateManufacturer}"
                         event="change"                                      
                         process="@this"/>
 
             </p:selectBooleanCheckbox>     
 
-            <p:tooltip for="clientActive" value="Check to activate this client" 
+            <p:tooltip for="manufacturerActive" value="Check to activate this manufacturer" 
                        showEffect="fade" hideEffect="fade" />            
         </h:panelGroup>
         <h:outputText value="" />
 
         <h:outputText value="Name:" style="font-weight: bold;" />       
-        <p:inputText value="#{clientManager.selectedClient.name}"
-                     id="clientName"
-                     disabled="#{!clientManager.user.privilege.canAddClient}"
-                     validator="clientValidator">
-            <f:attribute name="isNewClient" value="#{clientManager.isNewClient}" />
-
+        <p:inputText value="#{humanResourceManager.selectedManufacturer.name}"
+                     id="manufacturerName"
+                     validator="manufacturerValidator">
+            
             <p:ajax event="change"
                     global="true"      
-                    update="clientName"
-                    listener="#{clientManager.updateClientName}"
+                    update="manufacturerName"
+                    listener="#{humanResourceManager.updateManufacturerName}"
                     process="@this"/>
+            
         </p:inputText>     
-        <h:outputText value="" />
+        <h:outputText value="" />       
 
-        <h:outputText value="Identification type:" />
-        <p:selectOneMenu id="identificationType"                             
-                         disabled="#{!clientManager.user.privilege.canAddClient}"
-                         value="#{clientManager.selectedClient.identificationType}">
-
-            <f:selectItems  value="#{systemManager.identificationTypeList}"
-                            var="identificationType"                            
-                            itemValue="#{progress}"
-                            itemLabel="#{progress}"/>
-
-            <p:ajax listener="#{clientManager.updateClient}"
-                    global="true"
-                    process="@this"/>
-
-        </p:selectOneMenu>  
-        <h:outputText value="" />
-
-        <h:outputText value="Identification:" />        
-        <p:inputText value="#{clientManager.selectedClient.identification}"
-                     id="identification"
-                     disabled="#{!clientManager.user.privilege.canAddClient}" >
-            <p:ajax event="change"                    
-                    global="true"                   
-                    listener="#{clientManager.updateClient}"
-                    process="@this"/>
-        </p:inputText>
-        <h:outputText value="" />        
-
-        <h:outputText value="Type of business:" />     
-        <p:selectOneMenu value="#{clientManager.selectedClient.typeOfBusiness}"   
-                         id="typeOfBusiness"
-                         maxlength="50"
-                         editable="true">
-            <p:ajax
-                global="true"
-                event="change"
-                listener="#{clientManager.updateClient}"
-                process="@this" />
-
-            <f:selectItems value="#{systemManager.typesOfBusinessList}" />
-
-        </p:selectOneMenu>
-        <ui:remove>
-            <p:inputText value="#{clientManager.selectedClient.typeOfBusiness}"
-                         id="typeOfBusiness"
-                         style="width: 150%;"
-                         disabled="#{!clientManager.user.privilege.canAddClient}" >
-                <p:ajax event="change"                    
-                        global="true"                   
-                        listener="#{clientManager.updateClient}"
-                        process="@this"/>
-            </p:inputText>
-        </ui:remove>
-        <h:outputText value="" />
-
-        <h:outputText id="currentBillingAddress" value="Most recent billing address: " 
-                      style="font-weight: bold;"/> 
-        <h:panelGroup>
-            <h:outputText id="addressLine1" value="#{clientManager.currentAddress.addressLine1FriendlyDisplay}"/>  
-            <p:watermark for="addressLine1" value="-- none --" />
-        </h:panelGroup>
-        <h:outputText value="" />
-        <ui:remove>
-            <p:menuButton icon="ui-icon-pencil" title="Add or edit address">
-                <p:menuitem>                       
-                    <p:commandButton value="Edit"
-                                     style="width: 300%;text-align: left;background: none;border: 0;"
-                                     icon="ui-icon-pencil"
-                                     title="Edit address"
-                                     update=":addressForm"
-                                     oncomplete="PF('addressFormDialog').show();"
-                                     actionListener="#{clientManager.editCurrentAddress}" 
-                                     process="@this" >
-
-                        <p:resetInput target=":addressForm" />
-
-                    </p:commandButton>          
-                </p:menuitem>
-                <p:menuitem>                       
-                    <p:commandButton value="New"
-                                     style="width: 300%;text-align: left;background: none;border: 0;"
-                                     icon="ui-icon-plus" 
-                                     title="Add new address"
-                                     update=":addressForm"
-                                     oncomplete="PF('addressFormDialog').show();"
-                                     actionListener="#{clientManager.createNewAddress}" 
-                                     process="@this" >
-
-                        <p:resetInput target=":addressForm" />
-
-                    </p:commandButton>          
-                </p:menuitem>
-            </p:menuButton>  
-        </ui:remove>
-
-        <h:outputText value="" />
-        <h:outputText value="#{clientManager.currentAddress.addressLine2}" />
-        <h:outputText value="" />
-
-        <h:outputText value="" />
-        <h:outputText value="#{clientManager.currentAddress.city}" />
-        <h:outputText value="" />
-
-        <h:outputText value="" />
-        <h:outputText value="#{clientManager.currentAddress.stateOrProvince}" />
-        <h:outputText value="" />
-
-        <h:outputText id="currentContact" value="Most recent contact: " style="font-weight: bold"/>    
-        <h:outputText value="#{clientManager.currentContact.friendlyName}" />
-        <h:outputText value="" />
-        <ui:remove>
-            <p:menuButton icon="ui-icon-pencil" title="Add or edit contact">
-                <p:menuitem>                       
-                    <p:commandButton value="Edit"
-                                     style="width: 300%;text-align: left;background: none;border: 0;"
-                                     icon="ui-icon-pencil"
-                                     title="Edit contact"
-                                     update=":contactForm"
-                                     oncomplete="PF('contactFormDialog').show();"
-                                     actionListener="#{clientManager.editCurrentContact}" 
-                                     process="@this" >
-
-                        <p:resetInput target=":contactForm" />
-
-                    </p:commandButton>       
-                </p:menuitem>
-                <p:menuitem>                       
-                    <p:commandButton value="New"
-                                     style="width: 300%;text-align: left;background: none;border: 0;"
-                                     icon="ui-icon-plus" 
-                                     title="Add new contact"
-                                     update=":contactForm"
-                                     oncomplete="PF('contactFormDialog').show();"
-                                     actionListener="#{clientManager.createNewContact}" 
-                                     process="@this" >
-
-                        <p:resetInput target=":contactForm" />
-
-                    </p:commandButton>       
-                </p:menuitem>
-            </p:menuButton>      
-        </ui:remove>
+        
     </h:panelGrid>                    
 
 </html>

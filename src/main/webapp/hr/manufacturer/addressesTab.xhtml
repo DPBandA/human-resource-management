@@ -1,6 +1,6 @@
 <!--
 Job Management & Tracking System (JMTS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Copyright (C) 2020  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -23,6 +23,7 @@ Email: info@dpbennett.com.jm
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">    
+
     <p:toolbar style="margin-bottom: 1px;">
         <p:toolbarGroup align="left">
             <p:commandButton value="New"
@@ -30,7 +31,7 @@ Email: info@dpbennett.com.jm
                              update=":addressForm"
                              title="Add new address"
                              oncomplete="PF('addressFormDialog').show();"
-                             actionListener="#{clientManager.createNewAddress}" 
+                             actionListener="#{humanResourceManager.createNewAddress}" 
                              process="@this" >
 
                 <p:resetInput target=":addressForm" />
@@ -42,7 +43,7 @@ Email: info@dpbennett.com.jm
                  var="address"
                  paginator="true"                                 
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                 value="#{clientManager.addressesModel}">
+                 value="#{humanResourceManager.addressesModel}">
 
         <f:facet name="header">
             Addresses
@@ -70,7 +71,7 @@ Email: info@dpbennett.com.jm
                         <p:resetInput target=":addressForm" />
 
                         <f:setPropertyActionListener value="#{address}"
-                                                     target="#{clientManager.selectedAddress}" />
+                                                     target="#{humanResourceManager.selectedAddress}" />
 
                     </p:commandButton>            
                 </p:menuitem>
@@ -85,7 +86,7 @@ Email: info@dpbennett.com.jm
                         title="Delete this address">
 
                         <f:setPropertyActionListener value="#{address}"
-                                                     target="#{clientManager.selectedAddress}" />
+                                                     target="#{humanResourceManager.selectedAddress}" />
 
                     </p:commandButton>
                 </p:menuitem>
@@ -100,7 +101,7 @@ Email: info@dpbennett.com.jm
                              update=":addressForm"
                              title="Add new address"
                              oncomplete="PF('addressFormDialog').show();"
-                             actionListener="#{clientManager.createNewAddress}" 
+                             actionListener="#{humanResourceManager.createNewAddress}" 
                              process="@this" >
 
                 <p:resetInput target=":addressForm" />

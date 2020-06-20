@@ -47,27 +47,28 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
                                      onstart="PF('longProcessDialogVar').show();"
-                                     actionListener="#{clientManager.okClient}"
+                                     actionListener="#{humanResourceManager.okManufacturer}"
                                      oncomplete="PF('longProcessDialogVar').hide();"
-                                     update="client_growl"                             
+                                     update="manufacturer_growl"                             
                                      icon="ui-icon-check"/>
                     <p:spacer width="10"/>
                     <p:commandButton value="Cancel"
                                      immediate="true" 
                                      onstart="PF('longProcessDialogVar').show();"
-                                     actionListener="#{clientManager.cancelClientEdit}"
+                                     actionListener="#{humanResourceManager.cancelManufacturerEdit}"
                                      oncomplete="PF('longProcessDialogVar').hide();"
                                      icon="ui-icon ui-icon-close" />
                 </p:toolbarGroup>
             </p:toolbar>
-            
-            <p:tabView id="clientFormTabView"
+
+            <p:tabView id="manufacturerFormTabView"
                        onTabShow="PF('longProcessDialogVar').hide();"
                        dynamic="true"
                        style="margin-top: 1px;margin-bottom: 1px;"
-                       widgetVar="clientFormTabVar" >
-                <p:tab id="clientDetailsTab" title="General">
-                    <ui:include src="clientDetailsTab.xhtml"/>
+                       widgetVar="manufacturerFormTabVar" >
+
+                <p:tab id="manufacturerDetailsTab" title="General">
+                    <ui:include src="manufacturerDetailsTab.xhtml"/>
                 </p:tab>
 
                 <p:tab title="Addresses">
@@ -76,28 +77,22 @@ Email: info@dpbennett.com.jm
 
                 <p:tab title="Contacts">
                     <ui:include src="contactsTab.xhtml" />
-                </p:tab>
-                <p:tab title="Billing Information" 
-                       rendered="#{clientManager.user.employee.department.privilege.canEditInvoicingAndPayment}" >
-                    <ui:include src="billingInfoTab.xhtml" />
-                </p:tab>
-                <p:tab title="Tracking">
-                    <ui:include src="trackingTab.xhtml" />
-                </p:tab>
+                </p:tab>         
+
             </p:tabView>
             <p:toolbar>
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
                                      onstart="PF('longProcessDialogVar').show();"
-                                     actionListener="#{clientManager.okClient}"
+                                     actionListener="#{humanResourceManager.okManufacturer}"
                                      oncomplete="PF('longProcessDialogVar').hide();"
-                                     update="client_growl"                             
+                                     update="manufacturer_growl"                             
                                      icon="ui-icon-check"/>
                     <p:spacer width="10"/>
                     <p:commandButton value="Cancel"
                                      immediate="true" 
                                      onstart="PF('longProcessDialogVar').show();"
-                                     actionListener="#{clientManager.cancelClientEdit}"
+                                     actionListener="#{humanResourceManager.cancelManufacturerEdit}"
                                      oncomplete="PF('longProcessDialogVar').hide();"
                                      icon="ui-icon ui-icon-close" />
                 </p:toolbarGroup>
