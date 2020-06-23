@@ -7,6 +7,10 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
               xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
     <converter>
+        <converter-id>activeManufacturerConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.ActiveManufacturerConverter</converter-class>
+    </converter>
+    <converter>
         <converter-id>activeEmployeePositionConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.ActiveEmployeePositionConverter</converter-class>
     </converter> 
