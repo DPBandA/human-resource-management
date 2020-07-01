@@ -160,7 +160,7 @@ Email: info@dpbennett.com.jm
                                     process="@this"/>
 
                         </p:selectBooleanCheckbox>
-                        
+
                         <p:selectBooleanCheckbox id="canEditDisabledJobField" 
                                                  itemLabel="Edit disabled job field"
                                                  value="#{humanResourceManager.selectedUser.privilege.canEditDisabledJobField}">
@@ -272,15 +272,13 @@ Email: info@dpbennett.com.jm
                 <p:tab title="Module Access">
                     <h:panelGrid columns="3" cellspacing="10">
 
-                        <ui:remove>
-                            <p:selectBooleanCheckbox id="canAccessComplianceUnit" 
-                                                     itemLabel="Standards Compliance"
-                                                     value="#{humanResourceManager.selectedUser.privilege.canAccessComplianceUnit}" >
-                                <p:ajax listener="#{humanResourceManager.updateModuleAccess}"
-                                        global="false"
-                                        process="@this"/>
-                            </p:selectBooleanCheckbox>
-                        </ui:remove>
+                        <p:selectBooleanCheckbox id="canAccessComplianceUnit" 
+                                                 itemLabel="Standards Compliance"
+                                                 value="#{humanResourceManager.selectedUser.privilege.canAccessComplianceUnit}" >
+                            <p:ajax listener="#{humanResourceManager.updateModuleAccess}"
+                                    global="false"
+                                    process="@this"/>
+                        </p:selectBooleanCheckbox>
 
                         <ui:remove>
                             <p:selectBooleanCheckbox id="canAccessCertificationUnit" 
@@ -375,7 +373,7 @@ Email: info@dpbennett.com.jm
                                     process="@this"/>
 
                         </p:selectBooleanCheckbox>
-                        
+
                         <p:selectBooleanCheckbox id="canAccessProcurementUnit" 
                                                  itemLabel="Procurement"
                                                  value="#{humanResourceManager.selectedUser.privilege.canAccessProcurementUnit}" >
@@ -395,7 +393,7 @@ Email: info@dpbennett.com.jm
                                     process="@this"/>
 
                         </p:selectBooleanCheckbox>
-                        
+
                         <p:selectBooleanCheckbox id="canAccessHRMUnit" 
                                                  itemLabel="Human Resource"
                                                  value="#{humanResourceManager.selectedUser.privilege.canAccessHRMUnit}" >
@@ -405,7 +403,7 @@ Email: info@dpbennett.com.jm
                                     process="@this"/>
 
                         </p:selectBooleanCheckbox>
-                        
+
                         <p:selectBooleanCheckbox id="canAccessReportUnit" 
                                                  itemLabel="Report"
                                                  value="#{humanResourceManager.selectedUser.privilege.canAccessReportUnit}" >
