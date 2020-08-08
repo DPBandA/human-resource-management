@@ -46,17 +46,53 @@ Email: info@dpbennett.com.jm
         <p:inputText value="#{humanResourceManager.selectedManufacturer.name}"
                      id="manufacturerName"
                      validator="manufacturerValidator">
-            
+
             <p:ajax event="change"
                     global="true"      
                     update="manufacturerName"
                     listener="#{humanResourceManager.updateManufacturerName}"
                     process="@this"/>
-            
-        </p:inputText>     
-        <h:outputText value="" />       
 
-        
+        </p:inputText>     
+        <h:outputText value="" />     
+
+        <h:outputText value="Code:" />       
+        <p:inputText value="#{humanResourceManager.selectedManufacturer.code}" >
+
+            <p:ajax event="change"
+                    global="true"      
+                    listener="#{humanResourceManager.updateManufacturer}"
+                    process="@this"/>
+
+        </p:inputText>     
+        <h:outputText value="" /> 
+
+        <h:outputText style="vertical-align: top;"
+                      value="Products:" />
+        <p:autoComplete id="marketProducts"
+                        var="marketProduct"   
+                        value="#{humanResourceManager.selectedManufacturer.marketProducts}"
+                        itemLabel="#{marketProduct.name}"
+                        itemValue="#{marketProduct}"
+                        converter="activeMarketProductConverter"
+                        forceSelection="true"
+                        dropdown="true"
+                        scrollHeight="200"                         
+                        multiple="true"
+                        completeMethod="#{humanResourceManager.completeActiveMarketProduct}" >
+
+            <p:ajax event="itemSelect"
+                    listener="#{humanResourceManager.updateManufacturer}"
+                    process="@this"/>
+
+            <p:ajax event="itemUnselect"
+                    listener="#{humanResourceManager.updateManufacturer}"
+                    process="@this"/>
+
+        </p:autoComplete>
+        <h:outputText value="" /> 
+
+
     </h:panelGrid>                    
 
 </html>
