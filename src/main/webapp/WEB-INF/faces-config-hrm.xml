@@ -42,6 +42,10 @@
         <converter-id>activeMarketProductConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.ActiveMarketProductConverter</converter-class>
     </converter>
+    <converter>
+        <converter-id>manufacturerContactConverter</converter-id>
+        <converter-class>jm.com.dpbennett.hrm.converter.ManufacturerContactConverter</converter-class>
+    </converter>
     <validator>
         <validator-id>manufacturerValidator</validator-id>
         <validator-class>jm.com.dpbennett.hrm.validator.ManufacturerValidator</validator-class>
