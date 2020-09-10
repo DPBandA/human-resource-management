@@ -133,19 +133,16 @@ Email: info@dpbennett.com.jm
                             <p:column style="width:32px">
                                 <p:menuButton id="toolsButton" value="Actions">
 
-                                    <p:menuitem >                       
-                                        <p:commandButton   
-                                            value="Remove"
-                                            style="width: 300%;text-align: left;background: none;border: 0;"
-                                            onstart="PF('longProcessDialogVar').show();"
-                                            icon="ui-icon-trash"
-                                            process="@this">
+                                    <p:menuitem  
+                                        value="Remove"
+                                        onstart="PF('longProcessDialogVar').show();"
+                                        icon="ui-icon-trash"
+                                        process="@this">
 
-                                            <f:setPropertyActionListener value="#{subgroup}"
-                                                                         target="#{humanResourceManager.selectedSubgroup}" />
+                                        <f:setPropertyActionListener value="#{subgroup}"
+                                                                     target="#{humanResourceManager.selectedSubgroup}" />
 
 
-                                        </p:commandButton>
                                     </p:menuitem>                   
 
                                 </p:menuButton>                   
@@ -227,19 +224,16 @@ Email: info@dpbennett.com.jm
                             <p:column style="width:32px">
                                 <p:menuButton id="toolsButton" value="Actions">
 
-                                    <p:menuitem >                       
-                                        <p:commandButton   
-                                            value="Remove"
-                                            style="width: 300%;text-align: left;background: none;border: 0;"
-                                            onstart="PF('longProcessDialogVar').show();"
-                                            icon="ui-icon-trash"
-                                            process="@this">
+                                    <p:menuitem 
+                                        value="Remove"
+                                        onstart="PF('longProcessDialogVar').show();"
+                                        icon="ui-icon-trash"
+                                        process="@this">
 
-                                            <f:setPropertyActionListener value="#{department}"
-                                                                         target="#{humanResourceManager.selectedDepartment}" />
+                                        <f:setPropertyActionListener value="#{department}"
+                                                                     target="#{humanResourceManager.selectedDepartment}" />
 
 
-                                        </p:commandButton>
                                     </p:menuitem>                   
 
                                 </p:menuButton>                   

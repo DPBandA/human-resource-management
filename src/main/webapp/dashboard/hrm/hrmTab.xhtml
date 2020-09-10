@@ -47,15 +47,12 @@ Email: info@dpbennett.com.jm
 
             <p:menuButton value="Tools" >  
 
-                <p:menuitem>                       
-                    <p:commandButton value="Human Resource Browser"
-                                     style="text-align: left;background: none;border: 0;"
-                                     title="Open Human Resource Browser"
-                                     onstart="PF('longProcessDialogVar').show();" 
-                                     actionListener="#{humanResourceManager.openHumanResourceBrowser}" 
-                                     oncomplete="longProcessDialogVar.hide();"
-                                     process="@this" />
-                </p:menuitem>
+                <p:menuitem value="Human Resource Browser"
+                            title="Open Human Resource Browser"
+                            onstart="PF('longProcessDialogVar').show();" 
+                            actionListener="#{humanResourceManager.openHumanResourceBrowser}" 
+                            oncomplete="longProcessDialogVar.hide();"
+                            process="@this" />
 
             </p:menuButton>         
         </p:toolbarGroup>

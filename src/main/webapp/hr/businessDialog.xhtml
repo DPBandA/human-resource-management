@@ -164,19 +164,16 @@ Email: info@dpbennett.com.jm
                             <p:column style="width:32px">
                                 <p:menuButton id="toolsButton" value="Actions">
 
-                                    <p:menuitem >                       
-                                        <p:commandButton   
-                                            value="Remove"
-                                            style="width: 300%;text-align: left;background: none;border: 0;"
-                                            onstart="PF('longProcessDialogVar').show();"
-                                            icon="ui-icon-trash"
-                                            process="@this">
+                                    <p:menuitem   
+                                        value="Remove"
+                                        onstart="PF('longProcessDialogVar').show();"
+                                        icon="ui-icon-trash"
+                                        process="@this">
 
-                                            <f:setPropertyActionListener value="#{jobSample}"
-                                                                         target="#{systemManager.selectedBusiness}" />
+                                        <f:setPropertyActionListener value="#{jobSample}"
+                                                                     target="#{systemManager.selectedBusiness}" />
 
 
-                                        </p:commandButton>
                                     </p:menuitem>                   
 
                                 </p:menuButton>                   
