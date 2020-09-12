@@ -25,7 +25,7 @@ Email: info@dpbennett.com.jm
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:form id="preferencesDialogForm">
 
-        <p:dialog width="750"
+        <p:dialog width="800"
                   height="300"
                   draggable="true"
                   modal="true"
@@ -115,16 +115,7 @@ Email: info@dpbennett.com.jm
                                     global="false"
                                     process="@this"/>
                         </p:selectBooleanCheckbox>    
-                        
-                        <p:selectBooleanCheckbox id="purchaseManagementUnit" 
-                                                 itemLabel="Procurement"
-                                                 rendered="#{humanResourceManager.user.privilege.canAccessProcurementUnit}"
-                                                 value="#{humanResourceManager.user.modules.purchaseManagementModule}" >
-                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
-                                    global="false"
-                                    process="@this"/>
-                        </p:selectBooleanCheckbox>
-                       
+                                                
                         <p:selectBooleanCheckbox id="legalOfficeUnit" 
                                                  itemLabel="Legal"
                                                  rendered="#{humanResourceManager.user.privilege.canAccessLegalOfficeUnit}"

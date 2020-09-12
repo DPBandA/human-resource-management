@@ -374,16 +374,6 @@ Email: info@dpbennett.com.jm
 
                         </p:selectBooleanCheckbox>
 
-                        <p:selectBooleanCheckbox id="canAccessProcurementUnit" 
-                                                 itemLabel="Procurement"
-                                                 value="#{humanResourceManager.selectedUser.privilege.canAccessProcurementUnit}" >
-
-                            <p:ajax listener="#{humanResourceManager.updateModuleAccess}"
-                                    global="false"
-                                    process="@this"/>
-
-                        </p:selectBooleanCheckbox>
-
                         <p:selectBooleanCheckbox id="canBeJMTSAdministrator" 
                                                  itemLabel="System administration"
                                                  value="#{humanResourceManager.selectedUser.privilege.canBeJMTSAdministrator}" >
