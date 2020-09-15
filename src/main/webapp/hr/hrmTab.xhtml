@@ -31,6 +31,7 @@ Email: info@dpbennett.com.jm
 
         <p:ajax event="tabChange" 
                 onstart="PF('longProcessDialogVar').show();"  
+                listener="#{humanResourceManager.onMainViewTabChange}"
                 oncomplete="PF('longProcessDialogVar').hide();" />  
 
         <p:tab id="UsersTab" 
@@ -63,7 +64,7 @@ Email: info@dpbennett.com.jm
         <p:tab id="organizationsTab" title="Organizations">
             <ui:include src="organizationsTab.xhtml"/>  
         </p:tab>  
-        
+
         <p:tab id="manufacturersTab" title="Manufacturers">
             <ui:include src="manufacturer/manufacturersTab.xhtml"/>  
         </p:tab>  
