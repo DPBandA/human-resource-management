@@ -80,7 +80,7 @@ Email: info@dpbennett.com.jm
 
         </p:selectOneMenu>  
         <h:outputText value="" /> 
-        
+
         <h:outputText value="Registration:" style="font-weight: bold"/>
         <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.registrationStatus}" >
 
@@ -94,38 +94,38 @@ Email: info@dpbennett.com.jm
 
         </p:selectOneMenu>  
         <h:outputText value="" />
-        
+
         <h:outputText value="Registration due date:" style="font-weight: bold" />
         <p:calendar id="registrationDueDate"
                     readonlyInput="true"
                     navigator="true" 
                     pattern="MMM dd, yyyy" 
                     value="#{humanResourceManager.selectedManufacturer.dateRegistrationDue}" >
-            
+
             <p:ajax event="dateSelect"
                     listener="#{humanResourceManager.updateManufacturer}" />
-            
+
             <p:ajax event="keyup"
                     listener="#{humanResourceManager.updateManufacturer}" />
-            
+
         </p:calendar>
         <h:outputText value="" />
-        
+
         <h:outputText value="Date last visited:" style="font-weight: bold" />
         <p:calendar readonlyInput="true"
                     navigator="true" 
                     pattern="MMM dd, yyyy" 
                     value="#{humanResourceManager.selectedManufacturer.dateLastVisited}" >
-            
+
             <p:ajax event="dateSelect"
                     listener="#{humanResourceManager.updateManufacturer}" />
-            
+
             <p:ajax event="keyup"
                     listener="#{humanResourceManager.updateManufacturer}" />
-            
+
         </p:calendar>
         <h:outputText value="" />
-        
+
         <h:outputText style="vertical-align: top;"
                       value="Products:" />
         <p:autoComplete id="marketProducts"
