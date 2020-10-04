@@ -49,7 +49,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="keyup"                            
                         global="false"
-                        update="#{humanResourceManager.manufacturersTableId}"
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:manufacturersTable"
                         listener="#{humanResourceManager.doManufacturerSearch}"
                         process="@this"/>
 
