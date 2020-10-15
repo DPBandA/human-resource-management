@@ -128,27 +128,44 @@ Email: info@dpbennett.com.jm
 
         <h:outputText style="vertical-align: top;"
                       value="Products:" />
-        <p:autoComplete id="marketProducts"
-                        var="marketProduct"   
-                        value="#{humanResourceManager.selectedManufacturer.marketProducts}"
-                        itemLabel="#{marketProduct.name}"
-                        itemValue="#{marketProduct}"
-                        converter="activeMarketProductConverter"
-                        forceSelection="true"
-                        dropdown="true"
-                        scrollHeight="200"                         
-                        multiple="true"
-                        completeMethod="#{humanResourceManager.completeActiveMarketProduct}" >
+        <h:panelGroup>
+            <h:panelGrid columns="2" >
+                <p:autoComplete id="marketProducts"
+                                var="marketProduct"   
+                                value="#{humanResourceManager.selectedManufacturer.marketProducts}"
+                                itemLabel="#{marketProduct.name}"
+                                itemValue="#{marketProduct}"
+                                converter="activeMarketProductConverter"
+                                forceSelection="true"
+                                dropdown="true"
+                                scrollHeight="200"                         
+                                multiple="true"
+                                completeMethod="#{humanResourceManager.completeActiveMarketProduct}" >
 
-            <p:ajax event="itemSelect"
-                    listener="#{humanResourceManager.updateManufacturer}"
-                    process="@this"/>
+                    <p:ajax event="itemSelect"
+                            listener="#{humanResourceManager.updateManufacturer}"
+                            process="@this"/>
 
-            <p:ajax event="itemUnselect"
-                    listener="#{humanResourceManager.updateManufacturer}"
-                    process="@this"/>
+                    <p:ajax event="itemUnselect"
+                            listener="#{humanResourceManager.updateManufacturer}"
+                            process="@this"/>
 
-        </p:autoComplete>
+                </p:autoComplete>
+                <p:commandButton 
+                    icon="ui-icon-plus" 
+                    onstart="PF('longProcessDialogVar').show();"
+                    oncomplete="PF('longProcessDialogVar').hide();"
+                    actionListener="#{complianceManager.createNewMarketProductInDialog}"                                            
+                    process="@this"
+                    title="Add a new product to the market products database" >
+
+                    <p:ajax event="dialogReturn" 
+                            update="marketProducts" />
+
+                </p:commandButton>
+            </h:panelGrid>
+
+        </h:panelGroup>
         <h:outputText value="" /> 
 
 
