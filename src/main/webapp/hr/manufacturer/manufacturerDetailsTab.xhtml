@@ -133,7 +133,7 @@ Email: info@dpbennett.com.jm
                 <p:autoComplete id="marketProducts"
                                 var="marketProduct"   
                                 value="#{humanResourceManager.selectedManufacturer.marketProducts}"
-                                itemLabel="#{marketProduct.name}"
+                                itemLabel="#{marketProduct.name} (#{marketProduct.brand})"
                                 itemValue="#{marketProduct}"
                                 converter="activeMarketProductConverter"
                                 forceSelection="true"
