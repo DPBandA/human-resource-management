@@ -81,7 +81,7 @@ Email: info@dpbennett.com.jm
         </p:selectOneMenu>  
         <h:outputText value="" /> 
 
-        <h:outputText value="Registration:" style="font-weight: bold"/>
+        <h:outputText value="Registration status:" style="font-weight: bold"/>
         <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.registrationStatus}" >
 
             <p:ajax
@@ -95,7 +95,7 @@ Email: info@dpbennett.com.jm
         </p:selectOneMenu>  
         <h:outputText value="" />
 
-        <h:outputText value="Registration due date:" style="font-weight: bold" />
+        <h:outputText value="Registration due date:" />
         <p:calendar id="registrationDueDate"
                     readonlyInput="true"
                     navigator="true" 
@@ -111,7 +111,7 @@ Email: info@dpbennett.com.jm
         </p:calendar>
         <h:outputText value="" />
 
-        <h:outputText value="Date last visited:" style="font-weight: bold" />
+        <h:outputText value="Date last visited:" />
         <p:calendar readonlyInput="true"
                     navigator="true" 
                     pattern="MMM dd, yyyy" 

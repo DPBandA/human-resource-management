@@ -97,6 +97,29 @@ Email: info@dpbennett.com.jm
             <h:outputText value="#{manufacturer.name}" />
         </p:column>
 
+        <p:column sortBy="#{manufacturer.registrationStatus}">
+            <f:facet name="header">
+                <h:outputText value="Registration status"/>
+            </f:facet>
+            <h:outputText value="#{manufacturer.registrationStatus}" />
+        </p:column>
+
+        <p:column sortBy="#{manufacturer.dateRegistrationDue}">
+            <f:facet name="header">
+                <h:outputText value="Registration due"/>
+            </f:facet>
+            <h:outputText value="#{manufacturer.dateRegistrationDue}">
+                <f:convertDateTime pattern="MMM dd, yyyy"/>
+            </h:outputText>
+        </p:column>
+
+        <p:column sortBy="#{manufacturer.status}">
+            <f:facet name="header">
+                <h:outputText value="Status"/>
+            </f:facet>
+            <h:outputText value="#{manufacturer.status}" />
+        </p:column>
+
         <p:column headerText="Active?" >                                                                         
             <p:cellEditor>                
                 <f:facet name="output">
