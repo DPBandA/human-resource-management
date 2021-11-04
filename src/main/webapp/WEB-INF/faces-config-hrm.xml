@@ -49,7 +49,11 @@
     <converter>
         <converter-id>manufacturerAddressConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.ManufacturerAddressConverter</converter-class>
-    </converter>    
+    </converter>  
+    <validator>
+        <validator-id>subcontractedDepartmentValidator</validator-id>
+        <validator-class>jm.com.dpbennett.hrm.validator.SubcontractedDepartmentValidator</validator-class>
+    </validator>    
     <validator>
         <validator-id>manufacturerValidator</validator-id>
         <validator-class>jm.com.dpbennett.hrm.validator.ManufacturerValidator</validator-class>
