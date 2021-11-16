@@ -160,6 +160,15 @@ Email: info@dpbennett.com.jm
                                     global="false"
                                     process="@this"/>
                         </p:selectBooleanCheckbox>
+                        
+                        <p:selectBooleanCheckbox id="purchaseManagementUnit" 
+                                                 itemLabel="Procurement"
+                                                 rendered="#{humanResourceManager.user.privilege.canAccessProcurementUnit}"
+                                                 value="#{humanResourceManager.user.modules.purchaseManagementModule}" >
+                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
+                                    global="false"
+                                    process="@this"/>
+                        </p:selectBooleanCheckbox>
 
                     </h:panelGrid> 
                 </p:tab>
