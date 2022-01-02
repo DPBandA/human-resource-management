@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2020  D P Bennett & Associates Limited
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -30,10 +30,8 @@ Email: info@dpbennett.com.jm
                dynamic="true">
 
         <p:ajax event="tabChange" 
-                onstart="PF('longProcessDialogVar').show();"  
                 update="@this"
-                listener="#{humanResourceManager.onMainViewTabChange}"
-                oncomplete="PF('longProcessDialogVar').hide();" />  
+                listener="#{humanResourceManager.onMainViewTabChange}" />  
 
         <p:tab id="UsersTab" 
                rendered="#{humanResourceManager.user.modules.adminModule}"
@@ -41,6 +39,7 @@ Email: info@dpbennett.com.jm
             <ui:include src="usersTab.xhtml"/>  
         </p:tab>
 
+        <ui:remove>
         <p:tab id="employeesTab" title="Employees">                  
             <ui:include src="employeesTab.xhtml"/>    
         </p:tab>
@@ -69,6 +68,7 @@ Email: info@dpbennett.com.jm
         <p:tab title="Email Templates">
             <ui:include src="emailTemplatesTab.xhtml" /> 
         </p:tab>
+        </ui:remove>    
 
     </p:tabView>
 

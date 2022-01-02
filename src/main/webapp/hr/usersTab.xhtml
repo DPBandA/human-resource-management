@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -29,28 +29,23 @@ Email: info@dpbennett.com.jm
             <p:commandButton title="Add new user"                                  
                              value="New"                                                     
                              actionListener="#{humanResourceManager.createNewUser}"
-                             onstart="PF('longProcessDialogVar').show();" 
-                             oncomplete="PF('longProcessDialogVar').hide();"
-                             onerror="PF('connectionErrorDialog').show();"
                              global="true"
                              process="@this"
-                             icon="ui-icon ui-icon-plus">
+                             icon="pi pi-plus">
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doUserSearch}"
-                        update=":mainTabViewForm:mainTabView:humanResourceTabView:usersTable"/>
+                        update=":appForm:mainTabView:humanResourceTabView:usersTable"/>
 
             </p:commandButton>
             <p:spacer width="20" />
             <p:inputText id="userSearchText"                          
                          value="#{humanResourceManager.userSearchText}"
-                         style="width:150px" 
+                         style="width:300px" 
                          placeholder="Enter any part of name">
                 <p:ajax event="keyup"
                         global="true"
-                        onstart="longProcessDialogVar.show();" 
-                        oncomplete="longProcessDialogVar.hide();"
-                        update=":mainTabViewForm:mainTabView:humanResourceTabView:usersTable"
+                        update=":appForm:mainTabView:humanResourceTabView:usersTable"
                         listener="#{humanResourceManager.doUserSearch}"
                         process="@this"/>                                   
             </p:inputText>       
@@ -62,7 +57,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeUsersOnly"
                                          value="#{humanResourceManager.isActiveUsersOnly}" >
-                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:usersTable"
+                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:usersTable"
                              listener="#{humanResourceManager.doUserSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -131,18 +126,15 @@ Email: info@dpbennett.com.jm
         <p:column style="width:32px">
             <p:commandButton title="View or edit user profile"  
                              actionListener="#{humanResourceManager.editUser}"
-                             onstart="longProcessDialogVar.show();"  
-                             oncomplete="longProcessDialogVar.hide();"
-                             onerror="connectionErrorDialog.show();"
                              global="true"
                              process="@this"
-                             icon="ui-icon ui-icon-pencil">
+                             icon="pi pi-pencil">
 
                 <f:setPropertyActionListener value="#{user}"                                                                    
                                              target="#{humanResourceManager.selectedUser}" />
 
                 <p:ajax event="dialogReturn" 
-                        update=":mainTabViewForm:mainTabView:humanResourceTabView:usersTable"/>
+                        update=":appForm:mainTabView:humanResourceTabView:usersTable"/>
 
             </p:commandButton>           
         </p:column>
