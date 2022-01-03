@@ -1,6 +1,6 @@
 <!--
-Human Resource Management System (HRMS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Human Resource Management (HRM) 
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -31,13 +31,12 @@ Email: info@dpbennett.com.jm
                          width="400">
             <p:commandButton value="Yes"
                              actionListener="#{humanResourceManager.removeAddress}"
-                             onstart="PF('longProcessDialogVar').show();"
                              update=":manufacturerForm:manufacturerFormTabView:addressesTable"
-                             oncomplete="PF('deleteAddressDialog').hide();PF('longProcessDialogVar').hide();"
-                             icon="ui-icon-check"/>
+                             oncomplete="PF('deleteAddressDialog').hide();"
+                             icon="pi pi-check"/>
             <p:commandButton value="No"
                              oncomplete="PF('deleteAddressDialog').hide();"
-                             icon="ui-icon-cancel"/>
+                             icon="pi pi-times"/>
         </p:confirmDialog>
     </h:form>
 

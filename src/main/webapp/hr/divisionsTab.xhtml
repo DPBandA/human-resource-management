@@ -1,6 +1,6 @@
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Human Resource Management (HRM)
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -29,17 +29,13 @@ Email: info@dpbennett.com.jm
             <p:commandButton title="Add new division"                                  
                              value="New"
                              actionListener="#{humanResourceManager.createNewDivision}"
-                             update=":headerForm:growl3"
-                             onstart="PF('longProcessDialogVar').show();"   
-                             oncomplete="PF('longProcessDialogVar').hide();"
-                             onerror="PF('connectionErrorDialog').show();"
                              global="true"
                              process="@this"
-                             icon="ui-icon ui-icon-plus">
+                             icon="pi pi-plus">
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doDivisionSearch}"
-                        update=":mainTabViewForm:mainTabView:humanResourceTabView:divisionsTable"/>
+                        update=":appForm:mainTabView:humanResourceTabView:divisionsTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
@@ -48,9 +44,7 @@ Email: info@dpbennett.com.jm
                          style="width:150px" placeholder="Enter any part of name">
                 <p:ajax event="keyup"
                         global="false"
-                        onstart="PF('longProcessDialogVar').show();" 
-                        oncomplete="PF('longProcessDialogVar').hide();"
-                        update=":mainTabViewForm:mainTabView:humanResourceTabView:divisionsTable"
+                        update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
                         listener="#{humanResourceManager.doDivisionSearch}"
                         process="@this"/>
             </p:inputText>
@@ -63,7 +57,7 @@ Email: info@dpbennett.com.jm
                     <p:selectBooleanCheckbox style="vertical-align: middle"
                                              id="activeDivisionsOnly"
                                              value="#{humanResourceManager.isActiveDivisionsOnly}" >
-                        <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:divisionsTable"
+                        <p:ajax  update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
                                  listener="#{humanResourceManager.doDivisionSearch}"
                                  event="change"                                      
                                  process="@this"/>
@@ -123,16 +117,13 @@ Email: info@dpbennett.com.jm
         <p:column style="width:32px">
             <p:commandButton title="View or edit division"   
                              actionListener="#{humanResourceManager.editDivision}"
-                             onstart="PF('longProcessDialogVar').show();"  
-                             oncomplete="PF('longProcessDialogVar').hide();"
-                             onerror="PF('connectionErrorDialog').show();"
                              global="true"
                              process="@this"
-                             icon="ui-icon ui-icon-pencil">
+                             icon="pi pi-pencil">
                 <f:setPropertyActionListener value="#{division}"                                                                    
                                              target="#{humanResourceManager.selectedDivision}" />
                 <p:ajax event="dialogReturn" 
-                        update=":mainTabViewForm:mainTabView:humanResourceTabView:divisionsTable"/>
+                        update=":appForm:mainTabView:humanResourceTabView:divisionsTable"/>
 
             </p:commandButton>           
         </p:column>

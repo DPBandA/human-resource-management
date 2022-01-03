@@ -1,6 +1,6 @@
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Human Resource Management (HRM) 
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -36,7 +36,6 @@ Email: info@dpbennett.com.jm
     </h:head>
     <h:body >  
 
-        <ui:include src="../common/longProcessDialog.xhtml"/>  
         <ui:include src="../common/commonDialogs.xhtml"/>   
 
         <h:form id="divisionDialogForm">     
@@ -87,12 +86,9 @@ Email: info@dpbennett.com.jm
                                              value="Edit"
                                              actionListener="#{humanResourceManager.addDivisionSubgroups}"
                                              update=":divisionDialogForm:divisiondialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
-                                             onerror="PF('connectionErrorDialog').show();"
                                              global="true"
                                              process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                                             icon="pi pi-pencil">
 
                                 <p:ajax event="dialogReturn" 
                                         listener="#{humanResourceManager.addDivisionSubgroupsDialogReturn}"
@@ -135,8 +131,7 @@ Email: info@dpbennett.com.jm
 
                                     <p:menuitem  
                                         value="Remove"
-                                        onstart="PF('longProcessDialogVar').show();"
-                                        icon="ui-icon-trash"
+                                        icon="pi pi-trash"
                                         process="@this">
 
                                         <f:setPropertyActionListener value="#{subgroup}"
@@ -156,12 +151,9 @@ Email: info@dpbennett.com.jm
                                              value="Edit"
                                              actionListener="#{humanResourceManager.addDivisionSubgroups}"
                                              update=":divisionDialogForm:divisiondialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
-                                             onerror="PF('connectionErrorDialog').show();"
                                              global="true"
                                              process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                                             icon="pi pi-pencil">
 
                                 <p:ajax event="dialogReturn" 
                                         listener="#{humanResourceManager.addDivisionSubgroupsDialogReturn}"
@@ -178,12 +170,9 @@ Email: info@dpbennett.com.jm
                                              value="Edit"
                                              actionListener="#{humanResourceManager.addDivisionDepartments}"
                                              update=":divisionDialogForm:divisiondialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
-                                             onerror="PF('connectionErrorDialog').show();"
                                              global="true"
                                              process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                                             icon="pi pi-pencil">
 
                                 <p:ajax event="dialogReturn" 
                                         listener="#{humanResourceManager.addDivisionDepartmentsDialogReturn}"
@@ -226,8 +215,7 @@ Email: info@dpbennett.com.jm
 
                                     <p:menuitem 
                                         value="Remove"
-                                        onstart="PF('longProcessDialogVar').show();"
-                                        icon="ui-icon-trash"
+                                        icon="pi pi-trash"
                                         process="@this">
 
                                         <f:setPropertyActionListener value="#{department}"
@@ -246,12 +234,9 @@ Email: info@dpbennett.com.jm
                                              value="Edit"
                                              actionListener="#{humanResourceManager.addDivisionDepartments}"
                                              update=":divisionDialogForm:divisiondialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
-                                             onerror="PF('connectionErrorDialog').show();"
                                              global="true"
                                              process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                                             icon="pi pi-pencil">
 
                                 <p:ajax event="dialogReturn" 
                                         listener="#{humanResourceManager.addDivisionDepartmentsDialogReturn}"

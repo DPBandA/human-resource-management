@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2020  D P Bennett & Associates Limited
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -29,9 +29,7 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="left" >               
             <p:commandButton 
                 value="New"
-                icon="ui-icon-plus" 
-                onstart="PF('longProcessDialogVar').show();"
-                oncomplete="PF('longProcessDialogVar').hide();"
+                icon="pi pi-plus" 
                 actionListener="#{humanResourceManager.createNewManufacturer}"                                            
                 process="@this"
                 title="Add a new manufacturer to the manufacturer database" >
@@ -49,7 +47,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="keyup"                            
                         global="false"
-                        update=":mainTabViewForm:mainTabView:humanResourceTabView:manufacturersTable"
+                        update=":appForm:mainTabView:humanResourceTabView:manufacturersTable"
                         listener="#{humanResourceManager.doManufacturerSearch}"
                         process="@this"/>
 
@@ -135,9 +133,7 @@ Email: info@dpbennett.com.jm
         </p:column>
 
         <p:column style="width:32px">
-            <p:commandButton icon="ui-icon-pencil"
-                             onstart="PF('longProcessDialogVar').show();"                               
-                             oncomplete="PF('longProcessDialogVar').hide();"
+            <p:commandButton icon="pi pi-pencil"
                              actionListener="#{humanResourceManager.editSelectedManufacturer}"
                              process="@this"
                              title="View or edit this manufacturer's detail">
@@ -156,9 +152,7 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="left" >             
             <p:commandButton 
                 value="New"
-                icon="ui-icon-plus" 
-                onstart="PF('longProcessDialogVar').show();"
-                oncomplete="PF('longProcessDialogVar').hide();"
+                icon="pi pi-plus" 
                 actionListener="#{humanResourceManager.createNewManufacturer}"                                            
                 process="@this"
                 title="Add a new manufacturer to the manufacturer database" >

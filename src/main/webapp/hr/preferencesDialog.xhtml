@@ -25,8 +25,8 @@ Email: info@dpbennett.com.jm
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:form id="preferencesDialogForm">
 
-        <p:dialog width="800"
-                  height="300"
+        <p:dialog width="850"
+                  height="350"
                   draggable="true"
                   modal="true"
                   widgetVar="preferencesDialog"
@@ -75,15 +75,6 @@ Email: info@dpbennett.com.jm
                 <p:tab title="Module Access" id="modulesTab">
                     <h:panelGrid columns="3" id="modulesTabPanelGrid" cellspacing="10">
 
-                        <p:selectBooleanCheckbox id="jobManagementAndTrackingUnit" 
-                                                 rendered="#{humanResourceManager.user.privilege.canAccessJobManagementUnit}"
-                                                 itemLabel="Job Management &amp; Tracking"
-                                                 value="#{humanResourceManager.user.modules.jobManagementAndTrackingModule}" >
-                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
-                                    global="false"
-                                    process="@this"/>
-                        </p:selectBooleanCheckbox>                     
-
                         <p:selectBooleanCheckbox id="adminUnit" 
                                                  itemLabel="System Administration"
                                                  rendered="#{humanResourceManager.user.privilege.canBeJMTSAdministrator}"
@@ -92,34 +83,7 @@ Email: info@dpbennett.com.jm
                                     global="false"
                                     process="@this"/>
                         </p:selectBooleanCheckbox>
-
-                        <p:selectBooleanCheckbox id="financialAdminUnit" 
-                                                 itemLabel="Financial Administration"
-                                                 rendered="#{humanResourceManager.user.privilege.canBeFinancialAdministrator}"
-                                                 value="#{humanResourceManager.user.modules.financialAdminModule}" >
-                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
-                                    global="false"
-                                    process="@this"/>
-                        </p:selectBooleanCheckbox>    
-                                                
-                        <p:selectBooleanCheckbox id="legalOfficeUnit" 
-                                                 itemLabel="Legal"
-                                                 rendered="#{humanResourceManager.user.privilege.canAccessLegalOfficeUnit}"
-                                                 value="#{humanResourceManager.user.modules.legalOfficeModule}" >
-                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
-                                    global="false"
-                                    process="@this"/>
-                        </p:selectBooleanCheckbox>
-
-                        <p:selectBooleanCheckbox id="crmUnit" 
-                                                 itemLabel="Client Management"
-                                                 rendered="#{humanResourceManager.user.privilege.canAccessCRMUnit}"
-                                                 value="#{humanResourceManager.user.modules.crmModule}" >
-                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
-                                    global="false"
-                                    process="@this"/>
-                        </p:selectBooleanCheckbox>
-                        
+                                              
                         <p:selectBooleanCheckbox id="hrmUnit" 
                                                  itemLabel="Human Resource Management"
                                                  rendered="#{humanResourceManager.user.privilege.canAccessHRMUnit}"
@@ -127,30 +91,12 @@ Email: info@dpbennett.com.jm
                             <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
                                     global="false"
                                     process="@this"/>
-                        </p:selectBooleanCheckbox>
-                        
-                        <p:selectBooleanCheckbox id="complianceUnit" 
-                                                 rendered="#{humanResourceManager.user.privilege.canAccessComplianceUnit}"
-                                                 itemLabel="Standards Compliance"
-                                                 value="#{humanResourceManager.user.modules.complianceModule}" >                            
-                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
-                                    global="false"
-                                    process="@this"/>                            
                         </p:selectBooleanCheckbox> 
                         
                         <p:selectBooleanCheckbox id="reportUnit" 
                                                  itemLabel="Report"
                                                  rendered="#{humanResourceManager.user.privilege.canAccessReportUnit}"
                                                  value="#{humanResourceManager.user.modules.reportModule}" >
-                            <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
-                                    global="false"
-                                    process="@this"/>
-                        </p:selectBooleanCheckbox>
-                        
-                        <p:selectBooleanCheckbox id="purchaseManagementUnit" 
-                                                 itemLabel="Procurement"
-                                                 rendered="#{humanResourceManager.user.privilege.canAccessProcurementUnit}"
-                                                 value="#{humanResourceManager.user.modules.purchaseManagementModule}" >
                             <p:ajax listener="#{humanResourceManager.updateDashboardTabs}"
                                     global="false"
                                     process="@this"/>

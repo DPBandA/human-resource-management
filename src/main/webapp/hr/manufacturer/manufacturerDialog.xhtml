@@ -37,8 +37,7 @@ Email: info@dpbennett.com.jm
         <ui:include src="addressDialog.xhtml"/>       
         <ui:include src="contactDialog.xhtml"/>    
         <ui:include src="removeContactConfirmationDialog.xhtml"/>
-        <ui:include src="removeAddressConfirmationDialog.xhtml"/>        
-        <ui:include src="../../common/longProcessDialog.xhtml"/>  
+        <ui:include src="removeAddressConfirmationDialog.xhtml"/>   
         <ui:include src="../../common/commonDialogs.xhtml"/>  
         <h:form id="manufacturerForm" >
             <p:growl id="manufacturer_growl" life="5000" showDetail="true"/>
@@ -46,23 +45,18 @@ Email: info@dpbennett.com.jm
             <p:toolbar>
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
-                                     onstart="PF('longProcessDialogVar').show();"
                                      actionListener="#{humanResourceManager.okManufacturer}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
                                      update="manufacturer_growl"                             
-                                     icon="ui-icon-check"/>
+                                     icon="pi pi-check"/>
                     <p:spacer width="10"/>
                     <p:commandButton value="Cancel"
                                      immediate="true" 
-                                     onstart="PF('longProcessDialogVar').show();"
                                      actionListener="#{humanResourceManager.cancelManufacturerEdit}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     icon="ui-icon ui-icon-close" />
+                                     icon="pi pi-times" />
                 </p:toolbarGroup>
             </p:toolbar>
 
             <p:tabView id="manufacturerFormTabView"
-                       onTabShow="PF('longProcessDialogVar').hide();"
                        dynamic="true"
                        style="margin-top: 1px;margin-bottom: 1px;"
                        widgetVar="manufacturerFormTabVar" >
@@ -83,18 +77,14 @@ Email: info@dpbennett.com.jm
             <p:toolbar>
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
-                                     onstart="PF('longProcessDialogVar').show();"
                                      actionListener="#{humanResourceManager.okManufacturer}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
                                      update="manufacturer_growl"                             
-                                     icon="ui-icon-check"/>
+                                     icon="pi pi-check"/>
                     <p:spacer width="10"/>
                     <p:commandButton value="Cancel"
                                      immediate="true" 
-                                     onstart="PF('longProcessDialogVar').show();"
                                      actionListener="#{humanResourceManager.cancelManufacturerEdit}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     icon="ui-icon ui-icon-close" />
+                                     icon="pi pi-times" />
                 </p:toolbarGroup>
             </p:toolbar>
         </h:form>     

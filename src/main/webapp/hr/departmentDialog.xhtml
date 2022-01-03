@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2020  D P Bennett & Associates Limited
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -35,8 +35,9 @@ Email: info@dpbennett.com.jm
         <link rel="stylesheet" href="../css/main.css" />  
     </h:head>
     <h:body >  
-        <ui:include src="../common/longProcessDialog.xhtml"/>  
-        <ui:include src="../common/commonDialogs.xhtml"/>           
+        
+        <ui:include src="../common/commonDialogs.xhtml"/>     
+        
         <h:form id="departmentDialogForm">        
 
             <p:growl id="departmentdialog_growl" life="5000" showDetail="true"/>
@@ -45,17 +46,14 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
                                      actionListener="#{humanResourceManager.saveSelectedDepartment}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide()"
-                                     icon="ui-icon ui-icon-check"
+                                     icon="pi pi-check"
                                      update="departmentdialog_growl"
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"
                                      actionListener="#{humanResourceManager.closeDialog}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
                                      immediate="true"
-                                     icon="ui-icon ui-icon-close" />            
+                                     icon="pi pi-times" />            
                 </p:toolbarGroup>
             </p:toolbar>
 
@@ -131,11 +129,9 @@ Email: info@dpbennett.com.jm
                                              value="Edit"
                                              actionListener="#{humanResourceManager.addDepartmentStaff}"
                                              update=":departmentDialogForm:departmentdialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
                                              global="true"
                                              process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                                             icon="pi pi-pencil">
 
                                 <p:ajax event="dialogReturn" 
                                         listener="#{humanResourceManager.addDepartmentStaffDialogReturn}"
@@ -172,11 +168,9 @@ Email: info@dpbennett.com.jm
                                              value="Edit"
                                              actionListener="#{humanResourceManager.addDepartmentStaff}"
                                              update=":departmentDialogForm:departmentdialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
                                              global="true"
                                              process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                                             icon="pi pi-pencil">
 
                                 <p:ajax event="dialogReturn" 
                                         listener="#{humanResourceManager.addDepartmentStaffDialogReturn}"
@@ -233,17 +227,14 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
                                      actionListener="#{humanResourceManager.saveSelectedDepartment}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide()"
-                                     icon="ui-icon ui-icon-check"
+                                     icon="pi pi-check"
                                      update="departmentdialog_growl"
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"
                                      actionListener="#{humanResourceManager.closeDialog}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
                                      immediate="true"
-                                     icon="ui-icon ui-icon-close" />            
+                                     icon="pi pi-times" />            
                 </p:toolbarGroup>
             </p:toolbar> 
         </h:form> 

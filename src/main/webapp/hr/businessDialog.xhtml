@@ -1,5 +1,5 @@
 <!--
-Job Management & Tracking System (JMTS) 
+Human Resource Management (HRM) 
 Copyright (C) 2017  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -35,8 +35,7 @@ Email: info@dpbennett.com.jm
         <link rel="stylesheet" href="../css/main.css" />  
     </h:head>
     <h:body >  
-
-        <ui:include src="../common/longProcessDialog.xhtml"/>  
+        
         <ui:include src="../common/commonDialogs.xhtml"/>   
 
         <h:form id="businessDialogForm">     
@@ -47,17 +46,14 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
                                      actionListener="#{humanResourceManager.saveSelectedBusiness}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     icon="ui-icon ui-icon-check"
+                                     icon="pi pi-check"
                                      update="businessdialog_growl"
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"
                                      actionListener="#{humanResourceManager.closeDialog}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
                                      immediate="true"
-                                     icon="ui-icon ui-icon-close" />            
+                                     icon="pi pi-times" />            
                 </p:toolbarGroup>
 
             </p:toolbar>
@@ -100,13 +96,10 @@ Email: info@dpbennett.com.jm
                                 <p:commandButton title="Edit department list"                                  
                                                  value="Edit"
                                                  actionListener="#{humanResourceManager.addBusinessDepartments}"
-                                                 update=":businessDialogForm:businessdialog_growl"
-                                                 onstart="PF('longProcessDialogVar').show();"
-                                                 oncomplete="PF('longProcessDialogVar').hide();"
-                                                 onerror="PF('connectionErrorDialog').show();"
+                                                 update=":businessDialogForm:businessdialog_growl"                                                
                                                  global="true"
                                                  process="@this"
-                                                 icon="ui-icon ui-icon-pencil">
+                                                 icon="pi pi-pencil">
 
                                     <p:ajax event="dialogReturn" 
                                             listener="#{humanResourceManager.addBusinessDepartmentsDialogReturn}"
@@ -166,8 +159,7 @@ Email: info@dpbennett.com.jm
 
                                     <p:menuitem   
                                         value="Remove"
-                                        onstart="PF('longProcessDialogVar').show();"
-                                        icon="ui-icon-trash"
+                                        icon="pi pi-trash"
                                         process="@this">
 
                                         <f:setPropertyActionListener value="#{jobSample}"
@@ -187,12 +179,9 @@ Email: info@dpbennett.com.jm
                                              value="Edit"
                                              actionListener="#{humanResourceManager.addBusinessDepartments}"
                                              update=":businessDialogForm:businessdialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
-                                             onerror="PF('connectionErrorDialog').show();"
                                              global="true"
                                              process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                                             icon="pi pi-pencil">
 
                                 <p:ajax event="dialogReturn" 
                                         listener="#{humanResourceManager.addBusinessDepartmentsDialogReturn}"
@@ -209,18 +198,14 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
                                      actionListener="#{humanResourceManager.saveSelectedBusiness}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide()"
-                                     icon="ui-icon ui-icon-check"
+                                     icon="pi pi-check"
                                      update="businessdialog_growl"
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"
                                      actionListener="#{humanResourceManager.closeDialog}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
                                      immediate="true"
-                                     icon="ui-icon ui-icon-close" />            
+                                     icon="pi pi-times" />            
                 </p:toolbarGroup>
             </p:toolbar> 
         </h:form> 
