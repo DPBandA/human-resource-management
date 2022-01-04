@@ -59,7 +59,6 @@ Email: info@dpbennett.com.jm
                                          value="#{humanResourceManager.isActiveUsersOnly}" >
                     <p:ajax  update=":appForm:mainTabView:humanResourceTabView:usersTable"
                              listener="#{humanResourceManager.doUserSearch}"
-                             global="false"
                              event="change"                                      
                              process="@this"/>
                 </p:selectBooleanCheckbox>            
