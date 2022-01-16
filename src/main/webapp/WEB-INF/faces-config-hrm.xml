@@ -29,11 +29,7 @@
     <converter>
         <converter-id>businessOfficeConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.BusinessOfficeConverter</converter-class>
-    </converter> 
-    <converter>
-        <converter-id>activeEmployeeConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ActiveEmployeeConverter</converter-class>
-    </converter> 
+    </converter>      
     <converter>
         <converter-id>businessConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.BusinessConverter</converter-class>
