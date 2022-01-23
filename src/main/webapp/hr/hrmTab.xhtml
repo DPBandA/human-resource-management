@@ -31,12 +31,12 @@ Email: info@dpbennett.com.jm
 
         <p:ajax event="tabChange" 
                 update="@this"
-                listener="#{humanResourceManager.onMainViewTabChange}" />  
+                listener="#{systemManager.onMainViewTabChange}" />  
 
         <p:tab id="UsersTab" 
-               rendered="#{humanResourceManager.user.modules.adminModule}"
-               title="User Profiles">
-            <ui:include src="usersTab.xhtml"/>  
+               rendered="#{systemManager.user.modules.adminModule}"
+               title="Users">
+            <ui:include src="../admin/usersTab.xhtml"/>  
         </p:tab>
 
         

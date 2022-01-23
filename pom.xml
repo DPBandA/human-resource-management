@@ -55,8 +55,7 @@
                     <dependentWarExcludes>
                         WEB-INF/web.xml,
                         WEB-INF/glassfish-web.xml, 
-                        index.xhtml,
-                        common/preferencesDialog.xhtml                       
+                        index.xhtml                    
                     </dependentWarExcludes>
                     
                     <overlays>

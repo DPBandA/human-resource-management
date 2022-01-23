@@ -27,13 +27,13 @@ Email: info@dpbennett.com.jm
 
             <p:commandButton title="Add new user"                                  
                              value="New"                                                     
-                             actionListener="#{humanResourceManager.createNewUser}"
+                             actionListener="#{systemManager.createNewUser}"
                              global="true"
                              process="@this"
                              icon="pi pi-plus">
 
                 <p:ajax event="dialogReturn" 
-                        listener="#{humanResourceManager.doUserSearch}"
+                        listener="#{systemMananager.doUserSearch}"
                         update=":appForm:mainTabView:humanResourceTabView:usersTable"/>
 
             </p:commandButton>       
