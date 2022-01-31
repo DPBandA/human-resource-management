@@ -33,7 +33,7 @@ Email: info@dpbennett.com.jm
                              icon="pi pi-plus">
 
                 <p:ajax event="dialogReturn" 
-                        listener="#{systemMananager.doUserSearch}"
+                        listener="#{systemManager.doUserSearch}"
                         update=":appForm:mainTabView:humanResourceTabView:usersTable"/>
 
             </p:commandButton>       
@@ -46,6 +46,7 @@ Email: info@dpbennett.com.jm
 
                 <p:menuitem value="Human Resource Browser"
                             title="Open Human Resource Browser"
+                            icon="pi pi-users"
                             actionListener="#{humanResourceManager.openHumanResourceBrowser}" 
                             process="@this" />
 

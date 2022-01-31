@@ -35,9 +35,9 @@ Email: info@dpbennett.com.jm
         <link rel="stylesheet" href="../css/main.css" />  
     </h:head>
     <h:body >  
-        
+
         <ui:include src="../common/commonDialogs.xhtml"/> 
-        
+
         <h:form id="departmentPickListDialogForm">           
 
             <ui:include src="departmentPickListDialogToolbar.xhtml"/>
@@ -48,7 +48,16 @@ Email: info@dpbennett.com.jm
                             var="department"
                             itemLabel="#{department.name}" 
                             itemValue="#{department}" 
-                            converter="activeDepartmentConverter" />
+                            showSourceFilter="true" 
+                            showTargetFilter="true"
+                            filterMatchMode="contains"
+                            style="width: 200px;"
+                            converter="activeDepartmentConverter" >
+
+                    <f:facet name="sourceCaption">Available</f:facet>
+                    <f:facet name="targetCaption">Assigned</f:facet>
+
+                </p:pickList>
 
             </p:panel>      
 
