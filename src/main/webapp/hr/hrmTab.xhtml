@@ -34,7 +34,7 @@ Email: info@dpbennett.com.jm
                 listener="#{systemManager.onMainViewTabChange}" />  
 
         <p:tab id="UsersTab" 
-               rendered="#{systemManager.user.modules.adminModule}"
+               rendered="#{systemManager.user.hasModule('SystemAdministrationModule')}"
                title="Users">
             <ui:include src="../admin/usersTab.xhtml"/>  
         </p:tab>

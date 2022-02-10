@@ -39,7 +39,7 @@ Email: info@dpbennett.com.jm
 
         <ui:include src="common/commonDialogs.xhtml" />
         <ui:include src="admin/loginDialog.xhtml"/>  
-        <ui:include src="common/preferencesDialog.xhtml"/> 
+        <ui:include src="common/userProfileDialog.xhtml"/>  
 
         <h:form id="appForm">          
             <p:splitter layout="vertical" rendered="#{systemManager.renderUserMenu()}">
@@ -64,17 +64,16 @@ Email: info@dpbennett.com.jm
 
                             </h:panelGrid>
                             <h:panelGroup>
-                                <p:menuButton value="#{systemManager.user.employee.firstName} #{systemManager.user.employee.lastName}"     
-                                              iconPos="left"
+                                <p:menuButton iconPos="left"
                                               icon="pi pi-user"
                                               id="userMenu"
                                               style="float: right;" >
 
-                                    <p:menuitem actionListener="#{systemManager.editPreferences}"                                            
-                                                update=":preferencesDialogForm"
-                                                oncomplete="PF('preferencesDialog').show();"
+                                    <p:menuitem actionListener="#{systemManager.viewUserProfile}"                                            
+                                                update=":userProfileDialogForm"
+                                                oncomplete="PF('userProfileDialog').show();"
                                                 icon="pi pi-cog"
-                                                value="Preferences"
+                                                value="Profile"
                                                 process="@this"/>
                                     <p:separator />  
                                     <p:menuitem actionListener="#{systemManager.logout}"                                             
