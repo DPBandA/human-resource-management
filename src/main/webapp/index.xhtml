@@ -64,6 +64,37 @@ Email: info@dpbennett.com.jm
 
                             </h:panelGrid>
                             <h:panelGroup>
+                             <p:badge value="#{systemManager.sizeOfActiveNotifications}" 
+                                         id="notificationBadge"
+                                         visible="#{systemManager.hasActiveNotifications}" 
+                                         severity="danger">
+
+                                    <p:commandButton id="notifications" 
+                                                     icon="pi pi-bell" />
+                                    <p:overlayPanel for="notifications"   
+                                                    widgetVar="NotificationPanelVar"
+                                                    style="width:400px;border: 0;">
+                                        <p:orderList value="#{systemManager.notifications}" 
+                                                     var="notification" 
+                                                     itemValue="#{notification}"
+                                                     converter="#{activeNotificationConverter}" 
+                                                     controlsLocation="none" responsive="true" >
+
+                                            <p:ajax event="select" 
+                                                    update=":appForm:notificationBadge"
+                                                    oncomplete="PF('NotificationPanelVar').hide()"
+                                                    listener="#{systemManager.onNotificationSelect}" />
+
+                                            <p:column>
+                                                <h:outputText value="#{notification.name}" 
+                                                              style="#{notification.style}"/>
+                                            </p:column>                                           
+
+                                        </p:orderList>
+                                    </p:overlayPanel>
+
+                                </p:badge>
+                                <p:spacer width="30"/>
                                 <p:menuButton iconPos="left"
                                               icon="pi pi-user"
                                               id="userMenu"
