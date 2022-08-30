@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Copyright (C) 2022  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -59,21 +59,39 @@ Email: info@dpbennett.com.jm
             </p:toolbar>
 
             <p:panel style="margin-bottom: 1px;">
-                <h:panelGrid columns="2">               
+                <h:panelGrid columns="2" cellspacing="5">               
 
-                    <h:outputText value="Name:" style="font-weight: bold;" />
+                    <h:outputText value="Name" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedBusiness.name}"
                                  style="width:300px"
                                  id="businessName" 
+                                 validatorMessage="A valid name is required"
                                  validator="requiredFieldValidator" /> 
 
-                    <h:outputText value="Domain:" style="font-weight: bold;" />
+                    <h:outputText value="Head" style="font-weight: bold;" />
+                    <p:autoComplete var="businessHead"
+                                    id="businessHead"
+                                    dropdown="true"
+                                    scrollHeight="175"
+                                    maxlength="50"
+                                    value="#{humanResourceManager.selectedBusiness.head}"
+                                    itemLabel="#{businessHead.name}"
+                                    itemValue="#{businessHead}"
+                                    converter="activeEmployeeConverter"
+                                    validator="requiredFieldValidator"
+                                    validatorMessage="A valid head is required"
+                                    forceSelection="true"
+                                    completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+                    </p:autoComplete>
+
+                    <h:outputText value="Domain" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedBusiness.domainName}"
                                  style="width:300px"
+                                 validatorMessage="A valid domain name (eg. dpbennett.com.jmm) is required"
                                  validator="requiredFieldValidator" 
                                  id="domainName" />
 
-                    <h:outputText value="Notes:" />
+                    <h:outputText value="Notes" />
                     <h:panelGroup>                        
                         <p:inputTextarea
                             value="#{humanResourceManager.selectedBusiness.notes}"
