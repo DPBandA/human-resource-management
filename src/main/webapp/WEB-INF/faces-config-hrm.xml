@@ -29,11 +29,7 @@
     <converter>
         <converter-id>businessOfficeConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.BusinessOfficeConverter</converter-class>
-    </converter> 
-    <converter>
-        <converter-id>activeEmployeeConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ActiveEmployeeConverter</converter-class>
-    </converter> 
+    </converter>      
     <converter>
         <converter-id>businessConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.BusinessConverter</converter-class>
@@ -69,14 +65,7 @@
     <validator>
         <validator-id>contactValidator</validator-id>
         <validator-class>jm.com.dpbennett.hrm.validator.ContactValidator</validator-class>
-    </validator>
-    <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>userDialog</from-outcome>
-            <to-view-id>/hr/userDialog.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+    </validator>    
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
@@ -138,13 +127,6 @@
         <navigation-case>
             <from-outcome>divisionDialog</from-outcome>
             <to-view-id>/hr/divisionDialog.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>emailTemplateDialog</from-outcome>
-            <to-view-id>/hr/emailTemplateDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
       

@@ -1,6 +1,6 @@
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Human Resource Management (HRM) 
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -30,12 +30,13 @@ Email: info@dpbennett.com.jm
         <meta http-equiv="expires" content="0" />
         <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
         <meta http-equiv="pragma" content="no-cache" />
-        <title>Employee Detail</title>
+        <title>Employee</title>
         <link rel="stylesheet" href="../css/main.css" /> 
     </h:head>
-    <h:body >  
-        <ui:include src="../common/longProcessDialog.xhtml"/>  
-        <ui:include src="../common/commonDialogs.xhtml"/>           
+    <h:body > 
+        
+        <ui:include src="../common/commonDialogs.xhtml"/>   
+        
         <h:form id="employeeDialogForm">       
 
             <p:growl id="employeedialog_growl" life="5000" showDetail="true"/>
@@ -44,17 +45,14 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup align="left">
                     <p:commandButton value="Ok"
                                      actionListener="#{humanResourceManager.saveSelectedEmployee}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     icon="ui-icon ui-icon-check"
+                                     icon="pi pi-check"
                                      update="employeedialog_growl"
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"  
                                      immediate="true"
                                      actionListener="#{humanResourceManager.closeDialog}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     icon="ui-icon ui-icon-close" />  
+                                     icon="pi pi-times" />  
 
                 </p:toolbarGroup>
             </p:toolbar>
@@ -90,15 +88,14 @@ Email: info@dpbennett.com.jm
                                     var="position"   
                                     value="#{humanResourceManager.selectedEmployee.positions}"
                                     itemLabel="#{position.title}"
-                                    itemValue="#{position}"
+                                    itemValue="#{position}"                                    
                                     converter="activeEmployeePositionConverter"
-                                    forceSelection="true"
+                                    forceSelection="true" 
                                     dropdown="true"
                                     scrollHeight="200"                         
                                     multiple="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployeePosition}" />
-
-
+                    
                     <h:outputLabel value="Email:" for="employeeEmail" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedEmployee.internet.email1}"
                                  id="employeeEmail" 
@@ -134,17 +131,14 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup align="left">
                     <p:commandButton value="Ok"
                                      actionListener="#{humanResourceManager.saveSelectedEmployee}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     icon="ui-icon ui-icon-check"
+                                     icon="pi pi-check"
                                      update="employeedialog_growl"
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"  
                                      immediate="true"
                                      actionListener="#{humanResourceManager.closeDialog}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     icon="ui-icon ui-icon-close" />  
+                                     icon="pi pi-times" />  
 
                 </p:toolbarGroup>
             </p:toolbar>

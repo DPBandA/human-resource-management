@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2020  D P Bennett & Associates Limited
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -30,45 +30,40 @@ Email: info@dpbennett.com.jm
                dynamic="true">
 
         <p:ajax event="tabChange" 
-                onstart="PF('longProcessDialogVar').show();"  
                 update="@this"
-                listener="#{humanResourceManager.onMainViewTabChange}"
-                oncomplete="PF('longProcessDialogVar').hide();" />  
+                listener="#{systemManager.onMainViewTabChange}" />  
 
         <p:tab id="UsersTab" 
-               rendered="#{humanResourceManager.user.modules.adminModule}"
-               title="User Profiles">
-            <ui:include src="usersTab.xhtml"/>  
+               rendered="#{systemManager.user.hasModule('SystemAdministrationModule')}"
+               title="Users">
+            <ui:include src="../admin/usersTab.xhtml"/>  
         </p:tab>
 
+        
         <p:tab id="employeesTab" title="Employees">                  
             <ui:include src="employeesTab.xhtml"/>    
         </p:tab>
-
-        <p:tab id="positionsTab" title="Employment Positions">
+        
+        <p:tab id="positionsTab" title="Employee Positions">
             <ui:include src="employeePositionsTab.xhtml"/>  
         </p:tab>
-
+        
         <p:tab id="departmentsTab" title="Departments">
             <ui:include src="departmentsTab.xhtml"/>  
             <a href="divisionsTab.xhtml"></a>
         </p:tab>
-
+       
         <p:tab id="subgroupsTab" title="Subgroups">
             <ui:include src="subgroupsTab.xhtml"/>  
         </p:tab>
-
+        
         <p:tab id="divisionsTab" title="Divisions">
             <ui:include src="divisionsTab.xhtml"/>  
         </p:tab>
 
         <p:tab id="organizationsTab" title="Organizations">
             <ui:include src="organizationsTab.xhtml"/>  
-        </p:tab>  
-
-        <p:tab title="Email Templates">
-            <ui:include src="emailTemplatesTab.xhtml" /> 
-        </p:tab>
+        </p:tab>       
 
     </p:tabView>
 

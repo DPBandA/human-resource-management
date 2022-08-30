@@ -1,5 +1,5 @@
 <!--
-Job Management & Tracking System (JMTS) 
+Human Resource Management (HRM) 
 Copyright (C) 2017  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -71,8 +71,6 @@ Email: info@dpbennett.com.jm
         <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.status}" >
 
             <p:ajax
-                onstart="longProcessDialogVar.show();"
-                oncomplete="longProcessDialogVar.hide();"
                 listener="#{humanResourceManager.updateManufacturer}"
                 process="@this" />
 
@@ -85,8 +83,6 @@ Email: info@dpbennett.com.jm
         <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.registrationStatus}" >
 
             <p:ajax
-                onstart="longProcessDialogVar.show();"
-                oncomplete="longProcessDialogVar.hide();"
                 listener="#{humanResourceManager.updateManufacturer}"
                 process="@this" />
 
@@ -152,9 +148,7 @@ Email: info@dpbennett.com.jm
 
                 </p:autoComplete>
                 <p:commandButton 
-                    icon="ui-icon-plus" 
-                    onstart="PF('longProcessDialogVar').show();"
-                    oncomplete="PF('longProcessDialogVar').hide();"
+                    icon="pi pi-plus" 
                     actionListener="#{complianceManager.createNewMarketProductInDialog}"                                            
                     process="@this"
                     title="Add a new product to the market products database" >

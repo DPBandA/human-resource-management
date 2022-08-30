@@ -1,6 +1,6 @@
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Human Resource Management (HRM) 
+Copyright (C) 2022  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -31,12 +31,11 @@ Email: info@dpbennett.com.jm
         <meta http-equiv="expires" content="0" />
         <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
         <meta http-equiv="pragma" content="no-cache" />
-        <title>Organization Detail</title>
+        <title>Organization</title>
         <link rel="stylesheet" href="../css/main.css" />  
     </h:head>
     <h:body >  
-
-        <ui:include src="../common/longProcessDialog.xhtml"/>  
+        
         <ui:include src="../common/commonDialogs.xhtml"/>   
 
         <h:form id="businessDialogForm">     
@@ -47,37 +46,52 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
                                      actionListener="#{humanResourceManager.saveSelectedBusiness}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
-                                     icon="ui-icon ui-icon-check"
+                                     icon="pi pi-check"
                                      update="businessdialog_growl"
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"
                                      actionListener="#{humanResourceManager.closeDialog}"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
                                      immediate="true"
-                                     icon="ui-icon ui-icon-close" />            
+                                     icon="pi pi-times" />            
                 </p:toolbarGroup>
 
             </p:toolbar>
 
             <p:panel style="margin-bottom: 1px;">
-                <h:panelGrid columns="2">               
+                <h:panelGrid columns="2" cellspacing="5">               
 
-                    <h:outputText value="Name:" style="font-weight: bold;" />
+                    <h:outputText value="Name" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedBusiness.name}"
                                  style="width:300px"
                                  id="businessName" 
+                                 validatorMessage="A valid name is required"
                                  validator="requiredFieldValidator" /> 
 
-                    <h:outputText value="Domain:" style="font-weight: bold;" />
+                    <h:outputText value="Head" style="font-weight: bold;" />
+                    <p:autoComplete var="businessHead"
+                                    id="businessHead"
+                                    dropdown="true"
+                                    scrollHeight="175"
+                                    maxlength="50"
+                                    value="#{humanResourceManager.selectedBusiness.head}"
+                                    itemLabel="#{businessHead.name}"
+                                    itemValue="#{businessHead}"
+                                    converter="activeEmployeeConverter"
+                                    validator="requiredFieldValidator"
+                                    validatorMessage="A valid head is required"
+                                    forceSelection="true"
+                                    completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+                    </p:autoComplete>
+
+                    <h:outputText value="Domain" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedBusiness.domainName}"
                                  style="width:300px"
+                                 validatorMessage="A valid domain name (eg. dpbennett.com.jmm) is required"
                                  validator="requiredFieldValidator" 
                                  id="domainName" />
 
-                    <h:outputText value="Notes:" />
+                    <h:outputText value="Notes" />
                     <h:panelGroup>                        
                         <p:inputTextarea
                             value="#{humanResourceManager.selectedBusiness.notes}"
@@ -100,13 +114,10 @@ Email: info@dpbennett.com.jm
                                 <p:commandButton title="Edit department list"                                  
                                                  value="Edit"
                                                  actionListener="#{humanResourceManager.addBusinessDepartments}"
-                                                 update=":businessDialogForm:businessdialog_growl"
-                                                 onstart="PF('longProcessDialogVar').show();"
-                                                 oncomplete="PF('longProcessDialogVar').hide();"
-                                                 onerror="PF('connectionErrorDialog').show();"
+                                                 update=":businessDialogForm:businessdialog_growl"                                                
                                                  global="true"
                                                  process="@this"
-                                                 icon="ui-icon ui-icon-pencil">
+                                                 icon="pi pi-pencil">
 
                                     <p:ajax event="dialogReturn" 
                                             listener="#{humanResourceManager.addBusinessDepartmentsDialogReturn}"
@@ -166,8 +177,7 @@ Email: info@dpbennett.com.jm
 
                                     <p:menuitem   
                                         value="Remove"
-                                        onstart="PF('longProcessDialogVar').show();"
-                                        icon="ui-icon-trash"
+                                        icon="pi pi-trash"
                                         process="@this">
 
                                         <f:setPropertyActionListener value="#{jobSample}"
@@ -187,12 +197,9 @@ Email: info@dpbennett.com.jm
                                              value="Edit"
                                              actionListener="#{humanResourceManager.addBusinessDepartments}"
                                              update=":businessDialogForm:businessdialog_growl"
-                                             onstart="PF('longProcessDialogVar').show();"
-                                             oncomplete="PF('longProcessDialogVar').hide();"
-                                             onerror="PF('connectionErrorDialog').show();"
                                              global="true"
                                              process="@this"
-                                             icon="ui-icon ui-icon-pencil">
+                                             icon="pi pi-pencil">
 
                                 <p:ajax event="dialogReturn" 
                                         listener="#{humanResourceManager.addBusinessDepartmentsDialogReturn}"
@@ -209,18 +216,14 @@ Email: info@dpbennett.com.jm
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"
                                      actionListener="#{humanResourceManager.saveSelectedBusiness}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide()"
-                                     icon="ui-icon ui-icon-check"
+                                     icon="pi pi-check"
                                      update="businessdialog_growl"
                                      process="@form"/>
                     <p:spacer width="5" />
                     <p:commandButton value="Cancel"
                                      actionListener="#{humanResourceManager.closeDialog}"
-                                     onstart="PF('longProcessDialogVar').show();"
-                                     oncomplete="PF('longProcessDialogVar').hide();"
                                      immediate="true"
-                                     icon="ui-icon ui-icon-close" />            
+                                     icon="pi pi-times" />            
                 </p:toolbarGroup>
             </p:toolbar> 
         </h:form> 

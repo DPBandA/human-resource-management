@@ -1,6 +1,6 @@
 <!--
-Job Management & Tracking System (JMTS) 
-Copyright (C) 2020  D P Bennett & Associates Limited
+Human Resource Management (HRM) 
+Copyright (C) 2021  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -27,7 +27,7 @@ Email: info@dpbennett.com.jm
     <p:toolbar style="margin-bottom: 1px;">
         <p:toolbarGroup align="left">
             <p:commandButton value="New"
-                             icon="ui-icon-plus" 
+                             icon="pi pi-plus" 
                              title="Add new contact"
                              update=":contactForm"
                              oncomplete="PF('contactFormDialog').show();"
@@ -79,9 +79,10 @@ Email: info@dpbennett.com.jm
         </p:column>
 
         <p:column style="width:32px" >
-            <p:menuButton icon="ui-icon-pencil" title="Edit or delete this contact">
+            <p:menuButton icon="pi pi-pencil" 
+                          title="Edit or delete this contact">
                 <p:menuitem value="Edit"
-                            icon="ui-icon-pencil" 
+                            icon="pi pi-pencil" 
                             update=":contactForm"
                             oncomplete="PF('contactFormDialog').show();" 
                             process="@this"                             
@@ -96,7 +97,7 @@ Email: info@dpbennett.com.jm
 
                 <p:menuitem 
                     value="Delete"
-                    icon="ui-icon-trash" 
+                    icon="pi pi-trash" 
                     oncomplete="PF('deleteContactDialog').show();"                                           
                     process="@this"
                     title="Delete this contact">
@@ -113,7 +114,7 @@ Email: info@dpbennett.com.jm
     <p:toolbar style="margin-top: 1px;">
         <p:toolbarGroup align="left">
             <p:commandButton value="New"
-                             icon="ui-icon-plus" 
+                             icon="pi pi-plus" 
                              title="Add new contact"
                              update=":contactForm"
                              oncomplete="PF('contactFormDialog').show();"
