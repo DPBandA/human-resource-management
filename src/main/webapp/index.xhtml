@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2021  D P Bennett & Associates Limited
+Copyright (C) 2022  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -52,8 +52,11 @@ Email: info@dpbennett.com.jm
 
                         <h:panelGrid width="100%" 
                                      border="0" columns="3" >
-                            <p:graphicImage value="images/DPB PNG Logo Square.png"
-                                            height="80" width="80"/>
+
+                            <p:graphicImage value="#{systemManager.logoURL}"
+                                                height="#{systemManager.logoURLImageHeight}" 
+                                                width="#{systemManager.logoURLImageWidth}"/>
+
                             <h:panelGrid columns="1">   
 
                                 <h:outputText value="#{humanResourceManager.applicationHeader}"
@@ -63,7 +66,7 @@ Email: info@dpbennett.com.jm
                                               styleClass="#{systemManager.isDebugMode eq true ? 'debug-mode' : 'non-debug-mode'}" />  
 
                             </h:panelGrid>
-                            <h:panelGroup>
+                            <h:panelGroup style="float: right;">
                              <p:badge value="#{systemManager.sizeOfActiveNotifications}" 
                                          id="notificationBadge"
                                          visible="#{systemManager.hasActiveNotifications}" 
@@ -98,7 +101,8 @@ Email: info@dpbennett.com.jm
                                 <p:menuButton iconPos="left"
                                               icon="pi pi-user"
                                               id="userMenu"
-                                              style="float: right;" >
+                                              title="#{systemManager.user.employee.firstName} #{systemManager.user.employee.lastName} (#{systemManager.user.username})"
+                                              style="margin-right: 15px;" >
 
                                     <p:menuitem actionListener="#{systemManager.viewUserProfile}"                                            
                                                 update=":userProfileDialogForm"

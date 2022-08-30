@@ -45,25 +45,42 @@ Email: info@dpbennett.com.jm
             <ui:include src="divisionDialogToolbar.xhtml"/>
 
             <p:panel style="margin-bottom: 1px;margin-top: 1px;">
-                <h:panelGrid columns="2">  
-                    <p:outputLabel for="divisionActive" value="Active:"
+                <h:panelGrid columns="2" cellspacing="5">  
+                    <p:outputLabel for="divisionActive" value="Active"
                                    style="font-weight: bold;" />               
                     <p:selectBooleanCheckbox id="divisionActive"
                                              style="vertical-align: middle"
                                              value="#{humanResourceManager.selectedDivision.active}" />
 
 
-                    <h:outputText value="Name:" style="font-weight: bold;" />
+                    <h:outputText value="Name" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedDivision.name}"
                                  style="width:300px"
                                  validator="requiredFieldValidator" /> 
 
-                    <h:outputText value="Code:" style="font-weight: bold;" />
+                    <h:outputText value="Head" style="font-weight: bold;" />
+                    <p:autoComplete var="divisionHead"
+                                    id="divisionHead"
+                                    dropdown="true"
+                                    scrollHeight="175"
+                                    maxlength="50"
+                                    value="#{humanResourceManager.selectedDivision.head}"
+                                    itemLabel="#{divisionHead.name}"
+                                    itemValue="#{divisionHead}"
+                                    converter="activeEmployeeConverter"
+                                    validator="requiredFieldValidator"
+                                    validatorMessage="A valid head is required"
+                                    forceSelection="true"
+                                    completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+                    </p:autoComplete>
+
+                    <h:outputText value="Code" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedDivision.code}"
                                  style="width:300px"
+                                 validatorMessage="A valid code is required"
                                  validator="requiredFieldValidator" />
 
-                    <h:outputText value="Notes:" />
+                    <h:outputText value="Notes" />
                     <h:panelGroup>                        
                         <p:inputTextarea
                             value="#{humanResourceManager.selectedDivision.notes}"
