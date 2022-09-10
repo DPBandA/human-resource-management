@@ -33,11 +33,7 @@
     <converter>
         <converter-id>businessConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.BusinessConverter</converter-class>
-    </converter>
-    <converter>
-        <converter-id>activeMarketProductConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ActiveMarketProductConverter</converter-class>
-    </converter>
+    </converter>   
     <converter>
         <converter-id>manufacturerContactConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.ManufacturerContactConverter</converter-class>
