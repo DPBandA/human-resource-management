@@ -45,7 +45,7 @@ Email: info@dpbennett.com.jm
             <ui:include src="employeePositionDialogToolbar.xhtml" /> 
 
             <p:panel style="margin-bottom: 1px;margin-top: 1px;">
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" style="width:125%;">
                     <p:outputLabel for="employeePositionActive" value="Active:"
                                    style="font-weight: bold;" />               
                     <p:selectBooleanCheckbox id="employeePositionActive"
@@ -92,7 +92,7 @@ Email: info@dpbennett.com.jm
                         
                     </p:inputText>    
                     
-                    <h:outputLabel value="Man-hour rate ($/hr): "/>                   
+                    <h:outputLabel value="Man-hour rate ($/hr): " />                   
                     <p:inputText value="#{humanResourceManager.selectedEmployeePosition.manHourRate}"
                                  converterMessage="Please enter a valid man-hour rate."
                                  styleClass="number-field"
@@ -139,7 +139,7 @@ Email: info@dpbennett.com.jm
                         maxlength="1000" 
                         validator="requiredFieldValidator"
                         styleClass="#{not component.valid ? 'invalid-inputtextarea-field' : ''}" 
-                        style="width: 500px;">
+                        style="width: 100%;">
 
                         <p:ajax event="change"                                                       
                                 process="@this"/>

@@ -19,10 +19,6 @@
         <converter-class>jm.com.dpbennett.hrm.converter.ActiveSubgroupConverter</converter-class>
     </converter>
     <converter>
-        <converter-id>activeDepartmentConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ActiveDepartmentConverter</converter-class>
-    </converter>
-    <converter>
         <converter-id>addressConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.AddressConverter</converter-class>
     </converter>
@@ -33,11 +29,7 @@
     <converter>
         <converter-id>businessConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.BusinessConverter</converter-class>
-    </converter>
-    <converter>
-        <converter-id>activeMarketProductConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ActiveMarketProductConverter</converter-class>
-    </converter>
+    </converter>   
     <converter>
         <converter-id>manufacturerContactConverter</converter-id>
         <converter-class>jm.com.dpbennett.hrm.converter.ManufacturerContactConverter</converter-class>
@@ -53,19 +45,7 @@
     <validator>
         <validator-id>manufacturerValidator</validator-id>
         <validator-class>jm.com.dpbennett.hrm.validator.ManufacturerValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>addressValidator</validator-id>
-        <validator-class>jm.com.dpbennett.hrm.validator.AddressValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>addressLineValidator</validator-id>
-        <validator-class>jm.com.dpbennett.hrm.validator.AddressLineValidator</validator-class>
-    </validator>
-    <validator>
-        <validator-id>contactValidator</validator-id>
-        <validator-class>jm.com.dpbennett.hrm.validator.ContactValidator</validator-class>
-    </validator>    
+    </validator>      
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
