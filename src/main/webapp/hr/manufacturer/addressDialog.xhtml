@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2021  D P Bennett & Associates Limited
+Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -23,14 +23,17 @@ Email: info@dpbennett.com.jm
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">   
+
     <h:form id="addressForm">
         <p:dialog width="450"
                   height="fit-content"
                   draggable="true"
                   closable="false"
+                  responsive="true"
                   modal="true"
                   widgetVar="addressFormDialog"
                   header="Address Detail" >
+
             <p:toolbar>
                 <p:toolbarGroup align="left">
                     <p:commandButton value="Ok"
@@ -47,7 +50,7 @@ Email: info@dpbennett.com.jm
             </p:toolbar>
             <p:panel style="margin-top: 1px;margin-bottom: 1px;">
                 <h:panelGrid columns="2" style="width: 85%">       
-                    <h:outputText value="Type:" style="font-weight: bold" />
+                    <h:outputLabel for="addressType" value="Type" style="font-weight: bold" />
                     <p:selectOneMenu value="#{humanResourceManager.selectedAddress.type}"
                                      id="addressType"
                                      validator="addressLineValidator"
@@ -62,7 +65,8 @@ Email: info@dpbennett.com.jm
                         <f:selectItem itemLabel="General" itemValue="General" />
                     </p:selectOneMenu>
 
-                    <h:outputText value="Address (line 1):" style="font-weight: bold" />
+                    <h:outputLabel for="addressLine1" value="Address (line 1)" 
+                                   style="font-weight: bold" />
                     <p:inputText value="#{humanResourceManager.selectedAddress.addressLine1}"
                                  id="addressLine1"
                                  maxlength="50"
@@ -74,7 +78,7 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputText value="Address (line 2):" />
+                    <h:outputLabel for="addressLine2" value="Address (line 2)" />
                     <p:inputText value="#{humanResourceManager.selectedAddress.addressLine2}"
                                  id="addressLine2"     
                                  maxlength="50"
@@ -85,7 +89,8 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>                
 
-                    <h:outputText value="Nearest City/Town:" style="font-weight: bold"/>
+                    <h:outputLabel for="addressCity" value="Nearest City/Town" 
+                                   style="font-weight: bold"/>
                     <p:inputText value="#{humanResourceManager.selectedAddress.city}"
                                  id="addressCity"
                                  maxlength="50"
@@ -97,7 +102,8 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputText value="Parish/State/Province:" style="font-weight: bold" />
+                    <h:outputLabel for="parishStateProvince" value="Parish/State/Province" 
+                                   style="font-weight: bold" />
                     <h:panelGroup>
                         <p:selectOneMenu value="#{humanResourceManager.selectedAddress.stateOrProvince}"   
                                          id="parishStateProvince"
@@ -109,31 +115,31 @@ Email: info@dpbennett.com.jm
                                 event="change"
                                 listener="#{humanResourceManager.updateAddress}"
                                 process="@this" />
-                            
+
                             <f:selectItems value="#{systemManager.jamaicaParishes}" />
-                            
+
                         </p:selectOneMenu>  
                         <p:watermark value="enter or select" for="parishStateProvince"/>
                     </h:panelGroup>
-                    
-                    <h:outputText value="Country:" />
-                    <p:autoComplete value="#{humanResourceManager.selectedAddress.country}"     
-                                        id="country"
-                                        forceSelection="true"  
-                                        maxlength="40"
-                                        dropdown="true"
-                                        scrollHeight="200" 
-                                        completeMethod="#{systemManager.completeCountry}" >
-                        
-                            <p:ajax event="itemSelect"                              
-                                    listener="#{humanResourceManager.updateAddress}"
-                                    process="@this" />      
 
-                            <p:ajax event="change"                              
-                                    listener="#{humanResourceManager.updateAddress}"
-                                    process="@this" />    
-                            
-                        </p:autoComplete>
+                    <h:outputLabel for="country" value="Country" />
+                    <p:autoComplete value="#{humanResourceManager.selectedAddress.country}"     
+                                    id="country"
+                                    forceSelection="true"  
+                                    maxlength="40"
+                                    dropdown="true"
+                                    scrollHeight="200" 
+                                    completeMethod="#{systemManager.completeCountry}" >
+
+                        <p:ajax event="itemSelect"                              
+                                listener="#{humanResourceManager.updateAddress}"
+                                process="@this" />      
+
+                        <p:ajax event="change"                              
+                                listener="#{humanResourceManager.updateAddress}"
+                                process="@this" />    
+
+                    </p:autoComplete>
 
                 </h:panelGrid> 
             </p:panel>
@@ -151,7 +157,7 @@ Email: info@dpbennett.com.jm
                                      process="@this" />         
                 </p:toolbarGroup>
             </p:toolbar>
-            <p/>
+            
         </p:dialog>
     </h:form>    
 </html>

@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM)
-Copyright (C) 2021  D P Bennett & Associates Limited
+Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -38,8 +38,7 @@ Email: info@dpbennett.com.jm
                         listener="#{humanResourceManager.doEmployeeSearch}"
                         update=":appForm:mainTabView:humanResourceTabView:employeesTable"/>
 
-            </p:commandButton>
-                     
+            </p:commandButton>                     
             <p:spacer width="20" />
             <p:inputText id="employeeSearchText" 
                          value="#{humanResourceManager.employeeSearchText}"
@@ -54,7 +53,8 @@ Email: info@dpbennett.com.jm
         </p:toolbarGroup>
 
         <p:toolbarGroup align="right">
-            <p:outputLabel for="activeEmployeesOnly" value="Active employees only: " />  
+            <p:outputLabel for="activeEmployeesOnly" value="Active employees only" />  
+            <p:spacer width="5" />
             <h:panelGroup>
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeEmployeesOnly"
