@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2021  D P Bennett & Associates Limited
+Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -39,206 +39,204 @@ Email: info@dpbennett.com.jm
 
             <p:growl id="departmentdialog_growl" life="5000" showDetail="true"/>
 
-            <p:scrollPanel style="height: 350px;" >
+            <p:toolbar style="margin-bottom: 1px;">
+                <p:toolbarGroup>
+                    <p:commandButton value="Ok"
+                                     actionListener="#{humanResourceManager.saveSelectedDepartment}"
+                                     icon="pi pi-check"
+                                     update="departmentdialog_growl"
+                                     process="@form"/>
+                    <p:spacer width="5" />
+                    <p:commandButton value="Cancel"
+                                     actionListener="#{humanResourceManager.closeDialog}"
+                                     immediate="true"
+                                     icon="pi pi-times" />            
+                </p:toolbarGroup>
+            </p:toolbar>
 
-                <p:toolbar style="margin-bottom: 1px;">
-                    <p:toolbarGroup>
-                        <p:commandButton value="Ok"
-                                         actionListener="#{humanResourceManager.saveSelectedDepartment}"
-                                         icon="pi pi-check"
-                                         update="departmentdialog_growl"
-                                         process="@form"/>
-                        <p:spacer width="5" />
-                        <p:commandButton value="Cancel"
-                                         actionListener="#{humanResourceManager.closeDialog}"
-                                         immediate="true"
-                                         icon="pi pi-times" />            
-                    </p:toolbarGroup>
-                </p:toolbar>
+            <p:panel style="margin-bottom: 1px;">
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="departmentActive" value="Active:"
+                                   style="font-weight: bold;" />               
+                    <p:selectBooleanCheckbox id="departmentActive"
+                                             style="vertical-align: middle"
+                                             value="#{humanResourceManager.selectedDepartment.active}" />                       
 
-                <p:panel style="margin-bottom: 1px;">
-                    <h:panelGrid columns="2">
-                        <p:outputLabel for="departmentActive" value="Active:"
-                                       style="font-weight: bold;" />               
-                        <p:selectBooleanCheckbox id="departmentActive"
-                                                 style="vertical-align: middle"
-                                                 value="#{humanResourceManager.selectedDepartment.active}" />                       
+                    <p:outputLabel for="departmentCode" value="Code:" />
+                    <p:inputText value="#{humanResourceManager.selectedDepartment.code}"
+                                 id="departmentCode" /> 
 
-                        <h:outputText value="Code:" />
-                        <p:inputText value="#{humanResourceManager.selectedDepartment.code}"
-                                     id="departmentCode" /> 
+                    <p:outputLabel for="departmentName" value="Name:" style="font-weight: bold;" />
+                    <p:inputText value="#{humanResourceManager.selectedDepartment.name}"
+                                 style="width:300px"
+                                 id="departmentName" 
+                                 validator="requiredFieldValidator" /> 
 
-                        <h:outputText value="Name:" style="font-weight: bold;" />
-                        <p:inputText value="#{humanResourceManager.selectedDepartment.name}"
-                                     style="width:300px"
-                                     id="departmentName" 
-                                     validator="requiredFieldValidator" /> 
+                    <p:outputLabel for="departmentHead" value="Head:" style="font-weight: bold;" />
+                    <p:autoComplete var="departmentHead"
+                                    id="departmentHead"
+                                    dropdown="true"
+                                    scrollHeight="175"
+                                    maxlength="50"
+                                    value="#{humanResourceManager.selectedDepartment.head}"
+                                    itemLabel="#{departmentHead.name}"
+                                    itemValue="#{departmentHead}"
+                                    converter="activeEmployeeConverter"
+                                    validator="requiredFieldValidator"
+                                    forceSelection="true"
+                                    completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+                    </p:autoComplete>       
 
-                        <h:outputText value="Head:" style="font-weight: bold;" />
-                        <p:autoComplete var="departmentHead"
-                                        id="departmentHead"
+                    <p:outputLabel for="departmentActingHead" value="Acting/Deputy Head:" style="font-weight: bold;" />
+                    <h:panelGroup>
+                        <p:autoComplete var="departmentActingHead"
+                                        id="departmentActingHead"
                                         dropdown="true"
                                         scrollHeight="175"
-                                        maxlength="50"
-                                        value="#{humanResourceManager.selectedDepartment.head}"
-                                        itemLabel="#{departmentHead.name}"
-                                        itemValue="#{departmentHead}"
+                                        maxlength="100"
+                                        value="#{humanResourceManager.selectedDepartment.actingHead}"
+                                        itemLabel="#{departmentActingHead.name}"
+                                        itemValue="#{departmentActingHead}"
                                         converter="activeEmployeeConverter"
                                         validator="requiredFieldValidator"
                                         forceSelection="true"
                                         completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
-                        </p:autoComplete>       
+                        </p:autoComplete>     
+                        <p:spacer height="0" width="5"/>
+                        <p:selectBooleanCheckbox id="actingHeadActive"
+                                                 style="vertical-align: middle"
+                                                 value="#{humanResourceManager.selectedDepartment.actingHeadActive}" >                       
+                        </p:selectBooleanCheckbox>
+                        <p:spacer height="0" width="5"/>
+                        <p:tooltip for="actingHeadActive" value="Check to indicate that the selected acting head is active" showEffect="fade" hideEffect="fade" />
+                        <p:outputLabel for="actingHeadActive" value="Active" />    
+                    </h:panelGroup>
 
-                        <h:outputText value="Acting/Deputy Head:" style="font-weight: bold;" />
-                        <h:panelGroup>
-                            <p:autoComplete var="departmentActingHead"
-                                            id="departmentActingHead"
-                                            dropdown="true"
-                                            scrollHeight="175"
-                                            maxlength="100"
-                                            value="#{humanResourceManager.selectedDepartment.actingHead}"
-                                            itemLabel="#{departmentActingHead.name}"
-                                            itemValue="#{departmentActingHead}"
-                                            converter="activeEmployeeConverter"
-                                            validator="requiredFieldValidator"
-                                            forceSelection="true"
-                                            completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
-                            </p:autoComplete>     
-                            <p:spacer height="0" width="5"/>
-                            <p:selectBooleanCheckbox id="actingHeadActive"
-                                                     style="vertical-align: middle"
-                                                     value="#{humanResourceManager.selectedDepartment.actingHeadActive}" >                       
-                            </p:selectBooleanCheckbox>
-                            <p:spacer height="0" width="5"/>
-                            <p:tooltip for="actingHeadActive" value="Check to indicate that the selected acting head is active" showEffect="fade" hideEffect="fade" />
-                            <p:outputLabel for="actingHeadActive" value="Active" />    
-                        </h:panelGroup>
+                    <p:outputLabel for="departmentEmail" value="Email:" />
+                    <p:inputText value="#{humanResourceManager.selectedDepartment.internet.email1}"
+                                 style="width:300px"
+                                 id="departmentEmail" />  
+                    
+                </h:panelGrid>
+            </p:panel>
+            <p:tabView >
+                <p:tab title="Staff">
+                    <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit staff list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addDepartmentStaff}"
+                                             update=":departmentDialogForm:departmentdialog_growl"
+                                             global="true"
+                                             process="@this"
+                                             icon="pi pi-pencil">
 
-                        <h:outputText value="Email:" />
-                        <p:inputText value="#{humanResourceManager.selectedDepartment.internet.email1}"
-                                     style="width:300px"
-                                     id="departmentEmail" />  
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addDepartmentStaffDialogReturn}"
+                                        update="staffTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar>    
+                    <p:dataTable id="staffTable"
+                                 paginator="true"
+                                 rows="15"
+                                 var="employee"
+                                 style="margin-bottom: 1px;margin-top: 1px;"
+                                 value="#{humanResourceManager.selectedDepartment.staff}">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Name" />
+                            </f:facet>
+                            <h:outputText value="#{employee.name}" />
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="ID/Number" />
+                            </f:facet>
+                            <h:outputText value="#{employee.number}" />
+                        </p:column>
+
+                    </p:dataTable>
+                    <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit staff list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addDepartmentStaff}"
+                                             update=":departmentDialogForm:departmentdialog_growl"
+                                             global="true"
+                                             process="@this"
+                                             icon="pi pi-pencil">
+
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addDepartmentStaffDialogReturn}"
+                                        update="staffTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar> 
+                </p:tab>
+                <p:tab title="Job Privileges">
+                    <h:panelGrid columns="3" cellspacing="10">
+                        <p:selectBooleanCheckbox id="canEnterJob" 
+                                                 itemLabel="Enter any job"
+                                                 value="#{humanResourceManager.selectedDepartment.privilege.canEnterJob}" />
+
+
+                        <p:selectBooleanCheckbox id="canEditJob"      
+                                                 itemLabel="Edit any job"
+                                                 value="#{humanResourceManager.selectedDepartment.privilege.canEditJob}" />
+
+                        <p:selectBooleanCheckbox id="canEditDisabledJobField" 
+                                                 itemLabel="Edit disabled job field"
+                                                 value="#{humanResourceManager.selectedDepartment.privilege.canEditDisabledJobField}" />
+
+                        <p:selectBooleanCheckbox id="canEditInvoicingAndPayment"  
+                                                 itemLabel="Edit invoicing and payment"
+                                                 value="#{humanResourceManager.selectedDepartment.privilege.canEditInvoicingAndPayment}" />
+
+                        <p:selectBooleanCheckbox id="canApplyTaxesToJobCosting"  
+                                                 itemLabel="Apply taxes to job costing"
+                                                 value="#{humanResourceManager.selectedDepartment.privilege.canApplyTaxesToJobCosting}" />
+
+                        <p:selectBooleanCheckbox id="canApplyDiscountsToJobCosting"  
+                                                 itemLabel="Apply discounts to job costing"
+                                                 value="#{humanResourceManager.selectedDepartment.privilege.canApplyDiscountsToJobCosting}" />
+
                     </h:panelGrid>
-                </p:panel>
-                <p:tabView >
-                    <p:tab title="Staff">
-                        <p:toolbar>
-                            <p:toolbarGroup align="left" >   
-                                <p:commandButton title="Edit staff list"                                  
-                                                 value="Edit"
-                                                 actionListener="#{humanResourceManager.addDepartmentStaff}"
-                                                 update=":departmentDialogForm:departmentdialog_growl"
-                                                 global="true"
-                                                 process="@this"
-                                                 icon="pi pi-pencil">
+                </p:tab>
 
-                                    <p:ajax event="dialogReturn" 
-                                            listener="#{humanResourceManager.addDepartmentStaffDialogReturn}"
-                                            update="staffTable"/>
+                <p:tab title="Organizational Privileges">
+                    <h:panelGrid columns="3" cellspacing="10">
+                        <p:selectBooleanCheckbox id="canAddClient" 
+                                                 itemLabel="Add client"
+                                                 value="#{humanResourceManager.selectedDepartment.privilege.canAddClient}" />
 
-                                </p:commandButton>                           
-                            </p:toolbarGroup>                    
-                        </p:toolbar>    
-                        <p:dataTable id="staffTable"
-                                     paginator="true"
-                                     rows="15"
-                                     var="employee"
-                                     style="margin-bottom: 1px;margin-top: 1px;"
-                                     value="#{humanResourceManager.selectedDepartment.staff}">
+                        <p:selectBooleanCheckbox id="canDeleteClient" 
+                                                 itemLabel="Delete client"
+                                                 value="#{humanResourceManager.selectedDepartment.privilege.canDeleteClient}" />
+                    </h:panelGrid>
+                </p:tab>                   
 
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Name" />
-                                </f:facet>
-                                <h:outputText value="#{employee.name}" />
-                            </p:column>
+            </p:tabView>
 
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="ID/Number" />
-                                </f:facet>
-                                <h:outputText value="#{employee.number}" />
-                            </p:column>
+            <p:toolbar style="margin-top: 1px;">
+                <p:toolbarGroup>
+                    <p:commandButton value="Ok"
+                                     actionListener="#{humanResourceManager.saveSelectedDepartment}"
+                                     icon="pi pi-check"
+                                     update="departmentdialog_growl"
+                                     process="@form"/>
+                    <p:spacer width="5" />
+                    <p:commandButton value="Cancel"
+                                     actionListener="#{humanResourceManager.closeDialog}"
+                                     immediate="true"
+                                     icon="pi pi-times" />            
+                </p:toolbarGroup>
+            </p:toolbar> 
 
-                        </p:dataTable>
-                        <p:toolbar>
-                            <p:toolbarGroup align="left" >   
-                                <p:commandButton title="Edit staff list"                                  
-                                                 value="Edit"
-                                                 actionListener="#{humanResourceManager.addDepartmentStaff}"
-                                                 update=":departmentDialogForm:departmentdialog_growl"
-                                                 global="true"
-                                                 process="@this"
-                                                 icon="pi pi-pencil">
-
-                                    <p:ajax event="dialogReturn" 
-                                            listener="#{humanResourceManager.addDepartmentStaffDialogReturn}"
-                                            update="staffTable"/>
-
-                                </p:commandButton>                           
-                            </p:toolbarGroup>                    
-                        </p:toolbar> 
-                    </p:tab>
-                    <p:tab title="Job Privileges">
-                        <h:panelGrid columns="3" cellspacing="10">
-                            <p:selectBooleanCheckbox id="canEnterJob" 
-                                                     itemLabel="Enter any job"
-                                                     value="#{humanResourceManager.selectedDepartment.privilege.canEnterJob}" />
-
-
-                            <p:selectBooleanCheckbox id="canEditJob"      
-                                                     itemLabel="Edit any job"
-                                                     value="#{humanResourceManager.selectedDepartment.privilege.canEditJob}" />
-
-                            <p:selectBooleanCheckbox id="canEditDisabledJobField" 
-                                                     itemLabel="Edit disabled job field"
-                                                     value="#{humanResourceManager.selectedDepartment.privilege.canEditDisabledJobField}" />
-
-                            <p:selectBooleanCheckbox id="canEditInvoicingAndPayment"  
-                                                     itemLabel="Edit invoicing and payment"
-                                                     value="#{humanResourceManager.selectedDepartment.privilege.canEditInvoicingAndPayment}" />
-
-                            <p:selectBooleanCheckbox id="canApplyTaxesToJobCosting"  
-                                                     itemLabel="Apply taxes to job costing"
-                                                     value="#{humanResourceManager.selectedDepartment.privilege.canApplyTaxesToJobCosting}" />
-
-                            <p:selectBooleanCheckbox id="canApplyDiscountsToJobCosting"  
-                                                     itemLabel="Apply discounts to job costing"
-                                                     value="#{humanResourceManager.selectedDepartment.privilege.canApplyDiscountsToJobCosting}" />
-
-                        </h:panelGrid>
-                    </p:tab>
-
-                    <p:tab title="Organizational Privileges">
-                        <h:panelGrid columns="3" cellspacing="10">
-                            <p:selectBooleanCheckbox id="canAddClient" 
-                                                     itemLabel="Add client"
-                                                     value="#{humanResourceManager.selectedDepartment.privilege.canAddClient}" />
-
-                            <p:selectBooleanCheckbox id="canDeleteClient" 
-                                                     itemLabel="Delete client"
-                                                     value="#{humanResourceManager.selectedDepartment.privilege.canDeleteClient}" />
-                        </h:panelGrid>
-                    </p:tab>                   
-
-                </p:tabView>
-
-                <p:toolbar style="margin-top: 1px;">
-                    <p:toolbarGroup>
-                        <p:commandButton value="Ok"
-                                         actionListener="#{humanResourceManager.saveSelectedDepartment}"
-                                         icon="pi pi-check"
-                                         update="departmentdialog_growl"
-                                         process="@form"/>
-                        <p:spacer width="5" />
-                        <p:commandButton value="Cancel"
-                                         actionListener="#{humanResourceManager.closeDialog}"
-                                         immediate="true"
-                                         icon="pi pi-times" />            
-                    </p:toolbarGroup>
-                </p:toolbar> 
-
-            </p:scrollPanel>
         </h:form> 
     </h:body>
 </html>

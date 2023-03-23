@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2017  D P Bennett & Associates Limited
+Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -23,10 +23,10 @@ Email: info@dpbennett.com.jm
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
-    
+
     <h:panelGrid id="generalDetailsPanelGrid" columns="3" cellspacing="5" >
 
-        <p:outputLabel for="manufacturerActive" value="Active: " style="font-weight: bold;" />  
+        <p:outputLabel for="manufacturerActive" value="Active" style="font-weight: bold;" />  
         <h:panelGroup>
             <p:selectBooleanCheckbox style="vertical-align: middle"
                                      id="manufacturerActive"
@@ -43,7 +43,7 @@ Email: info@dpbennett.com.jm
         </h:panelGroup>
         <h:outputText value="" />
 
-        <h:outputText value="Name:" style="font-weight: bold;" />       
+        <h:outputLabel for="manufacturerName" value="Name" style="font-weight: bold;" />       
         <p:inputText value="#{humanResourceManager.selectedManufacturer.name}"
                      id="manufacturerName"
                      validator="manufacturerValidator">
@@ -57,8 +57,9 @@ Email: info@dpbennett.com.jm
         </p:inputText>     
         <h:outputText value="" />     
 
-        <h:outputText value="Code:" />       
-        <p:inputText value="#{humanResourceManager.selectedManufacturer.code}" >
+        <h:outputLabel for="manufacturerCode" value="Code" />       
+        <p:inputText value="#{humanResourceManager.selectedManufacturer.code}"
+                     id="manufacturerCode" >
 
             <p:ajax event="change"
                     global="true"      
@@ -68,8 +69,9 @@ Email: info@dpbennett.com.jm
         </p:inputText>     
         <h:outputText value="" /> 
 
-        <h:outputText value="Status:" style="font-weight: bold"/>
-        <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.status}" >
+        <h:outputLabel for="manufacturerId" value="Status" style="font-weight: bold"/>
+        <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.status}" 
+                         id="manufacturerId">
 
             <p:ajax
                 listener="#{humanResourceManager.updateManufacturer}"
@@ -80,8 +82,9 @@ Email: info@dpbennett.com.jm
         </p:selectOneMenu>  
         <h:outputText value="" /> 
 
-        <h:outputText value="Registration status:" style="font-weight: bold"/>
-        <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.registrationStatus}" >
+        <h:outputLabel for="registrationStatus" value="Registration status" style="font-weight: bold"/>
+        <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.registrationStatus}"
+                         id="registrationStatus">
 
             <p:ajax
                 listener="#{humanResourceManager.updateManufacturer}"
@@ -92,7 +95,7 @@ Email: info@dpbennett.com.jm
         </p:selectOneMenu>  
         <h:outputText value="" />
 
-        <h:outputText value="Registration due date:" />
+        <h:outputLabel for="registrationDueDate" value="Registration due date" />
         <p:calendar id="registrationDueDate"
                     readonlyInput="true"
                     navigator="true" 
@@ -108,8 +111,9 @@ Email: info@dpbennett.com.jm
         </p:calendar>
         <h:outputText value="" />
 
-        <h:outputText value="Date last visited:" />
+        <h:outputLabel for="dateLastVisited" value="Date last visited" />
         <p:calendar readonlyInput="true"
+                    id="dateLastVisited"
                     navigator="true" 
                     pattern="MMM dd, yyyy" 
                     value="#{humanResourceManager.selectedManufacturer.dateLastVisited}" >
@@ -123,8 +127,9 @@ Email: info@dpbennett.com.jm
         </p:calendar>
         <h:outputText value="" />
 
-        <h:outputText style="vertical-align: top;"
-                      value="Products:" />
+        <h:outputLabel style="vertical-align: top;"
+                       for="marketProducts"                      
+                       value="Products" />
         <h:panelGroup>
             <h:panelGrid columns="2" >
                 <p:autoComplete id="marketProducts"

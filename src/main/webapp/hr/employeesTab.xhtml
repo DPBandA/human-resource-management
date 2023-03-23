@@ -75,6 +75,7 @@ Email: info@dpbennett.com.jm
                  var="employee"                                        
                  paginator="true"
                  rows="15"
+                 reflow="true"
                  style="margin-top: 1px;"
                  widgetVar="employeesTableVar"
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
@@ -121,7 +122,7 @@ Email: info@dpbennett.com.jm
             <h:outputText value="#{employee.department.name}" />
         </p:column>       
 
-        <p:column style="width:32px">
+        <p:column>
             <p:commandButton title="View or edit employee"   
                              actionListener="#{humanResourceManager.editEmployee}"
                              global="true"
@@ -136,7 +137,6 @@ Email: info@dpbennett.com.jm
 
             </p:commandButton>           
         </p:column>
-
 
     </p:dataTable>
 </html>

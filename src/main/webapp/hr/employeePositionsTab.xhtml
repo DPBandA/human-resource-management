@@ -73,6 +73,7 @@ Email: info@dpbennett.com.jm
                  var="position"                                        
                  paginator="true"
                  rows="15"
+                 reflow="true"
                  style="margin-top: 1px;"
                  widgetVar="positionsTableVar"
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
@@ -114,7 +115,7 @@ Email: info@dpbennett.com.jm
             </h:outputText>
         </p:column>
 
-        <p:column style="width:32px">
+        <p:column>
             <p:commandButton title="View or edit position"   
                              actionListener="#{humanResourceManager.editEmployeePosition}"
                              global="true"

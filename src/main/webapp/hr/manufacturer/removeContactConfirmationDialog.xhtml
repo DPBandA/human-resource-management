@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM)
-Copyright (C) 2017  D P Bennett & Associates Limited
+Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -21,12 +21,13 @@ Email: info@dpbennett.com.jm
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">   
-    
+
     <h:form>
         <p:confirmDialog severity="alert"
                          closable="false"
                          message="Are you sure you wish to delete this contact?"
                          header="Delete Contact?"
+                         responsive="true"
                          widgetVar="deleteContactDialog"
                          width="400">
             <p:commandButton value="Yes"
