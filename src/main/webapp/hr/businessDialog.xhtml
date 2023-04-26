@@ -61,7 +61,12 @@ Email: info@dpbennett.com.jm
             </p:toolbar>
 
             <p:panel style="margin-bottom: 1px;">
-                <h:panelGrid columns="2" cellspacing="5">               
+                <h:panelGrid columns="2" cellspacing="5">   
+                    <p:outputLabel for="businessActive" value="Active"
+                                   style="font-weight: bold;" />               
+                    <p:selectBooleanCheckbox id="businessActive"
+                                             style="vertical-align: middle"
+                                             value="#{humanResourceManager.selectedBusiness.active}" />
 
                     <h:outputLabel for="businessName" value="Name" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedBusiness.name}"
@@ -98,8 +103,6 @@ Email: info@dpbennett.com.jm
                         value="#{humanResourceManager.selectedBusiness.notes}"
                         id="notes"
                         maxlength="250"
-                        counter="notes"
-                        counterTemplate="{0} characters remaining."
                         autoResize="false"
                         rows="3"
                         style="width:100%" />   

@@ -50,25 +50,24 @@ Email: info@dpbennett.com.jm
             </p:inputText>
         </p:toolbarGroup>
 
-        <ui:remove>
-            <p:toolbarGroup align="right">
-                <p:outputLabel for="activeDivisionsOnly" value="Active divisions only: " />  
-                <h:panelGroup>
-                    <p:selectBooleanCheckbox style="vertical-align: middle"
-                                             id="activeDivisionsOnly"
-                                             value="#{humanResourceManager.isActiveDivisionsOnly}" >
-                        <p:ajax  update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
-                                 listener="#{humanResourceManager.doDivisionSearch}"
-                                 event="change"                                      
-                                 process="@this"/>
-                    </p:selectBooleanCheckbox>            
-                    <p:tooltip for="activeDivisionsOnly" value="Check to show active divisions only" 
-                               showEffect="fade" hideEffect="fade" />
-                    <p:spacer width="15" />                
-                </h:panelGroup>
-            </p:toolbarGroup>
-        </ui:remove>
-        
+        <p:toolbarGroup align="right">
+            <p:outputLabel for="activeDivisionsOnly" value="Active divisions only" /> 
+            <p:spacer width="5" />
+            <h:panelGroup>
+                <p:selectBooleanCheckbox style="vertical-align: middle"
+                                         id="activeDivisionsOnly"
+                                         value="#{humanResourceManager.isActiveDivisionsOnly}" >
+                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
+                             listener="#{humanResourceManager.doDivisionSearch}"
+                             event="change"                                      
+                             process="@this"/>
+                </p:selectBooleanCheckbox>            
+                <p:tooltip for="activeDivisionsOnly" value="Check to show active divisions only" 
+                           showEffect="fade" hideEffect="fade" />
+                <p:spacer width="15" />                
+            </h:panelGroup>
+        </p:toolbarGroup>
+
     </p:toolbar>    
 
     <p:dataTable id="divisionsTable"                                       
@@ -91,7 +90,7 @@ Email: info@dpbennett.com.jm
             </f:facet>
             <h:outputText value="#{division.name}" />
         </p:column>   
-        
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Code"/>

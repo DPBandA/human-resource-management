@@ -50,24 +50,25 @@ Email: info@dpbennett.com.jm
             </p:inputText>
         </p:toolbarGroup>
 
-        <ui:remove>
-            <p:toolbarGroup align="right">
-                <p:outputLabel for="activeSubgroupsOnly" value="Active subgroups only: " />  
-                <h:panelGroup>
-                    <p:selectBooleanCheckbox style="vertical-align: middle"
-                                             id="activeSubgroupsOnly"
-                                             value="#{humanResourceManager.isActiveSubgroupsOnly}" >
-                        <p:ajax  update=":appForm:mainTabView:humanResourceTabView:subgroupsTable"
-                                 listener="#{humanResourceManager.doSubgroupSearch}"
-                                 event="change"                                      
-                                 process="@this"/>
-                    </p:selectBooleanCheckbox>            
-                    <p:tooltip for="activeSubgroupsOnly" value="Check to show active subgroups only" 
-                               showEffect="fade" hideEffect="fade" />
-                    <p:spacer width="15" />                
-                </h:panelGroup>
-            </p:toolbarGroup>
-        </ui:remove>
+
+        <p:toolbarGroup align="right">
+            <p:outputLabel for="activeSubgroupsOnly" value="Active subgroups only " />  
+            <p:spacer width="5" />
+            <h:panelGroup>
+                <p:selectBooleanCheckbox style="vertical-align: middle"
+                                         id="activeSubgroupsOnly"
+                                         value="#{humanResourceManager.isActiveSubgroupsOnly}" >
+                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:subgroupsTable"
+                             listener="#{humanResourceManager.doSubgroupSearch}"
+                             event="change"                                      
+                             process="@this"/>
+                </p:selectBooleanCheckbox>            
+                <p:tooltip for="activeSubgroupsOnly" value="Check to show active subgroups only" 
+                           showEffect="fade" hideEffect="fade" />
+                <p:spacer width="15" />                
+            </h:panelGroup>
+        </p:toolbarGroup>
+
     </p:toolbar>    
 
     <p:dataTable id="subgroupsTable"                                       
@@ -90,14 +91,14 @@ Email: info@dpbennett.com.jm
             </f:facet>
             <h:outputText value="#{subgroup.name}" />
         </p:column>   
-        
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Code"/>
             </f:facet>
             <h:outputText value="#{subgroup.code}" />
         </p:column>
-       
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Notes"/>
