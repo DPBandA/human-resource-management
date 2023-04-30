@@ -94,6 +94,7 @@ Email: info@dpbennett.com.jm
                                     dropdown="true"
                                     scrollHeight="200"                         
                                     multiple="true"
+                                    cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployeePosition}" />
 
                     <h:outputLabel value="Email:" for="employeeEmail" style="font-weight: bold;" />
@@ -121,6 +122,7 @@ Email: info@dpbennett.com.jm
                                     itemLabel="#{department.truncatedName}"                                     
                                     validator="requiredFieldValidator"
                                     converter="activeDepartmentConverter"
+                                    cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveDepartment}" >                
                     </p:autoComplete>                    
 
