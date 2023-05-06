@@ -23,7 +23,7 @@ Email: info@dpbennett.com.jm
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
-    
+
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />      
         <title>Employee</title>
@@ -31,7 +31,7 @@ Email: info@dpbennett.com.jm
         <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css" /> 
         <link rel="stylesheet" href="../css/main.css" />
     </h:head>
-    
+
     <h:body > 
 
         <ui:include src="../common/commonDialogs.xhtml"/>   
@@ -56,78 +56,115 @@ Email: info@dpbennett.com.jm
                 </p:toolbarGroup>
             </p:toolbar>
 
-            <p:panel style="margin-top: 1px;margin-bottom: 1px;">
-                <h:panelGrid columns="2">
-                    <p:outputLabel for="employeeActive" value="Active:" style="font-weight: bold;" />                                  
-                    <p:selectBooleanCheckbox id="employeeActive"
-                                             style="vertical-align: middle"
-                                             value="#{humanResourceManager.selectedEmployee.active}" />    
+            <p:tabView >
+                <p:tab title="General">
+                    <h:panelGrid columns="2">
+                        <p:outputLabel for="employeeActive" value="Active" style="font-weight: bold;" />                                  
+                        <p:selectBooleanCheckbox id="employeeActive"
+                                                 style="vertical-align: middle"
+                                                 value="#{humanResourceManager.selectedEmployee.active}" />    
 
-                    <h:outputLabel value="ID/Number:" for="id_number" />
-                    <p:inputText value="#{humanResourceManager.selectedEmployee.number}"
-                                 id="id_number" />
+                        <h:outputLabel value="ID/Number" for="id_number" />
+                        <p:inputText value="#{humanResourceManager.selectedEmployee.number}"
+                                     id="id_number" />
 
-                    <h:outputLabel for="employeeTitle" value="Title:" style="font-weight: bold;" />
-                    <p:selectOneMenu value="#{humanResourceManager.selectedEmployee.title}" 
-                                     id="employeeTitle" >
-                        <f:selectItems value="#{systemManager.personalTitles}" />
-                    </p:selectOneMenu>
+                        <h:outputLabel for="employeeSex" value="Sex" style="font-weight: bold;" />
+                        <p:selectOneMenu value="#{humanResourceManager.selectedEmployee.sex}" 
+                                         id="employeeSex" >
+                            <f:selectItems value="#{systemManager.sexes}" />
+                        </p:selectOneMenu>
 
-                    <h:outputLabel value="First name:" for="firstName" style="font-weight: bold;"/>
-                    <p:inputText value="#{humanResourceManager.selectedEmployee.firstName}"
-                                 id="firstName" 
-                                 validator="requiredFieldValidator" />
+                        <h:outputLabel for="employeeTitle" value="Title" style="font-weight: bold;" />
+                        <p:selectOneMenu value="#{humanResourceManager.selectedEmployee.title}" 
+                                         id="employeeTitle" >
+                            <f:selectItems value="#{systemManager.personalTitles}" />
+                        </p:selectOneMenu>
 
-                    <h:outputLabel value="Last name:" for="lastName" style="font-weight: bold;" />
-                    <p:inputText value="#{humanResourceManager.selectedEmployee.lastName}"
-                                 id="lastName"                                  
-                                 validator="requiredFieldValidator" />
+                        <h:outputLabel value="First name" for="firstName" style="font-weight: bold;"/>
+                        <p:inputText value="#{humanResourceManager.selectedEmployee.firstName}"
+                                     id="firstName" 
+                                     validator="requiredFieldValidator" />
 
-                    <h:outputLabel for="position" value="Position(s): " />       
-                    <p:autoComplete id="position"
-                                    var="position"   
-                                    value="#{humanResourceManager.selectedEmployee.positions}"
-                                    itemLabel="#{position.title}"
-                                    itemValue="#{position}"                                    
-                                    converter="activeEmployeePositionConverter"
-                                    forceSelection="true" 
-                                    dropdown="true"
-                                    scrollHeight="200"                         
-                                    multiple="true"
-                                    cache="true"
-                                    completeMethod="#{humanResourceManager.completeActiveEmployeePosition}" />
+                        <h:outputLabel value="Middle name" for="middleName" />
+                        <p:inputText value="#{humanResourceManager.selectedEmployee.middleName}"
+                                     id="middleName" />
 
-                    <h:outputLabel value="Email:" for="employeeEmail" style="font-weight: bold;" />
-                    <p:inputText value="#{humanResourceManager.selectedEmployee.internet.email1}"
-                                 id="employeeEmail" 
-                                 validatorMessage="Please enter a valid email" 
-                                 requiredMessage="Please enter a valid email" >
+                        <h:outputLabel value="Last name" for="lastName" style="font-weight: bold;" />
+                        <p:inputText value="#{humanResourceManager.selectedEmployee.lastName}"
+                                     id="lastName"                                  
+                                     validator="requiredFieldValidator" />
 
-                        <f:validateRegex
-                            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                        <h:outputLabel value="Suffix(es)" for="suffixes" />
+                        <p:inputText value="#{humanResourceManager.selectedEmployee.nameSuffix}"
+                                     placeholder="e.g. Jr., III, Ph.D."
+                                     id="suffixes" />
 
-                    </p:inputText>
+                        <h:outputLabel value="Email" for="employeeEmail" style="font-weight: bold;" />
+                        <p:inputText value="#{humanResourceManager.selectedEmployee.internet.email1}"
+                                     id="employeeEmail" 
+                                     validatorMessage="Please enter a valid email" 
+                                     requiredMessage="Please enter a valid email" >
 
-                    <h:outputLabel for="departmentName" value="Department:" style="font-weight: bold;" />
-                    <p:autoComplete var="department"
-                                    dropdown="true"
-                                    id="departmentName"
-                                    forceSelection="true"                               
-                                    size="40"
-                                    maxlength="250"
-                                    scrollHeight="200"
-                                    value="#{humanResourceManager.selectedEmployee.department}"
-                                    title="#{humanResourceManager.selectedEmployee.department}"
-                                    itemValue="#{department}"
-                                    itemLabel="#{department.truncatedName}"                                     
-                                    validator="requiredFieldValidator"
-                                    converter="activeDepartmentConverter"
-                                    cache="true"
-                                    completeMethod="#{humanResourceManager.completeActiveDepartment}" >                
-                    </p:autoComplete>                    
+                            <f:validateRegex
+                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 
-                </h:panelGrid>
-            </p:panel>
+                        </p:inputText>
+
+                        <h:outputLabel for="departmentName" value="Department" style="font-weight: bold;" />
+                        <p:autoComplete var="department"
+                                        dropdown="true"
+                                        id="departmentName"
+                                        forceSelection="true"                               
+                                        size="40"
+                                        maxlength="250"
+                                        scrollHeight="200"
+                                        value="#{humanResourceManager.selectedEmployee.department}"
+                                        title="#{humanResourceManager.selectedEmployee.department}"
+                                        itemValue="#{department}"
+                                        itemLabel="#{department.truncatedName}"                                     
+                                        validator="requiredFieldValidator"
+                                        converter="activeDepartmentConverter"
+                                        cache="true"
+                                        completeMethod="#{humanResourceManager.completeActiveDepartment}" >                
+                        </p:autoComplete>                    
+
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Employment">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="dateHired" value="Date hired" />
+                        <p:calendar id="dateHired"
+                                    readonlyInput="false"
+                                    navigator="true" 
+                                    pattern="MMM dd, yyyy" 
+                                    value="#{humanResourceManager.selectedEmployee.dateHired}" />
+
+                        <h:outputLabel for="position" value="Position(s)" />       
+                        <p:autoComplete id="position"
+                                        var="position"   
+                                        value="#{humanResourceManager.selectedEmployee.positions}"
+                                        itemLabel="#{position.title}"
+                                        itemValue="#{position}"                                    
+                                        converter="activeEmployeePositionConverter"
+                                        forceSelection="true" 
+                                        dropdown="true"
+                                        scrollHeight="200"                         
+                                        multiple="true"
+                                        cache="true"
+                                        completeMethod="#{humanResourceManager.completeActiveEmployeePosition}" />
+
+                        <h:outputLabel for="notes" value="Notes" />   
+                        <p:inputTextarea
+                            value="#{humanResourceManager.selectedEmployee.notes}"
+                            id="notes"
+                            maxlength="250"
+                            autoResize="false"
+                            rows="3"
+                            style="width:100%" />   
+
+                    </h:panelGrid>
+                </p:tab>
+            </p:tabView>
 
             <p:toolbar>
                 <p:toolbarGroup align="left">
