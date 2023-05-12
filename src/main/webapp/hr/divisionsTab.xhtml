@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM)
-Copyright (C) 2021  D P Bennett & Associates Limited
+Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -41,7 +41,7 @@ Email: info@dpbennett.com.jm
             <p:spacer width="20" />
             <p:inputText id="divisionSearchText" 
                          value="#{humanResourceManager.divisionSearchText}"
-                         style="width:300px;" placeholder="Enter any part of name">
+                         style="width:300px;" placeholder="Enter search text">
                 <p:ajax event="keyup"
                         global="false"
                         update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
@@ -50,31 +50,31 @@ Email: info@dpbennett.com.jm
             </p:inputText>
         </p:toolbarGroup>
 
-        <ui:remove>
-            <p:toolbarGroup align="right">
-                <p:outputLabel for="activeDivisionsOnly" value="Active divisions only: " />  
-                <h:panelGroup>
-                    <p:selectBooleanCheckbox style="vertical-align: middle"
-                                             id="activeDivisionsOnly"
-                                             value="#{humanResourceManager.isActiveDivisionsOnly}" >
-                        <p:ajax  update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
-                                 listener="#{humanResourceManager.doDivisionSearch}"
-                                 event="change"                                      
-                                 process="@this"/>
-                    </p:selectBooleanCheckbox>            
-                    <p:tooltip for="activeDivisionsOnly" value="Check to show active divisions only" 
-                               showEffect="fade" hideEffect="fade" />
-                    <p:spacer width="15" />                
-                </h:panelGroup>
-            </p:toolbarGroup>
-        </ui:remove>
-        
+        <p:toolbarGroup align="right">
+            <p:outputLabel for="activeDivisionsOnly" value="Active divisions only" /> 
+            <p:spacer width="5" />
+            <h:panelGroup>
+                <p:selectBooleanCheckbox style="vertical-align: middle"
+                                         id="activeDivisionsOnly"
+                                         value="#{humanResourceManager.isActiveDivisionsOnly}" >
+                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
+                             listener="#{humanResourceManager.doDivisionSearch}"
+                             event="change"                                      
+                             process="@this"/>
+                </p:selectBooleanCheckbox>            
+                <p:tooltip for="activeDivisionsOnly" value="Check to show active divisions only" 
+                           showEffect="fade" hideEffect="fade" />
+                <p:spacer width="15" />                
+            </h:panelGroup>
+        </p:toolbarGroup>
+
     </p:toolbar>    
 
     <p:dataTable id="divisionsTable"                                       
                  var="division"                                        
                  paginator="true"
                  rows="15"
+                 reflow="true"
                  style="margin-bottom: 1px;margin-top: 1px;"
                  widgetVar="divisionsTableVar"
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
@@ -90,7 +90,7 @@ Email: info@dpbennett.com.jm
             </f:facet>
             <h:outputText value="#{division.name}" />
         </p:column>   
-        
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Code"/>
@@ -114,7 +114,7 @@ Email: info@dpbennett.com.jm
             </p:column>  
         </ui:remove>
 
-        <p:column style="width:32px">
+        <p:column>
             <p:commandButton title="View or edit division"   
                              actionListener="#{humanResourceManager.editDivision}"
                              global="true"

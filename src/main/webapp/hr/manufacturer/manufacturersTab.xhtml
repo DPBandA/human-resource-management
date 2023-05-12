@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2021  D P Bennett & Associates Limited
+Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -75,9 +75,10 @@ Email: info@dpbennett.com.jm
     <p:dataTable id="manufacturersTable"
                  var="manufacturer"
                  style="margin-bottom: 1px;margin-top: 1px;"
-                 editable="true" 
+                 editable="false" 
                  editMode="cell"
-                 paginator="true"                                 
+                 paginator="true"   
+                 reflow="true"
                  rows="15"
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                  value="#{humanResourceManager.foundManufacturers}">                        
@@ -132,7 +133,7 @@ Email: info@dpbennett.com.jm
             </p:cellEditor>         
         </p:column>
 
-        <p:column style="width:32px">
+        <p:column>
             <p:commandButton icon="pi pi-pencil"
                              actionListener="#{humanResourceManager.editSelectedManufacturer}"
                              process="@this"

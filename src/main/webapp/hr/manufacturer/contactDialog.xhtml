@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2021  D P Bennett & Associates Limited
+Copyright (C) 2023  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -30,6 +30,7 @@ Email: info@dpbennett.com.jm
                   draggable="true"
                   closable="false"
                   modal="true"
+                  responsive="true"
                   widgetVar="contactFormDialog"
                   header="Contact Detail" >
 
@@ -50,7 +51,7 @@ Email: info@dpbennett.com.jm
             <p:panel style="margin-top: 1px;margin-bottom: 1px;">
                 <h:panelGrid columns="2" style="width: 85%">
 
-                    <h:outputText value="Type:" style="font-weight: bold" />
+                    <h:outputLabel for="contactType" value="Type" style="font-weight: bold" />
                     <p:selectOneMenu value="#{humanResourceManager.selectedContact.type}"
                                      id="contactType" 
                                      maxlength="50"
@@ -65,15 +66,16 @@ Email: info@dpbennett.com.jm
 
                     </p:selectOneMenu>
 
-                    <h:outputText value="Title:" style="font-weight: bold;" />
-                    <p:selectOneMenu value="#{humanResourceManager.selectedContact.title}" >
+                    <h:outputLabel for="contactTitle" value="Title" style="font-weight: bold;" />
+                    <p:selectOneMenu id="contactTitle"
+                                     value="#{humanResourceManager.selectedContact.title}" >
                         <p:ajax
                             event="change"
                             global="true"
                             listener="#{humanResourceManager.updateContact}"
                             process="@this" />
 
-                        <f:selectItems value="#{humanResourceManager.personalTitles}" />
+                        <f:selectItems value="#{systemManager.personalTitles}" />
 
                     </p:selectOneMenu>
                     <ui:remove>
@@ -87,7 +89,8 @@ Email: info@dpbennett.com.jm
                         </p:inputText>         
                     </ui:remove>
 
-                    <h:outputText value="Firstname:" style="font-weight: bold" />
+                    <h:outputLabel for="contactFirstname" value="Firstname" 
+                                   style="font-weight: bold" />
                     <p:inputText value="#{humanResourceManager.selectedContact.firstName}"
                                  id="contactFirstname"
                                  maxlength="50"
@@ -99,7 +102,8 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputText value="Lastname:" style="font-weight: bold" />
+                    <h:outputLabel for="contactLastname" value="Lastname" 
+                                   style="font-weight: bold" />
                     <p:inputText value="#{humanResourceManager.selectedContact.lastName}"
                                  id="contactLastname"
                                  maxlength="50"
@@ -111,8 +115,9 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputText value="Position:" />
+                    <h:outputLabel for="contactPosition" value="Position" />
                     <p:inputText value="#{humanResourceManager.selectedContact.position}"
+                                 id="contactPosition"
                                  maxlength="50"
                                  style="width: 100%" >
                         <p:ajax event="change"
@@ -121,9 +126,10 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputText value="Phone:" />
+                    <h:outputLabel for="contactPhone" value="Phone" />
                     <p:inputText value="#{humanResourceManager.selectedContact.mainPhoneNumber.localNumber}"
                                  maxlength="50"
+                                 id="contactPhone"
                                  style="width: 100%" >
                         <p:ajax event="change"
                                 global="true"                                    
@@ -131,8 +137,9 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputText value="Email:" />
+                    <h:outputLabel for="contactEmail" value="Email" />
                     <p:inputText value="#{humanResourceManager.selectedContact.internet.email1}"
+                                 id="contactEmail"
                                  maxlength="50"
                                  style="width: 100%" >                
                         <p:ajax event="change"
@@ -141,9 +148,10 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputText value="Website:" />
+                    <h:outputLabel for="contactWebsite" value="Website" />
                     <p:inputText value="#{humanResourceManager.selectedContact.internet.website1}"
                                  maxlength="50"
+                                 id="contactWebsite"
                                  style="width: 100%" >
                         <p:ajax event="change"
                                 global="true"                                    
@@ -151,9 +159,10 @@ Email: info@dpbennett.com.jm
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputText value="Fax:" />
+                    <h:outputLabel for="contactFax" value="Fax" />
                     <p:inputText value="#{humanResourceManager.selectedContact.mainFaxNumber.localNumber}"
                                  maxlength="50"
+                                 id="contactFax"
                                  style="width: 100%">
                         <p:ajax event="change"
                                 global="true"                                    

@@ -25,16 +25,16 @@ Email: info@dpbennett.com.jm
     <p:toolbar>
         <p:toolbarGroup align="left">
 
-            <p:commandButton title="Add new user"                                  
+            <p:commandButton title="Add new employee"                                  
                              value="New"                                                     
-                             actionListener="#{systemManager.createNewUser}"
+                             actionListener="#{humanResourceManager.createNewEmployee}"
                              global="true"
                              process="@this"
                              icon="pi pi-plus">
 
                 <p:ajax event="dialogReturn" 
-                        listener="#{systemManager.doUserSearch}"
-                        update=":appForm:mainTabView:humanResourceTabView:usersTable"/>
+                        listener="#{humanResourceManager.doEmployeeSearch}"
+                        update=":appForm:mainTabView:humanResourceTabView:employeesTable"/>
 
             </p:commandButton>       
 
