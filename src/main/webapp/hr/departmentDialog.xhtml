@@ -37,7 +37,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="departmentDialogForm">        
 
-            <p:growl id="departmentdialog_growl" life="5000" showDetail="true"/>
+            <p:growl id="departmentdialog_growl" life="5000" showDetail="false"/>
 
             <p:toolbar style="margin-bottom: 1px;">
                 <p:toolbarGroup>
@@ -52,27 +52,42 @@ Email: info@dpbennett.com.jm
                                      immediate="true"
                                      icon="pi pi-times" />            
                 </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
+                </p:toolbarGroup>
             </p:toolbar>
 
             <p:panel style="margin-bottom: 1px;">
                 <h:panelGrid columns="2">
-                    <p:outputLabel for="departmentActive" value="Active:"
+                    <p:outputLabel for="departmentActive" 
+                                   value="Active"
                                    style="font-weight: bold;" />               
                     <p:selectBooleanCheckbox id="departmentActive"
                                              style="vertical-align: middle"
+                                             required="true"
                                              value="#{humanResourceManager.selectedDepartment.active}" />                       
 
-                    <p:outputLabel for="departmentCode" value="Code:" />
+                    <p:outputLabel for="departmentCode" 
+                                   value="Code" 
+                                   style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedDepartment.code}"
+                                 required="true"
+                                 requiredMessage="Deparment Code Required"
                                  id="departmentCode" /> 
 
-                    <p:outputLabel for="departmentName" value="Name:" style="font-weight: bold;" />
+                    <p:outputLabel for="departmentName" value="Name" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedDepartment.name}"
                                  style="width:300px"
                                  id="departmentName" 
+                                 required="true"
+                                 requiredMessage="Deparment Name Required"
                                  validator="requiredFieldValidator" /> 
 
-                    <p:outputLabel for="departmentHead" value="Head:" style="font-weight: bold;" />
+                    <p:outputLabel for="departmentHead" value="Head" style="font-weight: bold;" />
                     <p:autoComplete var="departmentHead"
                                     id="departmentHead"
                                     dropdown="true"
@@ -83,12 +98,16 @@ Email: info@dpbennett.com.jm
                                     itemValue="#{departmentHead}"
                                     converter="activeEmployeeConverter"
                                     validator="requiredFieldValidator"
+                                    required="true"
+                                    requiredMessage="Deparment Head Required"
                                     forceSelection="true"
                                     cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
                     </p:autoComplete>       
 
-                    <p:outputLabel for="departmentActingHead" value="Acting/Deputy Head:" style="font-weight: bold;" />
+                    <p:outputLabel for="departmentActingHead" 
+                                   value="Acting/Deputy Head" 
+                                   style="font-weight: bold;" />
                     <h:panelGroup>
                         <p:autoComplete var="departmentActingHead"
                                         id="departmentActingHead"
@@ -102,6 +121,8 @@ Email: info@dpbennett.com.jm
                                         validator="requiredFieldValidator"
                                         forceSelection="true"
                                         cache="true"
+                                        required="true"
+                                        requiredMessage="Deparment Acting Head Required"
                                         completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
                         </p:autoComplete>     
                         <p:spacer height="0" width="5"/>
@@ -114,11 +135,11 @@ Email: info@dpbennett.com.jm
                         <p:outputLabel for="actingHeadActive" value="Active" />    
                     </h:panelGroup>
 
-                    <p:outputLabel for="departmentEmail" value="Email:" />
+                    <p:outputLabel for="departmentEmail" value="Email" />
                     <p:inputText value="#{humanResourceManager.selectedDepartment.internet.email1}"
                                  style="width:300px"
                                  id="departmentEmail" />  
-                    
+
                 </h:panelGrid>
             </p:panel>
             <p:tabView >
@@ -236,6 +257,13 @@ Email: info@dpbennett.com.jm
                                      actionListener="#{humanResourceManager.closeDialog}"
                                      immediate="true"
                                      icon="pi pi-times" />            
+                </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
                 </p:toolbarGroup>
             </p:toolbar> 
 

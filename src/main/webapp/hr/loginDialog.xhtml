@@ -38,19 +38,22 @@ Email: info@dpbennett.com.jm
             <p:outputLabel id="loginMessage" 
                            value="#{humanResourceManager.logonMessage}" style="font-weight: bold" />
             <h:panelGrid columns="2" cellspacing="10">
-                <p:outputLabel for="username" value="Username" style="font-weight: bold" />
+                <p:outputLabel value="Username" 
+                               style="font-weight: bold;" />
                 <p:inputText value="#{humanResourceManager.username}"
                              id="username" 
                              required="true"
                              validatorMessage="Please enter a valid username" />
 
-                <p:outputLabel for="password" value="Password" style="font-weight: bold" />
+                <p:outputLabel value="Password"
+                               style="font-weight: bold" />
                 <p:password id="password"
                             value="#{humanResourceManager.password}"
                             maxlength="255" 
                             redisplay="true"
                             toggleMask="true"
                             label="password"
+                            required="true"
                             feedback="false" />               
 
                 <f:facet name="footer">

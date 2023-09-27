@@ -37,7 +37,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="divisionDialogForm">     
 
-            <p:growl id="divisiondialog_growl" life="5000" showDetail="true"/>
+            <p:growl id="divisiondialog_growl" life="5000" showDetail="false"/>
 
             <ui:include src="divisionDialogToolbar.xhtml"/>
 
@@ -46,15 +46,25 @@ Email: info@dpbennett.com.jm
                     <p:outputLabel for="divisionActive" value="Active"
                                    style="font-weight: bold;" />               
                     <p:selectBooleanCheckbox id="divisionActive"
+                                             required="true"
                                              style="vertical-align: middle"
                                              value="#{humanResourceManager.selectedDivision.active}" />
-
 
                     <p:outputLabel for="divisionName" value="Name" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedDivision.name}"
                                  id="divisionName"
-                                 style="width:300px"
+                                 required="true"
+                                 requiredMessage="Division Name Required"
                                  validator="requiredFieldValidator" /> 
+
+                    <p:outputLabel for="divisionCode" value="Code" style="font-weight: bold;" />
+                    <p:inputText value="#{humanResourceManager.selectedDivision.code}"
+                                 id="divisionCode"
+                                 style="width:100%;"
+                                 validatorMessage="A valid code is required"
+                                 required="true"
+                                 requiredMessage="Division Code Required"
+                                 validator="requiredFieldValidator" />
 
                     <p:outputLabel for="divisionHead" value="Head" style="font-weight: bold;" />
                     <p:autoComplete var="divisionHead"
@@ -69,16 +79,11 @@ Email: info@dpbennett.com.jm
                                     validator="requiredFieldValidator"
                                     validatorMessage="A valid head is required"
                                     forceSelection="true"
+                                    required="true"
+                                    requiredMessage="Division Head Required"
                                     cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
                     </p:autoComplete>
-
-                    <p:outputLabel for="divisionCode" value="Code" style="font-weight: bold;" />
-                    <p:inputText value="#{humanResourceManager.selectedDivision.code}"
-                                 id="divisionCode"
-                                 style="width:300px"
-                                 validatorMessage="A valid code is required"
-                                 validator="requiredFieldValidator" />
 
                     <p:outputLabel for="notes" value="Notes" />
                     <p:inputTextarea

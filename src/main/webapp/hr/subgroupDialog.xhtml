@@ -37,7 +37,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="subgroupDialogForm">     
 
-            <p:growl id="subgroupdialog_growl" life="5000" showDetail="true"/>
+            <p:growl id="subgroupdialog_growl" life="5000" showDetail="false"/>
 
             <ui:include src="subgroupDialogToolbar.xhtml"/>
 
@@ -47,14 +47,21 @@ Email: info@dpbennett.com.jm
                                    style="font-weight: bold;" />               
                     <p:selectBooleanCheckbox id="subgroupActive"
                                              style="vertical-align: middle"
+                                             required="true"
                                              value="#{humanResourceManager.selectedSubgroup.active}" />
 
+                    <p:outputLabel for="subgroupCode" value="Code" style="font-weight: bold;" />
+                    <p:inputText value="#{humanResourceManager.selectedSubgroup.code}"
+                                 id="subgroupCode"
+                                 validatorMessage="A valid code is required"
+                                 validator="requiredFieldValidator" />
 
                     <p:outputLabel for="subgroupName" value="Name" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedSubgroup.name}"
                                  id="subgroupName"
-                                 style="width:300px"
                                  validatorMessage="A valid name is required"
+                                 required="true"
+                                 requiredMessage="Subgroup Code Required"
                                  validator="requiredFieldValidator" /> 
 
                     <p:outputLabel for="subgroupHead" value="Head" style="font-weight: bold;" />
@@ -67,19 +74,14 @@ Email: info@dpbennett.com.jm
                                     itemLabel="#{subgroupHead.name}"
                                     itemValue="#{subgroupHead}"
                                     converter="activeEmployeeConverter"
+                                    required="true"
+                                    requiredMessage="Subgroup Head Required"
                                     validator="requiredFieldValidator"
                                     validatorMessage="A valid head is required"
                                     forceSelection="true"
                                     cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
                     </p:autoComplete>  
-
-                    <p:outputLabel for="subgroupCode" value="Code" style="font-weight: bold;" />
-                    <p:inputText value="#{humanResourceManager.selectedSubgroup.code}"
-                                 id="subgroupCode"
-                                 style="width:300px"
-                                 validatorMessage="A valid code is required"
-                                 validator="requiredFieldValidator" />
 
                     <p:outputLabel for="notes" value="Notes" />
                     <p:inputTextarea
