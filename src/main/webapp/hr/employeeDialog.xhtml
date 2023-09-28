@@ -38,7 +38,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="employeeDialogForm">       
 
-            <p:growl id="employeedialog_growl" life="5000" showDetail="true"/>
+            <p:growl id="employeedialog_growl" life="5000" showDetail="false"/>
 
             <p:toolbar>
                 <p:toolbarGroup align="left">
@@ -54,74 +54,97 @@ Email: info@dpbennett.com.jm
                                      icon="pi pi-times" />  
 
                 </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
+                </p:toolbarGroup>
             </p:toolbar>
 
             <p:tabView >
                 <p:tab title="General">
                     <h:panelGrid columns="2">
-                        <p:outputLabel for="employeeActive" value="Active" style="font-weight: bold;" />                                  
+                        <p:outputLabel for="employeeActive" value="Active" 
+                                       style="font-weight: bold;" />                                  
                         <p:selectBooleanCheckbox id="employeeActive"
+                                                 required="true"
                                                  style="vertical-align: middle"
                                                  value="#{humanResourceManager.selectedEmployee.active}" />    
 
-                        <h:outputLabel value="ID/Number" for="id_number" />
+                        <p:outputLabel value="ID/Number" for="id_number" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.number}"
                                      id="id_number" />
 
-                        <h:outputLabel for="employeeSex" value="Sex" style="font-weight: bold;" />
+                        <p:outputLabel for="employeeSex" value="Sex" 
+                                       style="font-weight: bold;" />
                         <p:selectOneMenu value="#{humanResourceManager.selectedEmployee.sex}" 
+                                         required="true"
                                          id="employeeSex" >
+                            
                             <f:selectItems value="#{systemManager.sexes}" />
+                            
                         </p:selectOneMenu>
 
-                        <h:outputLabel for="employeeTitle" value="Title" style="font-weight: bold;" />
+                        <p:outputLabel for="employeeTitle" value="Title" 
+                                       style="font-weight: bold;" />
                         <p:selectOneMenu value="#{humanResourceManager.selectedEmployee.title}" 
+                                         required="true"
                                          id="employeeTitle" >
+                            
                             <f:selectItems value="#{systemManager.personalTitles}" />
+                            
                         </p:selectOneMenu>
 
-                        <h:outputLabel value="First name" for="firstName" style="font-weight: bold;"/>
+                        <p:outputLabel value="First name" for="firstName" 
+                                       style="font-weight: bold;"/>
                         <p:inputText value="#{humanResourceManager.selectedEmployee.firstName}"
                                      id="firstName" 
+                                     required="true"
+                                     requiredMessage="First Name Required"
                                      validator="requiredFieldValidator" />
 
-                        <h:outputLabel value="Middle name" for="middleName" />
+                        <p:outputLabel value="Middle name" for="middleName" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.middleName}"
                                      id="middleName" />
 
-                        <h:outputLabel value="Last name" for="lastName" style="font-weight: bold;" />
+                        <p:outputLabel value="Last name" for="lastName" style="font-weight: bold;" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.lastName}"
-                                     id="lastName"                                  
+                                     id="lastName"      
+                                     required="true"
+                                     requiredMessage="Last Name Required"
                                      validator="requiredFieldValidator" />
 
-                        <h:outputLabel value="Suffix(es)" for="suffixes" />
+                        <p:outputLabel value="Suffix(es)" for="suffixes" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.nameSuffix}"
                                      placeholder="e.g. Jr., III, Ph.D."
                                      id="suffixes" />
 
-                        <h:outputLabel value="Email" for="employeeEmail" style="font-weight: bold;" />
+                        <p:outputLabel value="Email" for="employeeEmail" style="font-weight: bold;" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.internet.email1}"
                                      id="employeeEmail" 
-                                     validatorMessage="Please enter a valid email" 
-                                     requiredMessage="Please enter a valid email" >
+                                     validatorMessage="Valid Email Required" 
+                                     requiredMessage="Valid Email Required" >
 
                             <f:validateRegex
                                 pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 
                         </p:inputText>
 
-                        <h:outputLabel for="departmentName" value="Department" style="font-weight: bold;" />
+                        <p:outputLabel for="departmentName" value="Department" 
+                                       style="font-weight: bold;" />
                         <p:autoComplete var="department"
                                         dropdown="true"
                                         id="departmentName"
-                                        forceSelection="true"                               
-                                        size="40"
-                                        maxlength="250"
+                                        forceSelection="true" 
                                         scrollHeight="200"
                                         value="#{humanResourceManager.selectedEmployee.department}"
                                         title="#{humanResourceManager.selectedEmployee.department}"
                                         itemValue="#{department}"
-                                        itemLabel="#{department.truncatedName}"                                     
+                                        itemLabel="#{department.truncatedName}"   
+                                        required="true"
+                                        requiredMessage="Department Required"
                                         validator="requiredFieldValidator"
                                         converter="activeDepartmentConverter"
                                         cache="true"
@@ -132,14 +155,14 @@ Email: info@dpbennett.com.jm
                 </p:tab>
                 <p:tab title="Employment">
                     <h:panelGrid columns="2">
-                        <h:outputLabel for="dateHired" value="Date hired" />
+                        <p:outputLabel for="dateHired" value="Date hired" />
                         <p:calendar id="dateHired"
                                     readonlyInput="false"
                                     navigator="true" 
                                     pattern="MMM dd, yyyy" 
                                     value="#{humanResourceManager.selectedEmployee.dateHired}" />
 
-                        <h:outputLabel for="position" value="Position(s)" />       
+                        <p:outputLabel for="position" value="Position(s)" />       
                         <p:autoComplete id="position"
                                         var="position"   
                                         value="#{humanResourceManager.selectedEmployee.positions}"
@@ -153,13 +176,13 @@ Email: info@dpbennett.com.jm
                                         cache="true"
                                         completeMethod="#{humanResourceManager.completeActiveEmployeePosition}" />
 
-                        <h:outputLabel for="notes" value="Notes" />   
+                        <p:outputLabel for="notes" value="Notes" />   
                         <p:inputTextarea
                             value="#{humanResourceManager.selectedEmployee.notes}"
                             id="notes"
                             maxlength="250"
                             autoResize="false"
-                            rows="3"
+                            rows="1"
                             style="width:100%" />   
 
                     </h:panelGrid>
@@ -178,6 +201,13 @@ Email: info@dpbennett.com.jm
                                      immediate="true"
                                      actionListener="#{humanResourceManager.closeDialog}"
                                      icon="pi pi-times" />  
+
+                </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
 
                 </p:toolbarGroup>
             </p:toolbar>

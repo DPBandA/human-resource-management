@@ -24,7 +24,7 @@ Email: info@dpbennett.com.jm
 
     <p:toolbar>
         <p:toolbarGroup align="left">
-            
+
             <p:commandButton value="Ok"
                              actionListener="#{humanResourceManager.saveSelectedEmployeePosition}"
                              update="employeeposition_growl"
@@ -35,6 +35,13 @@ Email: info@dpbennett.com.jm
                              process="@this"
                              actionListener="#{humanResourceManager.closeDialog}"
                              icon="pi pi-times" /> 
+
+        </p:toolbarGroup>
+
+        <p:toolbarGroup align="right">
+
+            <h:outputText value="* Field required." 
+                          style="font-weight: bold;" /> 
 
         </p:toolbarGroup>
     </p:toolbar>

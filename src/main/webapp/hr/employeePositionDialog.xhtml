@@ -48,9 +48,10 @@ Email: info@dpbennett.com.jm
                                        style="font-weight: bold;" />               
                         <p:selectBooleanCheckbox id="employeePositionActive"
                                                  style="vertical-align: middle"
+                                                 required="true"
                                                  value="#{humanResourceManager.selectedEmployeePosition.active}" />
 
-                        <h:outputLabel value="Title" for="title" style="font-weight: bold;"/>
+                        <p:outputLabel value="Title" for="title" style="font-weight: bold;"/>
                         <p:inputText id="title"
                                      value="#{humanResourceManager.selectedEmployeePosition.title}"                                 
                                      validator="requiredFieldValidator" >       
@@ -60,7 +61,7 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText>
 
-                        <h:outputLabel value="Category" for="category" />
+                        <p:outputLabel value="Category" for="category" />
                         <p:inputText id="category"
                                      value="#{humanResourceManager.selectedEmployeePosition.category}" >       
 
@@ -69,7 +70,7 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText>
 
-                        <h:outputLabel value="Classification" for="classification" />
+                        <p:outputLabel value="Classification" for="classification" />
                         <p:inputText id="classification"
                                      value="#{humanResourceManager.selectedEmployeePosition.classification}" >       
 
@@ -78,7 +79,7 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText>
 
-                        <h:outputLabel for="manHourRate" value="Man-hour rate ($/hr)" />                   
+                        <p:outputLabel for="manHourRate" value="Man-hour rate ($/hr)" />                   
                         <p:inputText value="#{humanResourceManager.selectedEmployeePosition.manHourRate}"
                                      converterMessage="Please enter a valid man-hour rate."
                                      id="manHourRate"
@@ -91,7 +92,7 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText> 
 
-                        <h:outputLabel for="lowerApprovLimit" value="Lower approv. limit ($)" />                   
+                        <p:outputLabel for="lowerApprovLimit" value="Lower approv. limit ($)" />                   
                         <p:inputText value="#{humanResourceManager.selectedEmployeePosition.lowerApprovalLevel}"
                                      converterMessage="Please enter a valid lower approval limit."
                                      id="lowerApprovLimit"
@@ -104,7 +105,7 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText>
 
-                        <h:outputLabel for="upperApprovLimit" value="Upper approv. limit ($)"/>                   
+                        <p:outputLabel for="upperApprovLimit" value="Upper approv. limit ($)"/>                   
                         <p:inputText value="#{humanResourceManager.selectedEmployeePosition.upperApprovalLevel}"
                                      converterMessage="Please enter a valid upper approval limit."
                                      id="upperApprovLimit"
@@ -117,7 +118,8 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText>
 
-                        <h:outputLabel value="Description" for="description" style="font-weight: bold;"/>                    
+                        <p:outputLabel value="Description" for="description" 
+                                       style="font-weight: bold;"/>                    
                         <p:inputTextarea
                             id="description"
                             value="#{humanResourceManager.selectedEmployeePosition.description}" 
@@ -134,26 +136,26 @@ Email: info@dpbennett.com.jm
                                     process="@this"/>
 
                         </p:inputTextarea>
-                        <h:outputText value="&nbsp;&nbsp;" />
-                        <h:outputText id="instructCharsRemaining" /> 
+                        <p:outputLabel value="&nbsp;&nbsp;" />
+                        <p:outputLabel id="instructCharsRemaining" /> 
                     </h:panelGrid>
                 </p:tab>
 
                 <p:tab title="Remuneration">
                     <h:panelGrid columns="2">
-                        <h:outputLabel for="employmentType" value="Type" style="font-weight: bold;" />
+                        <p:outputLabel for="employmentType" value="Type" style="font-weight: bold;" />
                         <p:selectOneMenu value="#{humanResourceManager.selectedEmployeePosition.type}" 
                                          id="employmentType" >
                             <f:selectItems value="#{humanResourceManager.employmentTypeList}" />
                         </p:selectOneMenu>
-                        
-                         <h:outputLabel for="payCycle" value="Pay cycle" style="font-weight: bold;" />
+
+                        <p:outputLabel for="payCycle" value="Pay cycle" style="font-weight: bold;" />
                         <p:selectOneMenu value="#{humanResourceManager.selectedEmployeePosition.payCycle}" 
                                          id="payCycle" >
                             <f:selectItems value="#{humanResourceManager.payCycleList}" />
                         </p:selectOneMenu>
 
-                        <h:outputLabel for="salary" value="Annual salary ($)"/>                   
+                        <p:outputLabel for="salary" value="Annual salary ($)"/>                   
                         <p:inputText value="#{humanResourceManager.selectedEmployeePosition.salary}"
                                      id="salary"
                                      converterMessage="Please enter a valid salary value."
