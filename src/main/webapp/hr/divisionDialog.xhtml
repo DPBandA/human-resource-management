@@ -50,13 +50,6 @@ Email: info@dpbennett.com.jm
                                              style="vertical-align: middle"
                                              value="#{humanResourceManager.selectedDivision.active}" />
 
-                    <p:outputLabel for="divisionName" value="Name" style="font-weight: bold;" />
-                    <p:inputText value="#{humanResourceManager.selectedDivision.name}"
-                                 id="divisionName"
-                                 required="true"
-                                 requiredMessage="Division Name Required"
-                                 validator="requiredFieldValidator" /> 
-
                     <p:outputLabel for="divisionCode" value="Code" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedDivision.code}"
                                  id="divisionCode"
@@ -65,6 +58,13 @@ Email: info@dpbennett.com.jm
                                  required="true"
                                  requiredMessage="Division Code Required"
                                  validator="requiredFieldValidator" />
+
+                    <p:outputLabel for="divisionName" value="Name" style="font-weight: bold;" />
+                    <p:inputText value="#{humanResourceManager.selectedDivision.name}"
+                                 id="divisionName"
+                                 required="true"
+                                 requiredMessage="Division Name Required"
+                                 validator="requiredFieldValidator" /> 
 
                     <p:outputLabel for="divisionHead" value="Head" style="font-weight: bold;" />
                     <p:autoComplete var="divisionHead"
@@ -118,6 +118,7 @@ Email: info@dpbennett.com.jm
                     <p:dataTable id="subgroupsTable"
                                  paginator="true"
                                  rows="15"
+                                 reflow="true"
                                  var="subgroup"
                                  style="margin-bottom: 1px;margin-top: 1px;"
                                  value="#{humanResourceManager.selectedDivision.subgroups}">
@@ -202,6 +203,7 @@ Email: info@dpbennett.com.jm
                     <p:dataTable id="departmentsTable"
                                  paginator="true"
                                  rows="15"
+                                 reflow="true"
                                  var="department"
                                  style="margin-bottom: 1px;margin-top: 1px;"
                                  value="#{humanResourceManager.selectedDivision.departments}">

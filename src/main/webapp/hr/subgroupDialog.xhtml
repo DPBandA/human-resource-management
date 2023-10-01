@@ -53,6 +53,8 @@ Email: info@dpbennett.com.jm
                     <p:outputLabel for="subgroupCode" value="Code" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedSubgroup.code}"
                                  id="subgroupCode"
+                                 required="true"
+                                 requiredMessage="Subgroup Code Required"
                                  validatorMessage="A valid code is required"
                                  validator="requiredFieldValidator" />
 
@@ -61,7 +63,7 @@ Email: info@dpbennett.com.jm
                                  id="subgroupName"
                                  validatorMessage="A valid name is required"
                                  required="true"
-                                 requiredMessage="Subgroup Code Required"
+                                 requiredMessage="Subgroup Name Required"
                                  validator="requiredFieldValidator" /> 
 
                     <p:outputLabel for="subgroupHead" value="Head" style="font-weight: bold;" />
@@ -116,6 +118,7 @@ Email: info@dpbennett.com.jm
                     <p:dataTable id="departmentsTable"
                                  paginator="true"
                                  rows="15"
+                                 reflow="true"
                                  var="department"
                                  style="margin-bottom: 1px;margin-top: 1px;"
                                  value="#{humanResourceManager.selectedSubgroup.departments}">
