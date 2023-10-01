@@ -37,7 +37,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="employeePositionDialogForm">    
 
-            <p:growl id="employeeposition_growl" life="5000" showDetail="true"/>
+            <p:growl id="employeeposition_growl" life="5000" showDetail="false"/>
 
             <ui:include src="employeePositionDialogToolbar.xhtml" /> 
 
@@ -53,6 +53,8 @@ Email: info@dpbennett.com.jm
 
                         <p:outputLabel value="Title" for="title" style="font-weight: bold;"/>
                         <p:inputText id="title"
+                                     required="true"
+                                     requiredMessage="Title Required"
                                      value="#{humanResourceManager.selectedEmployeePosition.title}"                                 
                                      validator="requiredFieldValidator" >       
 
@@ -128,9 +130,11 @@ Email: info@dpbennett.com.jm
                             counterTemplate="{0} characters remaining."
                             autoResize="false"
                             maxlength="1000" 
+                            required="true"
+                            requiredMessage="Description Required"
                             validator="requiredFieldValidator"
                             styleClass="#{not component.valid ? 'invalid-inputtextarea-field' : ''}" 
-                            style="width: 300%;">
+                            style="width: 100%;">
 
                             <p:ajax event="change"                                                       
                                     process="@this"/>
