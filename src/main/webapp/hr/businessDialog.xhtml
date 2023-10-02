@@ -42,7 +42,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="businessDialogForm">     
 
-            <p:growl id="businessdialog_growl" life="5000" showDetail="true"/>
+            <p:growl id="businessdialog_growl" life="5000" showDetail="false"/>
 
             <p:toolbar style="margin-bottom: 1px;">
                 <p:toolbarGroup>
@@ -58,6 +58,13 @@ Email: info@dpbennett.com.jm
                                      icon="pi pi-times" />            
                 </p:toolbarGroup>
 
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
+                </p:toolbarGroup>
+
             </p:toolbar>
 
             <p:panel style="margin-bottom: 1px;">
@@ -66,16 +73,18 @@ Email: info@dpbennett.com.jm
                                    style="font-weight: bold;" />               
                     <p:selectBooleanCheckbox id="businessActive"
                                              style="vertical-align: middle"
+                                             required="true"
                                              value="#{humanResourceManager.selectedBusiness.active}" />
 
-                    <h:outputLabel for="businessName" value="Name" style="font-weight: bold;" />
+                    <p:outputLabel for="businessName" value="Name" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedBusiness.name}"
-                                 style="width:300px"
                                  id="businessName" 
+                                 required="true"
+                                 requiredMessage="Business Name Required"
                                  validatorMessage="A valid name is required"
                                  validator="requiredFieldValidator" /> 
 
-                    <h:outputLabel for="businessHead" value="Head" style="font-weight: bold;" />
+                    <p:outputLabel for="businessHead" value="Head" style="font-weight: bold;" />
                     <p:autoComplete var="businessHead"
                                     id="businessHead"
                                     dropdown="true"
@@ -85,6 +94,8 @@ Email: info@dpbennett.com.jm
                                     itemLabel="#{businessHead.name}"
                                     itemValue="#{businessHead}"
                                     converter="activeEmployeeConverter"
+                                    required="true"
+                                    requiredMessage="Organization Head Required"
                                     validator="requiredFieldValidator"
                                     validatorMessage="A valid head is required"
                                     forceSelection="true"
@@ -92,14 +103,15 @@ Email: info@dpbennett.com.jm
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
                     </p:autoComplete>
 
-                    <h:outputLabel for="domainName" value="Domain" style="font-weight: bold;" />
+                    <p:outputLabel for="domainName" value="Domain" style="font-weight: bold;" />
                     <p:inputText value="#{humanResourceManager.selectedBusiness.domainName}"
-                                 style="width:300px"
+                                 required="true"
+                                 requiredMessage="Domain Name Required"
                                  validatorMessage="A valid domain name (eg. dpbennett.com.jmm) is required"
                                  validator="requiredFieldValidator" 
                                  id="domainName" />
 
-                    <h:outputLabel for="notes" value="Notes" />   
+                    <p:outputLabel for="notes" value="Notes" />   
                     <p:inputTextarea
                         value="#{humanResourceManager.selectedBusiness.notes}"
                         id="notes"
@@ -135,13 +147,13 @@ Email: info@dpbennett.com.jm
                             <h:panelGrid columns="2">
                                 <p:outputLabel value="Department label" />
                                 <p:selectOneMenu id="departmentLabel"     
-                                                 style="width: 200px;"
+                                                 style="width: 100%;"
                                                  value="#{humanResourceManager.selectedBusiness.departmentLabel}">
 
                                     <f:selectItems  value="#{humanResourceManager.departmentLabelList}"
                                                     var="deptLabel"                            
-                                                    itemValue="#{deptLabel}"
-                                                    itemLabel="#{deptLabel}"/>
+                                                    itemValue="#{deptLabel.value}"
+                                                    itemLabel="#{deptLabel.label}"/>
 
                                 </p:selectOneMenu>  
                             </h:panelGrid>
@@ -150,6 +162,7 @@ Email: info@dpbennett.com.jm
                     <p:dataTable id="departmentsTable"
                                  paginator="true"
                                  rows="15"
+                                 reflow="true"
                                  var="department"
                                  style="margin-bottom: 1px;margin-top: 1px;"
                                  value="#{humanResourceManager.selectedBusiness.departments}">
@@ -228,6 +241,13 @@ Email: info@dpbennett.com.jm
                                      actionListener="#{humanResourceManager.closeDialog}"
                                      immediate="true"
                                      icon="pi pi-times" />            
+                </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
                 </p:toolbarGroup>
             </p:toolbar> 
         </h:form> 
