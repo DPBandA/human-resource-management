@@ -42,7 +42,6 @@ Email: info@dpbennett.com.jm
             <p:spacer width="20" />
             <p:inputText id="manufacturerSearchText" 
                          placeholder="Enter search text"
-                         style="width:200px" 
                          value="#{humanResourceManager.manufacturerSearchText}" >
 
                 <p:ajax event="keyup"                            
@@ -125,7 +124,7 @@ Email: info@dpbennett.com.jm
                     <h:outputText value="#{manufacturer.isActive}" />
                 </f:facet>
                 <f:facet name="input">
-                    <p:selectOneMenu value="#{manufacturer.isActive}" style="width:90%">
+                    <p:selectOneMenu value="#{manufacturer.isActive}">
                         <f:selectItem itemLabel="Yes" itemValue="Yes"/>
                         <f:selectItem itemLabel="No" itemValue="No"/>
                     </p:selectOneMenu>

@@ -49,7 +49,7 @@ Email: info@dpbennett.com.jm
                 </p:toolbarGroup>
             </p:toolbar>                
             <p:panel style="margin-top: 1px;margin-bottom: 1px;">
-                <h:panelGrid columns="2" style="width: 85%">
+                <h:panelGrid columns="2">
 
                     <h:outputLabel for="contactType" value="Type" style="font-weight: bold" />
                     <p:selectOneMenu value="#{humanResourceManager.selectedContact.type}"
@@ -79,9 +79,7 @@ Email: info@dpbennett.com.jm
 
                     </p:selectOneMenu>
                     <ui:remove>
-                        <p:inputText value="#{humanResourceManager.selectedContact.title}"
-                                     maxlength="50"
-                                     style="width: 100%" >
+                        <p:inputText value="#{humanResourceManager.selectedContact.title}">
                             <p:ajax event="change"
                                     global="true"                                    
                                     listener="#{humanResourceManager.updateContact}"
@@ -93,9 +91,7 @@ Email: info@dpbennett.com.jm
                                    style="font-weight: bold" />
                     <p:inputText value="#{humanResourceManager.selectedContact.firstName}"
                                  id="contactFirstname"
-                                 maxlength="50"
-                                 validator="contactValidator"
-                                 style="width: 100%" >
+                                 validator="contactValidator" >
                         <p:ajax event="change"
                                 global="true"                                    
                                 listener="#{humanResourceManager.updateContact}"
@@ -106,9 +102,7 @@ Email: info@dpbennett.com.jm
                                    style="font-weight: bold" />
                     <p:inputText value="#{humanResourceManager.selectedContact.lastName}"
                                  id="contactLastname"
-                                 maxlength="50"
-                                 validator="contactValidator"
-                                 style="width: 100%" >
+                                 validator="contactValidator">
                         <p:ajax event="change"
                                 global="true"                                    
                                 listener="#{humanResourceManager.updateContact}"
@@ -117,9 +111,7 @@ Email: info@dpbennett.com.jm
 
                     <h:outputLabel for="contactPosition" value="Position" />
                     <p:inputText value="#{humanResourceManager.selectedContact.position}"
-                                 id="contactPosition"
-                                 maxlength="50"
-                                 style="width: 100%" >
+                                 id="contactPosition" >
                         <p:ajax event="change"
                                 global="true"                                    
                                 listener="#{humanResourceManager.updateContact}"
@@ -129,8 +121,7 @@ Email: info@dpbennett.com.jm
                     <h:outputLabel for="contactPhone" value="Phone" />
                     <p:inputText value="#{humanResourceManager.selectedContact.mainPhoneNumber.localNumber}"
                                  maxlength="50"
-                                 id="contactPhone"
-                                 style="width: 100%" >
+                                 id="contactPhone" >
                         <p:ajax event="change"
                                 global="true"                                    
                                 listener="#{humanResourceManager.updateContact}"
@@ -139,9 +130,7 @@ Email: info@dpbennett.com.jm
 
                     <h:outputLabel for="contactEmail" value="Email" />
                     <p:inputText value="#{humanResourceManager.selectedContact.internet.email1}"
-                                 id="contactEmail"
-                                 maxlength="50"
-                                 style="width: 100%" >                
+                                 id="contactEmail" >                
                         <p:ajax event="change"
                                 global="true"                                    
                                 listener="#{humanResourceManager.updateContact}"
@@ -150,9 +139,7 @@ Email: info@dpbennett.com.jm
 
                     <h:outputLabel for="contactWebsite" value="Website" />
                     <p:inputText value="#{humanResourceManager.selectedContact.internet.website1}"
-                                 maxlength="50"
-                                 id="contactWebsite"
-                                 style="width: 100%" >
+                                 id="contactWebsite" >
                         <p:ajax event="change"
                                 global="true"                                    
                                 listener="#{humanResourceManager.updateContact}"
@@ -161,9 +148,7 @@ Email: info@dpbennett.com.jm
 
                     <h:outputLabel for="contactFax" value="Fax" />
                     <p:inputText value="#{humanResourceManager.selectedContact.mainFaxNumber.localNumber}"
-                                 maxlength="50"
-                                 id="contactFax"
-                                 style="width: 100%">
+                                 id="contactFax">
                         <p:ajax event="change"
                                 global="true"                                    
                                 listener="#{humanResourceManager.updateContact}"

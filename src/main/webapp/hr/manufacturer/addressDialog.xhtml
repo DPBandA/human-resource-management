@@ -49,7 +49,7 @@ Email: info@dpbennett.com.jm
                 </p:toolbarGroup>
             </p:toolbar>
             <p:panel style="margin-top: 1px;margin-bottom: 1px;">
-                <h:panelGrid columns="2" style="width: 85%">       
+                <h:panelGrid columns="2">       
                     <h:outputLabel for="addressType" value="Type" style="font-weight: bold" />
                     <p:selectOneMenu value="#{humanResourceManager.selectedAddress.type}"
                                      id="addressType"
@@ -70,8 +70,7 @@ Email: info@dpbennett.com.jm
                     <p:inputText value="#{humanResourceManager.selectedAddress.addressLine1}"
                                  id="addressLine1"
                                  maxlength="50"
-                                 validator="addressLineValidator"
-                                 style="width: 100%">
+                                 validator="addressLineValidator">
                         <p:ajax event="change"
                                 global="true"
                                 listener="#{humanResourceManager.updateAddress}"
@@ -81,8 +80,7 @@ Email: info@dpbennett.com.jm
                     <h:outputLabel for="addressLine2" value="Address (line 2)" />
                     <p:inputText value="#{humanResourceManager.selectedAddress.addressLine2}"
                                  id="addressLine2"     
-                                 maxlength="50"
-                                 style="width: 100%" >
+                                 maxlength="50">
                         <p:ajax event="change"
                                 global="true"
                                 listener="#{humanResourceManager.updateAddress}"
@@ -94,8 +92,7 @@ Email: info@dpbennett.com.jm
                     <p:inputText value="#{humanResourceManager.selectedAddress.city}"
                                  id="addressCity"
                                  maxlength="50"
-                                 validator="addressLineValidator"
-                                 style="width: 100%" >
+                                 validator="addressLineValidator" >
                         <p:ajax event="change"
                                 global="true"
                                 listener="#{humanResourceManager.updateAddress}"
