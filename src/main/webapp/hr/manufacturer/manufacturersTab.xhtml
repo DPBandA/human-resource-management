@@ -36,7 +36,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doManufacturerSearch}"
-                        update="#{humanResourceManager.manufacturersTableId}"/>
+                        update="manufacturersTable"/>
 
             </p:commandButton>
             <p:spacer width="20" />
@@ -59,7 +59,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeManufacturersOnly"
                                          value="#{humanResourceManager.isActiveManufacturersOnly}" >
-                    <p:ajax  update="#{humanResourceManager.manufacturersTableId}"
+                    <p:ajax  update="manufacturersTable"
                              listener="#{humanResourceManager.doManufacturerSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -142,7 +142,7 @@ Email: info@dpbennett.com.jm
                                              target="#{humanResourceManager.selectedManufacturer}" />
 
                 <p:ajax event="dialogReturn" 
-                        update="#{humanResourceManager.manufacturersTableId}"/>
+                        update="manufacturersTable"/>
 
             </p:commandButton>
         </p:column>
@@ -158,7 +158,7 @@ Email: info@dpbennett.com.jm
                 title="Add a new manufacturer to the manufacturer database" >
 
                 <p:ajax event="dialogReturn" 
-                        update="#{humanResourceManager.manufacturersTableId}"/>
+                        update="manufacturersTable"/>
 
             </p:commandButton>
         </p:toolbarGroup>

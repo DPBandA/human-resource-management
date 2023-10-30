@@ -1,7 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
-
-<!-- =========== FULL CONFIGURATION FILE ================================== -->
-
 <faces-config version="2.0"
               xmlns="http://java.sun.com/xml/ns/javaee" 
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -107,6 +104,13 @@
         <navigation-case>
             <from-outcome>divisionDialog</from-outcome>
             <to-view-id>/hr/divisionDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>manufacturerDialog</from-outcome>
+            <to-view-id>/hr/manufacturer/manufacturerDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
       
