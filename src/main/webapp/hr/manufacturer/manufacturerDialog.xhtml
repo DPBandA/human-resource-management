@@ -38,7 +38,7 @@ Email: info@dpbennett.com.jm
         <ui:include src="removeAddressConfirmationDialog.xhtml"/>   
         <ui:include src="../../common/commonDialogs.xhtml"/>  
         <h:form id="manufacturerForm" >
-            <p:growl id="manufacturer_growl" life="5000" showDetail="true"/>
+            <p:growl id="manufacturer_growl" life="5000" showDetail="false"/>
 
             <p:toolbar>
                 <p:toolbarGroup>
@@ -51,6 +51,10 @@ Email: info@dpbennett.com.jm
                                      immediate="true" 
                                      actionListener="#{humanResourceManager.cancelManufacturerEdit}"
                                      icon="pi pi-times" />
+                </p:toolbarGroup>
+                
+                <p:toolbarGroup align="right" >  
+                    <h:outputText value="* Field required." style="font-weight: bold;" />            
                 </p:toolbarGroup>
             </p:toolbar>
 
@@ -83,6 +87,10 @@ Email: info@dpbennett.com.jm
                                      immediate="true" 
                                      actionListener="#{humanResourceManager.cancelManufacturerEdit}"
                                      icon="pi pi-times" />
+                </p:toolbarGroup>
+                
+                <p:toolbarGroup align="right" >  
+                    <h:outputText value="* Field required." style="font-weight: bold;" />            
                 </p:toolbarGroup>
             </p:toolbar>
         </h:form>     
