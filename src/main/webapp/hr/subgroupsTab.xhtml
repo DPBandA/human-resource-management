@@ -43,7 +43,7 @@ Email: info@dpbennett.com.jm
                          value="#{humanResourceManager.subgroupSearchText}"
                          placeholder="Enter search text">
                 <p:ajax event="keyup"
-                        global="false"
+                        global="true"
                         update=":appForm:mainTabView:humanResourceTabView:subgroupsTable"
                         listener="#{humanResourceManager.doSubgroupSearch}"
                         process="@this"/>

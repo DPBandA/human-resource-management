@@ -45,7 +45,7 @@ Email: info@dpbennett.com.jm
                          value="#{humanResourceManager.manufacturerSearchText}" >
 
                 <p:ajax event="keyup"                            
-                        global="false"
+                        global="true"
                         update=":appForm:mainTabView:humanResourceTabView:manufacturersTable"
                         listener="#{humanResourceManager.doManufacturerSearch}"
                         process="@this"/>

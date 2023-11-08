@@ -43,7 +43,7 @@ Email: info@dpbennett.com.jm
                          value="#{humanResourceManager.employeePositionSearchText}"
                          placeholder="Enter search text">
                 <p:ajax event="keyup"
-                        global="false"
+                        global="true"
                         update=":appForm:mainTabView:humanResourceTabView:positionsTable"
                         listener="#{humanResourceManager.doEmployeePositionSearch}"
                         process="@this"/>
