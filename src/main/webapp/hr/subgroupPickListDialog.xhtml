@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM)
-Copyright (C) 2023  D P Bennett & Associates Limited
+Copyright (C) 2024  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -32,7 +32,7 @@ Email: info@dpbennett.com.jm
         <link rel="stylesheet" href="../css/main.css" />   
     </h:head>
     <h:body >  
-        
+
         <ui:include src="../common/commonDialogs.xhtml"/> 
 
         <h:form id="subgroupPickListDialogForm">           
@@ -45,12 +45,22 @@ Email: info@dpbennett.com.jm
                             var="subgroup"
                             itemLabel="#{subgroup.name}" 
                             itemValue="#{subgroup}" 
-                            converter="activeSubgroupConverter" />
+                            showSourceFilter="true" 
+                            showTargetFilter="true"
+                            sourceFilterPlaceholder="Filter available subgroups"
+                            targetFilterPlaceholder="Filter assigned subgroups"
+                            filterMatchMode="contains"
+                            converter="activeSubgroupConverter" >
+
+                    <f:facet name="sourceCaption">Available</f:facet>
+                    <f:facet name="targetCaption">Assigned</f:facet>
+
+                </p:pickList>
 
             </p:panel>      
 
             <ui:include src="subgroupPickListDialogToolbar.xhtml"/>  
-            
+
         </h:form>    
     </h:body>
 </html>

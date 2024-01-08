@@ -31,7 +31,7 @@ Email: info@dpbennett.com.jm
         <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css" /> 
         <link rel="stylesheet" href="../css/main.css" />   
     </h:head>
-    
+
     <h:body >  
 
         <ui:include src="../common/commonDialogs.xhtml"/> 
@@ -48,6 +48,8 @@ Email: info@dpbennett.com.jm
                             itemValue="#{department}" 
                             showSourceFilter="true" 
                             showTargetFilter="true"
+                            sourceFilterPlaceholder="Filter available departments"
+                            targetFilterPlaceholder="Filter assigned departments"
                             filterMatchMode="contains"
                             converter="activeDepartmentConverter" >
 
@@ -59,8 +61,8 @@ Email: info@dpbennett.com.jm
             </p:panel>      
 
             <ui:include src="departmentPickListDialogToolbar.xhtml"/>  
-                 
+
         </h:form>    
-        
+
     </h:body>
 </html>
