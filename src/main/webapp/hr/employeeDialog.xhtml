@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2023  D P Bennett & Associates Limited
+Copyright (C) 2024  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -38,7 +38,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="employeeDialogForm">       
 
-            <p:growl id="employeedialog_growl" life="5000" showDetail="false"/>
+            <p:growl id="employeedialog_growl" life="5000" showDetail="true"/>
 
             <p:toolbar>
                 <p:toolbarGroup align="left">
@@ -104,10 +104,11 @@ Email: info@dpbennett.com.jm
                                      id="firstName" 
                                      required="true"
                                      requiredMessage="First Name Required"
-                                     validator="requiredFieldValidator" />
+                                     validator="identifierValidator" />
 
                         <p:outputLabel value="Middle name" for="middleName" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.middleName}"
+                                     validator="identifierValidator"
                                      id="middleName" />
 
                         <p:outputLabel value="Last name" for="lastName" style="font-weight: bold;" />
@@ -115,14 +116,14 @@ Email: info@dpbennett.com.jm
                                      id="lastName"      
                                      required="true"
                                      requiredMessage="Last Name Required"
-                                     validator="requiredFieldValidator" />
+                                     validator="identifierValidator" />
 
                         <p:outputLabel value="Suffix(es)" for="suffixes" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.nameSuffix}"
                                      placeholder="e.g. Jr., III, Ph.D."
                                      id="suffixes" />
 
-                        <p:outputLabel value="Email *" for="employeeEmail" style="font-weight: bold;" />
+                        <p:outputLabel value="Email" for="employeeEmail" style="font-weight: bold;" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.internet.email1}"
                                      id="employeeEmail" 
                                      validatorMessage="Valid Email Required" 

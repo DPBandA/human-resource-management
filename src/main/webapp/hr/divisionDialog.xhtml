@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2023  D P Bennett & Associates Limited
+Copyright (C) 2024  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -37,7 +37,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="divisionDialogForm">     
 
-            <p:growl id="divisiondialog_growl" life="5000" showDetail="false"/>
+            <p:growl id="divisiondialog_growl" life="5000" showDetail="true"/>
 
             <ui:include src="divisionDialogToolbar.xhtml"/>
 
@@ -63,7 +63,7 @@ Email: info@dpbennett.com.jm
                                  id="divisionName"
                                  required="true"
                                  requiredMessage="Division Name Required"
-                                 validator="requiredFieldValidator" /> 
+                                 validator="identifierValidator" /> 
 
                     <p:outputLabel for="divisionHead" value="Head" style="font-weight: bold;" />
                     <p:autoComplete var="divisionHead"

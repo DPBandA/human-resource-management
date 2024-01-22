@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2023  D P Bennett & Associates Limited
+Copyright (C) 2024  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -42,7 +42,7 @@ Email: info@dpbennett.com.jm
 
         <h:form id="businessDialogForm">     
 
-            <p:growl id="businessdialog_growl" life="5000" showDetail="false"/>
+            <p:growl id="businessdialog_growl" life="5000" showDetail="true"/>
 
             <p:toolbar style="margin-bottom: 1px;">
                 <p:toolbarGroup>
@@ -81,8 +81,7 @@ Email: info@dpbennett.com.jm
                                  id="businessName" 
                                  required="true"
                                  requiredMessage="Business Name Required"
-                                 validatorMessage="A valid name is required"
-                                 validator="requiredFieldValidator" /> 
+                                 validator="identifierValidator" /> 
 
                     <p:outputLabel for="businessHead" value="Head" style="font-weight: bold;" />
                     <p:autoComplete var="businessHead"
@@ -107,8 +106,7 @@ Email: info@dpbennett.com.jm
                     <p:inputText value="#{humanResourceManager.selectedBusiness.domainName}"
                                  required="true"
                                  requiredMessage="Domain Name Required"
-                                 validatorMessage="A valid domain name (eg. dpbennett.com.jmm) is required"
-                                 validator="requiredFieldValidator" 
+                                 validator="identifierValidator" 
                                  id="domainName" />
 
                     <p:outputLabel for="notes" value="Notes" />   

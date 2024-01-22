@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2023  D P Bennett & Associates Limited
+Copyright (C) 2024  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -26,7 +26,7 @@ Email: info@dpbennett.com.jm
     
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
-        <title>Manufacturer Detail</title>
+        <title>Manufacturer</title>
         <script type="text/javascript" src="../../js/javascripts.js" /> 
         <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css" />       
         <link rel="stylesheet" type="text/css" href="../../css/main.css" />
@@ -38,7 +38,7 @@ Email: info@dpbennett.com.jm
         <ui:include src="removeAddressConfirmationDialog.xhtml"/>   
         <ui:include src="../../common/commonDialogs.xhtml"/>  
         <h:form id="manufacturerForm" >
-            <p:growl id="manufacturer_growl" life="5000" showDetail="false"/>
+            <p:growl id="manufacturer_growl" life="5000" showDetail="true"/>
 
             <p:toolbar>
                 <p:toolbarGroup>
@@ -64,7 +64,7 @@ Email: info@dpbennett.com.jm
                        widgetVar="manufacturerFormTabVar" >
 
                 <p:tab id="manufacturerDetailsTab" title="General">
-                    <ui:include src="manufacturerDetailsTab.xhtml"/>
+                    <ui:include src="generalTab.xhtml"/>
                 </p:tab>
 
                 <p:tab title="Addresses">
