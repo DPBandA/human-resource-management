@@ -104,11 +104,11 @@ Email: info@dpbennett.com.jm
                                      id="firstName" 
                                      required="true"
                                      requiredMessage="First Name Required"
-                                     validator="identifierValidator" />
+                                     validator="requiredFieldValidator" />
 
                         <p:outputLabel value="Middle name" for="middleName" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.middleName}"
-                                     validator="identifierValidator"
+                                     validator="requiredFieldValidator"
                                      id="middleName" />
 
                         <p:outputLabel value="Last name" for="lastName" style="font-weight: bold;" />
@@ -116,7 +116,7 @@ Email: info@dpbennett.com.jm
                                      id="lastName"      
                                      required="true"
                                      requiredMessage="Last Name Required"
-                                     validator="identifierValidator" />
+                                     validator="requiredFieldValidator" />
 
                         <p:outputLabel value="Suffix(es)" for="suffixes" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.nameSuffix}"

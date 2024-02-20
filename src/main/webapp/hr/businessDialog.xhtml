@@ -81,7 +81,7 @@ Email: info@dpbennett.com.jm
                                  id="businessName" 
                                  required="true"
                                  requiredMessage="Business Name Required"
-                                 validator="identifierValidator" /> 
+                                 validator="requiredFieldValidator" /> 
 
                     <p:outputLabel for="businessHead" value="Head" style="font-weight: bold;" />
                     <p:autoComplete var="businessHead"
@@ -106,7 +106,7 @@ Email: info@dpbennett.com.jm
                     <p:inputText value="#{humanResourceManager.selectedBusiness.domainName}"
                                  required="true"
                                  requiredMessage="Domain Name Required"
-                                 validator="identifierValidator" 
+                                 validator="requiredFieldValidator" 
                                  id="domainName" />
 
                     <p:outputLabel for="notes" value="Notes" />   
