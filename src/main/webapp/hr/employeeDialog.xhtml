@@ -25,7 +25,7 @@ Email: info@dpbennett.com.jm
       xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />      
+        <ui:include src="../head.xhtml" />      
         <title>Employee</title>
         <script type="text/javascript" src="../js/javascripts.js" /> 
         <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css" /> 
@@ -108,7 +108,6 @@ Email: info@dpbennett.com.jm
 
                         <p:outputLabel value="Middle name" for="middleName" />
                         <p:inputText value="#{humanResourceManager.selectedEmployee.middleName}"
-                                     validator="requiredFieldValidator"
                                      id="middleName" />
 
                         <p:outputLabel value="Last name" for="lastName" style="font-weight: bold;" />
