@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM)
-Copyright (C) 2023  D P Bennett & Associates Limited
+Copyright (C) 2024  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -24,10 +24,9 @@ Email: info@dpbennett.com.jm
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
-    <p:focus for="employeeSearchText"/>
-
     <p:toolbar>
         <p:toolbarGroup align="left" >   
+
             <p:commandButton title="Add new employee"                                  
                              value="New"
                              actionListener="#{humanResourceManager.createNewEmployee}"
@@ -40,15 +39,18 @@ Email: info@dpbennett.com.jm
 
             </p:commandButton>                     
             <p:spacer width="20" />
-            <p:inputText id="employeeSearchText" 
-                         value="#{humanResourceManager.employeeSearchText}"
-                         placeholder="Enter search text">
-                <p:ajax event="keyup"
-                        update=":appForm:mainTabView:humanResourceTabView:employeesTable"
-                        listener="#{humanResourceManager.doEmployeeSearch}"
-                        process="@this"/>
-            </p:inputText>
-            
+            <h:panelGroup>
+                <p:inputText id="employeeSearchText" 
+                             value="#{humanResourceManager.employeeSearchText}"
+                             placeholder="Enter search text" />
+                <p:commandButton id="employeeSearchButton"
+                                 class="search-button"   
+                                 actionListener="#{humanResourceManager.doEmployeeSearch}"
+                                 update=":appForm:mainTabView:humanResourceTabView:employeesTable"
+                                 icon="pi pi-search"
+                                 process="@form" />
+            </h:panelGroup>
+
         </p:toolbarGroup>
 
         <p:toolbarGroup align="right" style="margin-top: 5px;" >
@@ -92,7 +94,7 @@ Email: info@dpbennett.com.jm
                 <h:outputText value="#{employee.id}" />
             </p:column>
         </ui:remove>
-        
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Lastname"/>
@@ -106,8 +108,8 @@ Email: info@dpbennett.com.jm
             </f:facet>
             <h:outputText value="#{employee.firstName}" />
         </p:column>
-        
-         <p:column>
+
+        <p:column>
             <f:facet name="header">
                 <h:outputText value="Email"/>
             </f:facet>
@@ -127,7 +129,7 @@ Email: info@dpbennett.com.jm
                              global="true"
                              process="@this"
                              icon="pi pi-pencil">
-                
+
                 <f:setPropertyActionListener value="#{employee}"                                                                    
                                              target="#{humanResourceManager.selectedEmployee}" />
                 <p:ajax event="dialogReturn" 

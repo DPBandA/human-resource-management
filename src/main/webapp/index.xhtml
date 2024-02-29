@@ -1,5 +1,5 @@
 <!--
-Human Resource Management (HRM)
+Human Resource Management (HRM) 
 Copyright (C) 2024  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -26,15 +26,15 @@ Email: info@dpbennett.com.jm
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
     xmlns:f="http://java.sun.com/jsf/core"> 
 
-    <h:head>
+    <h:head>        
         <ui:include src="head.xhtml" />
-        <title>Human Resource Manager</title>     
-        <link rel="shortcut icon" type="image/x-icon" href="#{humanResourceManager.appShortcutIconURL}" />
+        <title>Human Resource Manager</title>        
         <script type="text/javascript" src="js/javascripts.js" /> 
         <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css" />       
-        <link rel="stylesheet" type="text/css" href="css/main.css" />       
+        <link rel="stylesheet" type="text/css" href="css/main.css" />   
     </h:head>
-    <h:body>
+
+    <h:body id="appBody">
 
         <ui:include src="common/commonDialogs.xhtml" />          
         <ui:include src="hr/loginDialog.xhtml"/>         
@@ -43,151 +43,156 @@ Email: info@dpbennett.com.jm
         <h:form id="appForm" rendered="#{humanResourceManager.userLoggedIn}">   
 
             <p:growl id="growl3" life="5000" showDetail="true" />
-            <p:panel>
-                <div class="grid">
 
-                    <div class="col-12 md:col-12 col-nogutter">
-                        <div class="grid">
-                            <div class="col-12 col-nogutter">
-                                <div class="grid">
-                                    <div class="col-12 md:col-3">
-                                        <h:panelGroup style="float: left;margin-right: 10px;" >
-                                            <p:graphicImage value="#{humanResourceManager.logoURL}"
-                                                            class="logo"
-                                                            height="#{humanResourceManager.logoURLImageHeight}" 
-                                                            width="#{humanResourceManager.logoURLImageWidth}"/>
-                                        </h:panelGroup>
-                                        <h:panelGrid columns="1" cellspacing="0" >   
+            <div class="grid">
 
-                                            <p:outputLabel value="Human Resource Manager"
-                                                           class="header-text" />
+                <div class="col-12 col-nogutter">
+                    <div class="grid">
+                        <div class="col-12 md:col-3">
+                            <h:panelGroup style="float: left;margin-right: 10px;" >
+                                <p:graphicImage value="#{humanResourceManager.logoURL}"
+                                                class="logo"
+                                                height="#{humanResourceManager.logoURLImageHeight}" 
+                                                width="#{humanResourceManager.logoURLImageWidth}"/>
+                            </h:panelGroup>
+                            <h:panelGrid columns="1" cellspacing="0" >   
 
-                                            <p:outputLabel value="Human Resource Administration &amp; Management"
-                                                           class="subheader-text" />  
+                                <p:outputLabel value="Human Resource Manager"
+                                               class="header-text" />
 
-                                        </h:panelGrid>
-                                    </div>    
-                                    <div class="col-12 md:col-6">
+                                <p:outputLabel value="Human Resource Administration &amp; Management"
+                                               class="subheader-text" />  
 
-                                    </div>  
-                                    <div class="col-12 md:col-3">
-                                        <h:panelGroup style="float: right;" >
+                            </h:panelGrid>
+                        </div>    
+                        <div class="col-12 md:col-6">
 
-                                            <p:badge value="#{systemManager.sizeOfActiveNotifications}" 
-                                                     id="notificationBadge"
-                                                     visible="#{systemManager.hasActiveNotifications}" 
-                                                     severity="danger">
+                        </div>  
+                        <div class="col-12 md:col-3">
+                            <h:panelGroup style="float: right;" >
 
-                                                <p:commandButton id="notifications" 
-                                                                 class="notification-button"
-                                                                 icon="pi pi-bell" />
-                                                <p:overlayPanel for="notifications"   
-                                                                widgetVar="NotificationPanelVar"
-                                                                style="width:400px;border: 0;">
-                                                    <p:orderList value="#{systemManager.notifications}" 
-                                                                 var="notification" 
-                                                                 itemValue="#{notification}"
-                                                                 converter="#{notificationConverter}" 
-                                                                 controlsLocation="none" responsive="true" >
+                                <p:badge value="#{systemManager.sizeOfActiveNotifications}" 
+                                         id="notificationBadge"
+                                         visible="#{systemManager.hasActiveNotifications}" 
+                                         severity="danger">
 
-                                                        <p:ajax event="select" 
-                                                                update=":appForm:notificationBadge"
-                                                                oncomplete="PF('NotificationPanelVar').hide()"
-                                                                listener="#{humanResourceManager.onNotificationSelect}" />
+                                    <p:commandButton id="notifications" 
+                                                     class="notification-button"
+                                                     icon="pi pi-bell" />
+                                    <p:overlayPanel for="notifications"   
+                                                    widgetVar="NotificationPanelVar"
+                                                    style="width:400px;border: 0;">
+                                        <p:orderList value="#{systemManager.notifications}" 
+                                                     var="notification" 
+                                                     itemValue="#{notification}"
+                                                     converter="#{notificationConverter}" 
+                                                     controlsLocation="none" responsive="true" >
 
-                                                        <p:column>
-                                                            <p:outputLabel value="#{notification.name}" 
-                                                                           style="#{notification.style}"/>
-                                                        </p:column>                                           
+                                            <p:ajax event="select" 
+                                                    update=":appForm:notificationBadge"
+                                                    oncomplete="PF('NotificationPanelVar').hide()"
+                                                    listener="#{humanResourceManager.onNotificationSelect}" />
 
-                                                    </p:orderList>
-                                                </p:overlayPanel>
+                                            <p:column>
+                                                <p:outputLabel value="#{notification.name}" 
+                                                               style="#{notification.style}"/>
+                                            </p:column>                                           
 
-                                            </p:badge>
-                                            <p:spacer width="30"/>
-                                            <p:menuButton iconPos="left"
-                                                          icon="pi pi-user"
-                                                          title="#{humanResourceManager.user.employee.firstName} #{humanResourceManager.user.employee.lastName} (#{humanResourceManager.user.username})"
-                                                          id="userMenu"
-                                                          class="usermenu-button" >
+                                        </p:orderList>
+                                    </p:overlayPanel>
 
-                                                <p:menuitem actionListener="#{systemManager.viewUserProfile}"                                            
-                                                            update=":userProfileDialogForm"
-                                                            oncomplete="PF('userProfileDialog').show();"
-                                                            icon="pi pi-cog"
-                                                            value="Profile"
-                                                            process="@this"/>  
-                                                <p:menuitem actionListener="#{humanResourceManager.logout}"                                             
-                                                            icon="pi pi-sign-out"
-                                                            value="Logout"
-                                                            oncomplete="location.reload();"
-                                                            process="@this"/>    
+                                </p:badge>
+                                <p:spacer width="30"/>
+                                <p:menuButton iconPos="left"
+                                              icon="pi pi-user"
+                                              title="#{humanResourceManager.user.employee.firstName} #{humanResourceManager.user.employee.lastName} (#{humanResourceManager.user.username})"
+                                              id="userMenu"
+                                              class="usermenu-button" >
 
-                                            </p:menuButton>   
-                                        </h:panelGroup>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="grid">
-                                    <div class="col-12 md:col-4">
+                                    <p:menuitem actionListener="#{systemManager.viewUserProfile}"                                            
+                                                update=":userProfileDialogForm"
+                                                oncomplete="PF('userProfileDialog').show();"
+                                                icon="pi pi-cog"
+                                                value="Profile"
+                                                process="@this"/>  
+                                    <p:menuitem actionListener="#{humanResourceManager.logout}"                                             
+                                                icon="pi pi-sign-out"
+                                                value="Logout"
+                                                oncomplete="location.reload();"
+                                                process="@this"/>    
 
-                                        <p:defaultCommand target="defaultCommand" />
-
-                                        <ui:include src="dashboard/hrm/adminTab.xhtml" />
-
-                                    </div>    
-                                    <div class="col-12 md:col-8">
-                                        <p:tabView id="mainTabView"  
-                                                   rendered="#{humanResourceManager.mainTabView.render}"
-                                                   value="#{humanResourceManager.mainTabView.tabs}" 
-                                                   var="t" 
-                                                   widgetVar="mainTabViewVar">
-
-                                            <p:ajax event="tabClose" 
-                                                    immediate="true"
-                                                    process="@this"
-                                                    update=""
-                                                    listener="#{humanResourceManager.onMainViewTabClose}" />  
-
-                                            <p:ajax event="tabChange" 
-                                                    immediate="true"
-                                                    process="@this"                                
-                                                    listener="#{humanResourceManager.onMainViewTabChange}" />  
-
-
-                                            <p:tab title="#{t.name}" closable="true"  >
-
-                                                <h:panelGroup rendered="#{t.id == 'Human Resource'}" >
-                                                    <ui:include src="hr/hrmTab.xhtml" /> 
-                                                </h:panelGroup>   
-
-                                                <h:panelGroup rendered="#{t.id == 'System Administration'}" >
-                                                    <ui:include src="admin/generalAdminTab.xhtml" /> 
-                                                </h:panelGroup>  
-
-                                            </p:tab>
-
-                                        </p:tabView> 
-
-
-                                    </div>                              
-                                </div>
-                            </div>
+                                </p:menuButton>   
+                            </h:panelGroup>
                         </div>
                     </div>
+                </div>         
+
+                <div class="grid">
                     <div class="col-12">
 
-                        <p:outputLabel value=" &copy; D P Bennett &amp; Associates"   
-                                       onclick="window.open('https://dpbennett.com.jm/');"
-                                       class="header-text" />
+                        <ui:include src="menubar.xhtml" />   
 
-                    </div>
+                        <p:tabView id="mainTabView"  
+                                   rendered="#{humanResourceManager.mainTabView.render}"
+                                   value="#{humanResourceManager.mainTabView.tabs}" 
+                                   var="t"                                    
+                                   dynamic="false"
+                                   widgetVar="mainTabViewVar">
+
+                            <p:ajax event="tabClose" 
+                                    immediate="true"
+                                    process="@this"
+                                    listener="#{systemManager.onMainViewTabClose}" />  
+
+                            <p:ajax event="tabChange" 
+                                    process="@form"    
+                                    update=":appForm"
+                                    listener="#{systemManager.onMainViewTabChange}" />  
+
+                            <p:tab title="#{t.name}" closable="true"  >
+
+                                <p:defaultCommand id="defaultCmd"
+                                                  target="#{systemManager.defaultCommandTarget}" />
+
+                                <h:panelGroup rendered="#{t.id == 'Human Resource'}" >
+                                    <ui:include src="hr/hrmTab.xhtml" /> 
+                                </h:panelGroup>  
+
+                                <h:panelGroup rendered="#{t.id == 'System Administration'}" >
+                                    <ui:include src="admin/generalAdminTab.xhtml" /> 
+                                </h:panelGroup>  
+
+                            </p:tab>
+
+                        </p:tabView> 
+                    </div>                              
+                </div>            
+            </div>
+
+            <div class="grid">
+                <div class="col-12">
+                    <p:toolbar>
+                        <p:toolbarGroup align="left">
+
+                            <p:outputLabel value=" &copy; #{systemManager.copyrightOrganization}"   
+                                           onclick="window.open('#{systemManager.organizationWebsite}');"
+                                           class="header-text" />
+
+                        </p:toolbarGroup>
+
+                        <p:toolbarGroup align="right">
+                            <p:outputLabel value="#{systemManager.applicationFooter}" 
+                                           class="header-text" />
+                        </p:toolbarGroup>
+                    </p:toolbar>
+
                 </div>
-            </p:panel>
+            </div>
+
             <p:poll interval="60" 
                     global="false"
-                    listener="#{humanResourceManager.handleKeepAlive}" />
+                    onerror="PF('connectionErrorDialog').show();"
+                    listener="#{humanResourceManager.handleKeepAlive}" />           
 
         </h:form>
 
