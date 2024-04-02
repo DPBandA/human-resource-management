@@ -94,27 +94,23 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <f:facet name="header">
+                <h:outputText value="Category"/>
+            </f:facet>
+            <h:outputText value="#{position.category}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Classification"/>
+            </f:facet>
+            <h:outputText value="#{position.classification}" />
+        </p:column>
+        
+        <p:column>
+            <f:facet name="header">
                 <h:outputText value="Description"/>
             </f:facet>
             <h:outputText value="#{position.description}" />
-        </p:column>
-
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Lower Approval Limit"/>
-            </f:facet>
-            <h:outputText value="#{position.lowerApprovalLevel}" styleClass="datatable-number-field" >
-                <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
-            </h:outputText>
-        </p:column>
-
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Upper Approval Limit"/>
-            </f:facet>
-            <h:outputText value="#{position.upperApprovalLevel}" styleClass="datatable-number-field" >
-                <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
-            </h:outputText>
         </p:column>
 
         <p:column>
