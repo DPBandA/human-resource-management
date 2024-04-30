@@ -115,6 +115,13 @@ Email: info@dpbennett.com.jm
             </f:facet>
             <h:outputText value="#{employee.internet.email1}" />
         </p:column>
+        
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Position(s)"/>
+            </f:facet>
+            <h:outputText value="#{employee.allPositions}" />
+        </p:column>  
 
         <p:column>
             <f:facet name="header">
