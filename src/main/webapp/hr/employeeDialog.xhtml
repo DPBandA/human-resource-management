@@ -27,9 +27,7 @@ Email: info@dpbennett.com.jm
     <h:head>
         <ui:include src="../head.xhtml" />      
         <title>Employee</title>
-        <script type="text/javascript" src="../js/javascripts.js" /> 
-        <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css" /> 
-        <link rel="stylesheet" href="../css/main.css" />
+        <ui:include src="header.xhtml" />
     </h:head>
 
     <h:body > 
@@ -83,9 +81,9 @@ Email: info@dpbennett.com.jm
                         <p:selectOneMenu value="#{humanResourceManager.selectedEmployee.sex}" 
                                          required="true"
                                          id="employeeSex" >
-                            
+
                             <f:selectItems value="#{systemManager.sexes}" />
-                            
+
                         </p:selectOneMenu>
 
                         <p:outputLabel for="employeeTitle" value="Title" 
@@ -93,9 +91,9 @@ Email: info@dpbennett.com.jm
                         <p:selectOneMenu value="#{humanResourceManager.selectedEmployee.title}" 
                                          required="true"
                                          id="employeeTitle" >
-                            
+
                             <f:selectItems value="#{systemManager.personalTitles}" />
-                            
+
                         </p:selectOneMenu>
 
                         <p:outputLabel value="First name" for="firstName" 
