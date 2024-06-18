@@ -24,7 +24,7 @@ Email: info@dpbennett.com.jm
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
-    <h:panelGrid id="generalDetailsPanelGrid" columns="3" cellspacing="5" >
+    <h:panelGrid id="generalDetailsPanelGrid" columns="2" cellspacing="5" >
 
         <p:outputLabel for="manufacturerActive" value="Active *" 
                        style="font-weight: bold;" />  
@@ -43,7 +43,6 @@ Email: info@dpbennett.com.jm
                        value="Check to activate this manufacturer" 
                        showEffect="fade" hideEffect="fade" />            
         </h:panelGroup>
-        <h:outputText value="" />
 
         <h:outputLabel for="manufacturerName" 
                        value="Name *" style="font-weight: bold;" />       
@@ -59,8 +58,7 @@ Email: info@dpbennett.com.jm
                     listener="#{humanResourceManager.updateManufacturerName}"
                     process="@this"/>
 
-        </p:inputText>     
-        <h:outputText value="" />     
+        </p:inputText>      
 
         <h:outputLabel for="manufacturerCode" value="Code" />       
         <p:inputText value="#{humanResourceManager.selectedManufacturer.code}"
@@ -71,8 +69,7 @@ Email: info@dpbennett.com.jm
                     listener="#{humanResourceManager.updateManufacturer}"
                     process="@this"/>
 
-        </p:inputText>     
-        <h:outputText value="" /> 
+        </p:inputText> 
 
         <h:outputLabel for="manufacturerId" value="Status *" style="font-weight: bold"/>
         <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.status}" 
@@ -85,7 +82,6 @@ Email: info@dpbennett.com.jm
             <f:selectItems value="#{humanResourceManager.manufacturerStatuses}" />
 
         </p:selectOneMenu>  
-        <h:outputText value="" /> 
 
         <h:outputLabel for="registrationStatus" value="Registration status *" style="font-weight: bold"/>
         <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.registrationStatus}"
@@ -97,8 +93,7 @@ Email: info@dpbennett.com.jm
 
             <f:selectItems value="#{humanResourceManager.registrationStatuses}" />
 
-        </p:selectOneMenu>  
-        <h:outputText value="" />
+        </p:selectOneMenu> 
 
         <h:outputLabel for="registrationDueDate" value="Registration due date" />
         <p:calendar id="registrationDueDate"
@@ -114,7 +109,6 @@ Email: info@dpbennett.com.jm
                     listener="#{humanResourceManager.updateManufacturer}" />
 
         </p:calendar>
-        <h:outputText value="" />
 
         <h:outputLabel for="dateLastVisited" value="Date last visited" />
         <p:calendar readonlyInput="true"
@@ -130,52 +124,36 @@ Email: info@dpbennett.com.jm
                     listener="#{humanResourceManager.updateManufacturer}" />
 
         </p:calendar>
-        <h:outputText value="" />
 
         <h:outputLabel style="vertical-align: top;"
-                       for="marketProducts"     
-                       rendered="#{humanResourceManager.renderProductFields}"
+                       for="marketProducts" 
                        value="Products" />
-        <h:panelGroup rendered="#{humanResourceManager.renderProductFields}">
-            <h:panelGrid columns="2" >
-                <p:autoComplete id="marketProducts"
-                                var="marketProduct"   
-                                value="#{humanResourceManager.selectedManufacturer.marketProducts}"
-                                itemLabel="#{marketProduct.name} (#{marketProduct.brand})"
-                                itemValue="#{marketProduct}"
-                                converter="activeMarketProductConverter"
-                                forceSelection="true"
-                                dropdown="true"
-                                scrollHeight="200"                         
-                                multiple="true"
-                                cache="true"
-                                completeMethod="#{financeManager.completeActiveMarketProduct}" >
+        <p:autoComplete id="marketProducts"
+                        var="marketProduct"   
+                        value="#{humanResourceManager.selectedManufacturer.marketProducts}"
+                        itemLabel="#{marketProduct.name} (#{marketProduct.brand})"
+                        itemValue="#{marketProduct}"
+                        forceSelection="true"
+                        dropdown="true"
+                        scrollHeight="200"                         
+                        multiple="true"
+                        cache="true"
+                        completeMethod="#{financeManager.completeActiveMarketProduct}" >
 
-                    <p:ajax event="itemSelect"
-                            listener="#{humanResourceManager.updateManufacturer}"
-                            process="@this"/>
+            <f:converter converterId="activeMarketProductConverter"/>
 
-                    <p:ajax event="itemUnselect"
-                            listener="#{humanResourceManager.updateManufacturer}"
-                            process="@this"/>
+            <f:attribute name="em" value="#{financeManager.entityManager1}"/>
 
-                </p:autoComplete>
-                <p:commandButton 
-                    icon="pi pi-plus" 
-                    actionListener="#{complianceManager.createNewMarketProduct}"                                            
-                    process="@this"
-                    title="Add a new product to the market products database" >
+            <p:ajax event="itemSelect"
+                    listener="#{humanResourceManager.updateManufacturer}"
+                    process="@this"/>
 
-                    <p:ajax event="dialogReturn" 
-                            update="marketProducts" />
+            <p:ajax event="itemUnselect"
+                    listener="#{humanResourceManager.updateManufacturer}"
+                    process="@this"/>
 
-                </p:commandButton>
-            </h:panelGrid>
-
-        </h:panelGroup>
-        <h:outputText value="" rendered="#{humanResourceManager.renderProductFields}" /> 
-
-
+        </p:autoComplete>   
+        
     </h:panelGrid>                    
 
 </html>

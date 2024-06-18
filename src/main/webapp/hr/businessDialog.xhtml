@@ -85,7 +85,6 @@ Email: info@dpbennett.com.jm
                                     value="#{humanResourceManager.selectedBusiness.head}"
                                     itemLabel="#{businessHead.name}"
                                     itemValue="#{businessHead}"
-                                    converter="activeEmployeeConverter"
                                     required="true"
                                     requiredMessage="Organization Head Required"
                                     validator="requiredFieldValidator"
@@ -93,6 +92,11 @@ Email: info@dpbennett.com.jm
                                     forceSelection="true"
                                     cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+
+                        <f:converter converterId="activeEmployeeConverter"/>
+
+                        <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
+
                     </p:autoComplete>
 
                     <p:outputLabel for="domainName" value="Domain" style="font-weight: bold;" />

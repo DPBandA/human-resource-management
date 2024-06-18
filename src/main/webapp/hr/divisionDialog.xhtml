@@ -72,7 +72,6 @@ Email: info@dpbennett.com.jm
                                     value="#{humanResourceManager.selectedDivision.head}"
                                     itemLabel="#{divisionHead.name}"
                                     itemValue="#{divisionHead}"
-                                    converter="activeEmployeeConverter"
                                     validator="requiredFieldValidator"
                                     validatorMessage="A valid head is required"
                                     forceSelection="true"
@@ -80,6 +79,11 @@ Email: info@dpbennett.com.jm
                                     requiredMessage="Division Head Required"
                                     cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+
+                        <f:converter converterId="activeEmployeeConverter"/>
+
+                        <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
+
                     </p:autoComplete>
 
                     <p:outputLabel for="notes" value="Notes" />

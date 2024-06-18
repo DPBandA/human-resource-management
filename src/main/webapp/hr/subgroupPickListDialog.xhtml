@@ -47,8 +47,11 @@ Email: info@dpbennett.com.jm
                             showTargetFilter="true"
                             sourceFilterPlaceholder="Filter available subgroups"
                             targetFilterPlaceholder="Filter assigned subgroups"
-                            filterMatchMode="contains"
-                            converter="activeSubgroupConverter" >
+                            filterMatchMode="contains" >
+
+                    <f:converter converterId="activeSubgroupConverter"/>
+
+                    <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
 
                     <f:facet name="sourceCaption">Available</f:facet>
                     <f:facet name="targetCaption">Assigned</f:facet>

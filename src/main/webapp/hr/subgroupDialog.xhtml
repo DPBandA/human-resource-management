@@ -72,7 +72,6 @@ Email: info@dpbennett.com.jm
                                     value="#{humanResourceManager.selectedSubgroup.head}"
                                     itemLabel="#{subgroupHead.name}"
                                     itemValue="#{subgroupHead}"
-                                    converter="activeEmployeeConverter"
                                     required="true"
                                     requiredMessage="Subgroup Head Required"
                                     validator="requiredFieldValidator"
@@ -80,6 +79,11 @@ Email: info@dpbennett.com.jm
                                     forceSelection="true"
                                     cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+
+                        <f:converter converterId="activeEmployeeConverter"/>
+
+                        <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
+
                     </p:autoComplete>  
 
                     <p:outputLabel for="notes" value="Notes" />

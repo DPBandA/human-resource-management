@@ -48,8 +48,11 @@ Email: info@dpbennett.com.jm
                             showTargetFilter="true"
                             sourceFilterPlaceholder="Filter available departments"
                             targetFilterPlaceholder="Filter assigned departments"
-                            filterMatchMode="contains"
-                            converter="activeDepartmentConverter" >
+                            filterMatchMode="contains" >
+
+                    <f:converter converterId="activeDepartmentConverter"/>
+
+                    <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
 
                     <f:facet name="sourceCaption">Available</f:facet>
                     <f:facet name="targetCaption">Assigned</f:facet>

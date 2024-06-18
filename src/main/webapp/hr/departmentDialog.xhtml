@@ -90,13 +90,17 @@ Email: info@dpbennett.com.jm
                                     value="#{humanResourceManager.selectedDepartment.head}"
                                     itemLabel="#{departmentHead.name}"
                                     itemValue="#{departmentHead}"
-                                    converter="activeEmployeeConverter"
                                     validator="requiredFieldValidator"
                                     required="true"
                                     requiredMessage="Deparment Head Required"
                                     forceSelection="true"
                                     cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+
+                        <f:converter converterId="activeEmployeeConverter"/>
+
+                        <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
+
                     </p:autoComplete>       
 
                     <p:outputLabel for="departmentActingHead" 
@@ -111,13 +115,17 @@ Email: info@dpbennett.com.jm
                                         value="#{humanResourceManager.selectedDepartment.actingHead}"
                                         itemLabel="#{departmentActingHead.name}"
                                         itemValue="#{departmentActingHead}"
-                                        converter="activeEmployeeConverter"
                                         validator="requiredFieldValidator"
                                         forceSelection="true"
                                         cache="true"
                                         required="true"
                                         requiredMessage="Deparment Acting Head Required"
                                         completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+
+                            <f:converter converterId="activeEmployeeConverter"/>
+
+                            <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
+
                         </p:autoComplete>     
                         <p:spacer height="0" width="5"/>
                         <p:selectBooleanCheckbox id="actingHeadActive"

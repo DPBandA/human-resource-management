@@ -47,8 +47,11 @@ Email: info@dpbennett.com.jm
                             showTargetFilter="true"
                             sourceFilterPlaceholder="Filter available employees"
                             targetFilterPlaceholder="Filter assigned employees"
-                            filterMatchMode="contains"
-                            converter="activeEmployeeConverter" >
+                            filterMatchMode="contains" >
+
+                    <f:converter converterId="activeEmployeeConverter"/>
+
+                    <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
 
                     <f:facet name="sourceCaption">Available</f:facet>
                     <f:facet name="targetCaption">Assigned</f:facet>

@@ -146,9 +146,13 @@ Email: info@dpbennett.com.jm
                                         required="true"
                                         requiredMessage="Department Required"
                                         validator="requiredFieldValidator"
-                                        converter="activeDepartmentConverter"
                                         cache="true"
                                         completeMethod="#{humanResourceManager.completeActiveDepartment}" >                
+
+                            <f:converter converterId="activeDepartmentConverter"/>
+
+                            <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
+
                         </p:autoComplete>                    
 
                     </h:panelGrid>
@@ -167,14 +171,19 @@ Email: info@dpbennett.com.jm
                                         var="position"   
                                         value="#{humanResourceManager.selectedEmployee.positions}"
                                         itemLabel="#{position.title}"
-                                        itemValue="#{position}"                                    
-                                        converter="activeEmployeePositionConverter"
+                                        itemValue="#{position}"  
                                         forceSelection="true" 
                                         dropdown="true"
                                         scrollHeight="200"                         
                                         multiple="true"
                                         cache="true"
-                                        completeMethod="#{humanResourceManager.completeActiveEmployeePosition}" />
+                                        completeMethod="#{humanResourceManager.completeActiveEmployeePosition}" >
+
+                            <f:converter converterId="activeEmployeePositionConverter"/>
+
+                            <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
+
+                        </p:autoComplete>
 
                         <p:outputLabel for="notes" value="Notes" />   
                         <p:inputTextarea
