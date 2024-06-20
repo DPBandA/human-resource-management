@@ -106,6 +106,7 @@
             <to-view-id>/hr/divisionDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <!--
     <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>
@@ -113,6 +114,7 @@
             <to-view-id>/hr/manufacturer/manufacturerDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    -->    
       
     <managed-bean>
         <managed-bean-name>humanResourceManager</managed-bean-name>
