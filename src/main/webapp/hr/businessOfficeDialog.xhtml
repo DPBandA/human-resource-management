@@ -1,0 +1,113 @@
+<!--
+Human Resource Management (HRM) 
+Copyright (C) 2024  D P Bennett & Associates Limited
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Email: info@dpbennett.com.jm
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <ui:include src="../head.xhtml" />
+        <title>Business Office</title>
+        <ui:include src="header.xhtml" />
+    </h:head>
+    <h:body >  
+
+        <ui:include src="../common/commonDialogs.xhtml"/>   
+
+        <h:form id="businessOfficeDialogForm">     
+
+            <p:growl id="businessofficedialog_growl" life="5000" showDetail="true"/>
+
+            <p:toolbar style="margin-bottom: 1px;">
+                <p:toolbarGroup>
+                    <p:commandButton value="Ok"
+                                     actionListener="#{humanResourceManager.saveSelectedBusinessOffice}"
+                                     icon="pi pi-check"
+                                     update="businessofficedialog_growl"
+                                     process="@form"/>
+                    <p:spacer width="5" />
+                    <p:commandButton value="Cancel"
+                                     actionListener="#{humanResourceManager.closeDialog}"
+                                     immediate="true"
+                                     icon="pi pi-times" />            
+                </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
+                </p:toolbarGroup>
+
+            </p:toolbar>
+
+            <p:panel style="margin-bottom: 1px;">
+                <h:panelGrid columns="2" cellspacing="5">   
+
+                    <p:outputLabel for="businessOfficeActive" value="Active"
+                                   style="font-weight: bold;" />               
+                    <p:selectBooleanCheckbox id="businessOfficeActive"
+                                             style="vertical-align: middle"
+                                             required="true"
+                                             value="#{humanResourceManager.selectedBusinessOffice.active}" />
+
+                    <p:outputLabel for="code" value="Code" style="font-weight: bold;" />
+                    <p:inputText value="#{humanResourceManager.selectedBusinessOffice.code}"
+                                 id="code" 
+                                 required="true"
+                                 placeholder="Enter N/A if not available"
+                                 requiredMessage="Business Office Code Required"
+                                 validator="requiredFieldValidator" /> 
+
+                    <p:outputLabel for="name" value="Name" style="font-weight: bold;" />
+                    <p:inputText value="#{humanResourceManager.selectedBusinessOffice.name}"
+                                 id="name" 
+                                 required="true"
+                                 requiredMessage="Business Office Name Required"
+                                 validator="requiredFieldValidator" /> 
+
+                </h:panelGrid>
+            </p:panel>
+            <p:toolbar style="margin-top: 1px;">
+                <p:toolbarGroup>
+                    <p:commandButton value="Ok"
+                                     actionListener="#{humanResourceManager.saveSelectedBusinessOffice}"
+                                     icon="pi pi-check"
+                                     update="businessofficedialog_growl"
+                                     process="@form"/>
+                    <p:spacer width="5" />
+                    <p:commandButton value="Cancel"
+                                     actionListener="#{humanResourceManager.closeDialog}"
+                                     immediate="true"
+                                     icon="pi pi-times" />            
+                </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
+                </p:toolbarGroup>
+            </p:toolbar> 
+        </h:form> 
+    </h:body>
+</html>

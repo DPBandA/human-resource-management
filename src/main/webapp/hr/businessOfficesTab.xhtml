@@ -1,5 +1,5 @@
 <!--
-Human Resource Management (HRM)
+Human Resource Management (HRM) 
 Copyright (C) 2024  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -26,45 +26,45 @@ Email: info@dpbennett.com.jm
 
     <p:toolbar>
         <p:toolbarGroup align="left" >   
-            <p:commandButton title="Add new division"                                  
+            <p:commandButton title="Add new business office"                                  
                              value="New"
-                             actionListener="#{humanResourceManager.createNewDivision}"
+                             actionListener="#{humanResourceManager.createNewBusinessOffice}"
                              global="true"
                              process="@this"
                              icon="pi pi-plus">
 
                 <p:ajax event="dialogReturn" 
-                        listener="#{humanResourceManager.doDivisionSearch}"
-                        update=":appForm:mainTabView:humanResourceTabView:divisionsTable"/>
+                        listener="#{humanResourceManager.doBusinessOfficeSearch}"
+                        update=":appForm:mainTabView:humanResourceTabView:businessOfficesTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
             <h:panelGroup>
-                <p:inputText id="divisionSearchText" 
-                             value="#{humanResourceManager.divisionSearchText}"
+                <p:inputText id="businessOfficeSearchText" 
+                             value="#{humanResourceManager.businessOfficeSearchText}"
                              placeholder="Enter search text" />
-                <p:commandButton id="divisionSearchButton"
+                <p:commandButton id="businessOfficeSearchButton"
                                  class="search-button"   
-                                 actionListener="#{humanResourceManager.doDivisionSearch}"
-                                 update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
+                                 actionListener="#{humanResourceManager.doBusinessOfficeSearch}"
+                                 update=":appForm:mainTabView:humanResourceTabView:businessOfficesTable"
                                  icon="pi pi-search"
                                  process="@form" />
             </h:panelGroup>
         </p:toolbarGroup>
 
         <p:toolbarGroup align="right" style="margin-top: 5px;" >
-            <p:outputLabel for="activeDivisionsOnly" value="Active divisions only" /> 
+            <p:outputLabel for="activeBusinessOfficesOnly" value="Active business offices only" />  
             <p:spacer width="5" />
             <h:panelGroup>
                 <p:selectBooleanCheckbox style="vertical-align: middle"
-                                         id="activeDivisionsOnly"
-                                         value="#{humanResourceManager.isActiveDivisionsOnly}" >
-                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:divisionsTable"
-                             listener="#{humanResourceManager.doDivisionSearch}"
+                                         id="activeBusinessOfficesOnly"
+                                         value="#{humanResourceManager.isActiveBusinessOfficesOnly}" >
+                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:businessOfficesTable"
+                             listener="#{humanResourceManager.doBusinessOfficeSearch}"
                              event="change"                                      
                              process="@this"/>
                 </p:selectBooleanCheckbox>            
-                <p:tooltip for="activeDivisionsOnly" value="Check to show active divisions only" 
+                <p:tooltip for="activeBusinessOfficesOnly" value="Check to show active business offices only" 
                            showEffect="fade" hideEffect="fade" />
                 <p:spacer width="15" />                
             </h:panelGroup>
@@ -72,18 +72,18 @@ Email: info@dpbennett.com.jm
 
     </p:toolbar>    
 
-    <p:dataTable id="divisionsTable"                                       
-                 var="division"                                        
+    <p:dataTable id="businessOfficesTable"                                       
+                 var="office"                                        
                  paginator="true"
                  rows="15"
                  reflow="true"
                  style="margin-bottom: 1px;margin-top: 1px;"
-                 widgetVar="divisionsTableVar"
+                 widgetVar="businessOfficesTableVar"
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                 value="#{humanResourceManager.foundDivisions}">
+                 value="#{humanResourceManager.foundBusinessOffices}">
 
         <f:facet name="header">
-            Divisions
+            Business Offices
         </f:facet>
         
         <p:column style="width: 30px;">
@@ -93,55 +93,38 @@ Email: info@dpbennett.com.jm
             <p:selectBooleanCheckbox 
                 style="display: block;text-align: center;"
                 disabled="true"
-                value="#{division.active}" />
+                value="#{office.active}" />
         </p:column>
-
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Name"/>
-            </f:facet>
-            <h:outputText value="#{division.name}" />
-        </p:column>   
 
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Code"/>
             </f:facet>
-            <h:outputText value="#{division.code}" />
-        </p:column>
+            <h:outputText value="#{office.code}" />
+        </p:column>   
 
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Notes"/>
+                <h:outputText value="Name"/>
             </f:facet>
-            <h:outputText value="#{division.notes}" />
-        </p:column>
-
-        <ui:remove>
-            <p:column>
-                <f:facet name="header">
-                    <h:outputText value="Departments"/>
-                </f:facet>
-                <h:outputText value="#{division.departmentList}" />
-            </p:column>  
-        </ui:remove>
+            <h:outputText value="#{office.name}" />
+        </p:column> 
 
         <p:column>
-            <p:commandButton title="View or edit division"   
-                             actionListener="#{humanResourceManager.editDivision}"
+            <p:commandButton title="View or edit business office"   
+                             actionListener="#{humanResourceManager.editBusinessOffice}"
                              global="true"
                              process="@this"
                              icon="pi pi-pencil">
-                <f:setPropertyActionListener value="#{division}"                                                                    
-                                             target="#{humanResourceManager.selectedDivision}" />
+                <f:setPropertyActionListener value="#{office}"                                                                    
+                                             target="#{humanResourceManager.selectedBusinessOffice}" />
                 <p:ajax event="dialogReturn" 
-                        update=":appForm:mainTabView:humanResourceTabView:divisionsTable"/>
+                        update=":appForm:mainTabView:humanResourceTabView:businessOfficesTable"/>
 
             </p:commandButton>           
         </p:column>
 
     </p:dataTable>
-
 </html>
 
 

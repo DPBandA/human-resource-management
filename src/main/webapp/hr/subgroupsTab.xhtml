@@ -87,6 +87,16 @@ Email: info@dpbennett.com.jm
             Subgroups
         </f:facet>
 
+        <p:column style="width: 30px;">
+            <f:facet name="header">
+                <p:outputLabel value="Active"/>
+            </f:facet>           
+            <p:selectBooleanCheckbox 
+                style="display: block;text-align: center;"
+                disabled="true"
+                value="#{subgroup.active}" />
+        </p:column>
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Name"/>

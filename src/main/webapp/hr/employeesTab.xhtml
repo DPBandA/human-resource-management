@@ -86,14 +86,15 @@ Email: info@dpbennett.com.jm
             Employees
         </f:facet>
 
-        <ui:remove>
-            <p:column>
-                <f:facet name="header">
-                    <h:outputText value="Rec. ID"/>
-                </f:facet>
-                <h:outputText value="#{employee.id}" />
-            </p:column>
-        </ui:remove>
+       <p:column style="width: 30px;">
+            <f:facet name="header">
+                <p:outputLabel value="Active"/>
+            </f:facet>           
+            <p:selectBooleanCheckbox 
+                style="display: block;text-align: center;"
+                disabled="true"
+                value="#{employee.active}" />
+        </p:column>
 
         <p:column>
             <f:facet name="header">

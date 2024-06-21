@@ -85,6 +85,16 @@ Email: info@dpbennett.com.jm
         <f:facet name="header">
             Organizations
         </f:facet>
+        
+        <p:column style="width: 30px;">
+            <f:facet name="header">
+                <p:outputLabel value="Active"/>
+            </f:facet>           
+            <p:selectBooleanCheckbox 
+                style="display: block;text-align: center;"
+                disabled="true"
+                value="#{business.active}" />
+        </p:column>
 
         <p:column>
             <f:facet name="header">
