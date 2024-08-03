@@ -77,23 +77,44 @@ Email: info@dpbennett.com.jm
                  paginator="true"
                  rows="15"
                  reflow="true"
+                 editable="true"
                  style="margin-top: 1px;"
                  widgetVar="employeesTableVar"
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
                  value="#{humanResourceManager.foundEmployees}">
 
+        <p:ajax event="rowEdit" 
+                listener="#{humanResourceManager.onEmployeeRowEdit}" 
+                update=":appForm:growl3"/>
+        <p:ajax event="rowEditCancel" 
+                listener="#{humanResourceManager.onEmployeeRowCancel}" 
+                update=":appForm:growl3"/>
+
         <f:facet name="header">
             Employees
         </f:facet>
 
-       <p:column style="width: 30px;">
-            <f:facet name="header">
-                <p:outputLabel value="Active"/>
-            </f:facet>           
-            <p:selectBooleanCheckbox 
-                style="display: block;text-align: center;"
-                disabled="true"
-                value="#{employee.active}" />
+        <p:column headerText="Active" style="width: 30px;">
+            <p:cellEditor>
+                <f:facet name="output">
+                    <p:selectBooleanCheckbox 
+                        style="display: block;text-align: center;"
+                        disabled="true"
+                        value="#{employee.active}" />
+                </f:facet>   
+                <f:facet name="input">
+                    <p:selectBooleanCheckbox 
+                        style="display: block;text-align: center;"
+                        value="#{employee.active}" />
+                </f:facet>                   
+            </p:cellEditor>
+        </p:column>
+        
+        <p:column style="width: 30px;" >
+            <p:rowEditor editTitle="Edit Row" 
+                         style="display: block;text-align: left;"
+                         cancelTitle="Cancel Edit" 
+                         saveTitle="Save Row"/>
         </p:column>
 
         <p:column>
@@ -116,7 +137,7 @@ Email: info@dpbennett.com.jm
             </f:facet>
             <h:outputText value="#{employee.internet.email1}" />
         </p:column>
-        
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Position(s)"/>
@@ -136,7 +157,7 @@ Email: info@dpbennett.com.jm
                              actionListener="#{humanResourceManager.editEmployee}"
                              global="true"
                              process="@this"
-                             icon="pi pi-pencil">
+                             icon="pi pi-eye">
 
                 <f:setPropertyActionListener value="#{employee}"                                                                    
                                              target="#{humanResourceManager.selectedEmployee}" />
@@ -145,7 +166,7 @@ Email: info@dpbennett.com.jm
                         update=":appForm:mainTabView:humanResourceTabView:employeesTable"/>
 
             </p:commandButton>           
-        </p:column>
+        </p:column>       
 
     </p:dataTable>
 </html>
