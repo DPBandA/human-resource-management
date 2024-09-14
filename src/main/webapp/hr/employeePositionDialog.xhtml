@@ -145,13 +145,13 @@ Email: info@dpbennett.com.jm
 
                 <p:tab title="Remuneration">
                     <h:panelGrid columns="2">
-                        <p:outputLabel for="employmentType" value="Type" style="font-weight: bold;" />
+                        <p:outputLabel for="employmentType" value="Type *" style="font-weight: bold;" />
                         <p:selectOneMenu value="#{humanResourceManager.selectedEmployeePosition.type}" 
                                          id="employmentType" >
                             <f:selectItems value="#{humanResourceManager.employmentTypeList}" />
                         </p:selectOneMenu>
 
-                        <p:outputLabel for="payCycle" value="Pay cycle" style="font-weight: bold;" />
+                        <p:outputLabel for="payCycle" value="Pay cycle *" style="font-weight: bold;" />
                         <p:selectOneMenu value="#{humanResourceManager.selectedEmployeePosition.payCycle}" 
                                          id="payCycle" >
                             <f:selectItems value="#{humanResourceManager.payCycleList}" />

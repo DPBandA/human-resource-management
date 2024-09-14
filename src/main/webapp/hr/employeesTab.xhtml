@@ -116,19 +116,26 @@ Email: info@dpbennett.com.jm
                          cancelTitle="Cancel Edit" 
                          saveTitle="Save Row"/>
         </p:column>
+        
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Id/Number"/>
+            </f:facet>
+            <h:outputText value="#{employee.number}" />
+        </p:column>
+        
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Firstname"/>
+            </f:facet>
+            <h:outputText value="#{employee.firstName}" />
+        </p:column>
 
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Lastname"/>
             </f:facet>
             <h:outputText value="#{employee.lastName}" />
-        </p:column>
-
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Firstname"/>
-            </f:facet>
-            <h:outputText value="#{employee.firstName}" />
         </p:column>
 
         <p:column>
