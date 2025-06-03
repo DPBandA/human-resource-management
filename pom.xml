@@ -14,26 +14,27 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <jakartaee>8.0.0</jakartaee>
+        <skipTests>true</skipTests>
     </properties>
 
-    <dependencies>  
+    <dependencies>   
         
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management-lib</artifactId>
             <version>2.2.2</version>
         </dependency>   
-      
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management</artifactId>
             <version>2.2.2</version>
             <type>war</type>
-        </dependency>    
+        </dependency>
         
     </dependencies>
+    
     <build>
         <plugins>
             <plugin>
