@@ -1,10 +1,11 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2024  D P Bennett & Associates Limited
+Copyright (C) 2025  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
+<a href="hrmTab.xhtml"></a>
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
@@ -36,42 +37,55 @@ Email: info@dpbennett.com.jm
 
         <p:ajax event="tabChange" 
                 process="@form"    
-                update=":appForm"
+                update=":mainTabViewForm"
                 listener="#{systemManager.onCentreViewTabChange}" />  
 
         <p:tab id="employeesTab" title="Employees">      
 
             <ui:include src="employeesTab.xhtml"/>    
+            
         </p:tab>
 
         <p:tab id="positionsTab" title="Positions">
 
             <ui:include src="employeePositionsTab.xhtml"/>  
+            
         </p:tab>
 
         <p:tab id="departmentsTab" title="Departments">
+            
             <ui:include src="departmentsTab.xhtml"/>  
-            <a href="divisionsTab.xhtml"></a>
+            
         </p:tab>
 
         <p:tab id="subgroupsTab" title="Subgroups">
+            
             <ui:include src="subgroupsTab.xhtml"/>  
+            
         </p:tab>
 
         <p:tab id="divisionsTab" title="Divisions">
+            
             <ui:include src="divisionsTab.xhtml"/>  
+            
         </p:tab>
 
         <p:tab id="businessOfficesTab" title="Business Offices">
+            
             <ui:include src="businessOfficesTab.xhtml"/>  
+            
         </p:tab>
 
         <p:tab id="manufacturersTab" title="Manufacturers">
+            
             <ui:include src="manufacturer/manufacturersTab.xhtml"/>  
+            
         </p:tab> 
 
         <p:tab id="organizationsTab" title="Organizations">
-            <ui:include src="organizationsTab.xhtml"/>  
+            
+            <ui:include src="organizationsTab.xhtml"/>
+            
         </p:tab>           
 
     </p:tabView>

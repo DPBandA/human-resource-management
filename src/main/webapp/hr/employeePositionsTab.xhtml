@@ -35,7 +35,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doEmployeePositionSearch}"
-                        update=":appForm:mainTabView:humanResourceTabView:positionsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:positionsTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
@@ -46,7 +46,7 @@ Email: info@dpbennett.com.jm
                 <p:commandButton id="employeePositionSearchButton"
                                  class="search-button"   
                                  actionListener="#{humanResourceManager.doEmployeePositionSearch}"
-                                 update=":appForm:mainTabView:humanResourceTabView:positionsTable"
+                                 update=":mainTabViewForm:mainTabView:humanResourceTabView:positionsTable"
                                  icon="pi pi-search"
                                  process="@form" />
             </h:panelGroup>
@@ -59,7 +59,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeEmployeePositionsOnly"
                                          value="#{humanResourceManager.isActiveEmployeePositionsOnly}" >
-                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:positionsTable"
+                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:positionsTable"
                              listener="#{humanResourceManager.doEmployeePositionSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -132,7 +132,7 @@ Email: info@dpbennett.com.jm
                 <f:setPropertyActionListener value="#{position}"                                                                    
                                              target="#{humanResourceManager.selectedEmployeePosition}" />
                 <p:ajax event="dialogReturn" 
-                        update=":appForm:mainTabView:humanResourceTabView:positionsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:positionsTable"/>
 
             </p:commandButton>           
         </p:column>

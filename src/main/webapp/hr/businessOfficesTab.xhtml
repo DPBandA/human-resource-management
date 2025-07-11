@@ -35,7 +35,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doBusinessOfficeSearch}"
-                        update=":appForm:mainTabView:humanResourceTabView:businessOfficesTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:businessOfficesTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
@@ -46,7 +46,7 @@ Email: info@dpbennett.com.jm
                 <p:commandButton id="businessOfficeSearchButton"
                                  class="search-button"   
                                  actionListener="#{humanResourceManager.doBusinessOfficeSearch}"
-                                 update=":appForm:mainTabView:humanResourceTabView:businessOfficesTable"
+                                 update=":mainTabViewForm:mainTabView:humanResourceTabView:businessOfficesTable"
                                  icon="pi pi-search"
                                  process="@form" />
             </h:panelGroup>
@@ -59,7 +59,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeBusinessOfficesOnly"
                                          value="#{humanResourceManager.isActiveBusinessOfficesOnly}" >
-                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:businessOfficesTable"
+                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:businessOfficesTable"
                              listener="#{humanResourceManager.doBusinessOfficeSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -119,7 +119,7 @@ Email: info@dpbennett.com.jm
                 <f:setPropertyActionListener value="#{office}"                                                                    
                                              target="#{humanResourceManager.selectedBusinessOffice}" />
                 <p:ajax event="dialogReturn" 
-                        update=":appForm:mainTabView:humanResourceTabView:businessOfficesTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:businessOfficesTable"/>
 
             </p:commandButton>           
         </p:column>

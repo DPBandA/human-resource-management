@@ -1,0 +1,158 @@
+<!--
+System Management(SM) 
+Copyright (C) 2025  D P Bennett & Associates Limited
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Email: info@dpbennett.com.jm
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <p:menubar id="main_menubar" autoDisplay="false" >
+
+        <p:menuitem value="Human Resource"
+                    title="Human resource management"
+                    rendered="#{systemManager.user.hasModule('humanResourceManager')}"
+                    icon="pi pi-users"
+                    actionListener="#{humanResourceManager.openHumanResourceBrowser}" /> 
+
+        <p:divider layout="vertical"/>
+
+        <p:submenu rendered="#{systemManager.user.hasModule('systemManager')}"
+                   label="System Administration" 
+                   icon="pi pi-server" >
+
+            <p:submenu label="Entity Managers" 
+                       icon="pi pi-database" >
+
+                <p:menuitem value="System Management (SM)"
+                            title="Edit SM entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('SMEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem>
+
+                <p:menuitem value="Financial Management (FM)"
+                            title="Edit FM entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('FMEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem>
+
+                <p:menuitem value="Job Management &amp; Tracking System (JMTS)"
+                            title="Edit JMTS entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('JMTSEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem> 
+
+                <p:menuitem value="Client Management (CM)"
+                            title="Edit CM entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('CMEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem> 
+
+                <p:menuitem value="Human Resource Management (HRM)"
+                            title="Edit HRM entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('HRMEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem> 
+
+                <p:menuitem value="Report Management (RM)"
+                            title="Edit RM entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('RMEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem> 
+
+                <p:menuitem value="Standards Compliance (SC)"
+                            title="Edit SC entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('SCEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem> 
+
+                <p:menuitem value="LegalOffice (LO)"
+                            title="Edit LO entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('LOEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem> 
+
+                <p:menuitem value="LabelPrint (LP)"
+                            title="Edit LP entity manager"
+                            icon="pi pi-cog"
+                            actionListener="#{systemManager.editEM('LPEM')}" 
+                            process="@this" >
+
+                    <p:ajax event="dialogReturn" 
+                            update=":mainTabViewForm:mainTabView:centerTabView:emButtonPanelGroup"/>
+
+                </p:menuitem> 
+
+            </p:submenu>
+
+            <p:divider />
+
+            <p:menuitem 
+                actionListener="#{systemManager.mainTabView.openTab('System Administration')}" 
+                title="System administration" 
+                rendered="#{systemManager.user.hasModule('systemManager')}"
+                value="System Administration" 
+                icon="pi pi-server" />   
+
+        </p:submenu>
+
+    </p:menubar>
+
+</html>

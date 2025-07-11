@@ -35,7 +35,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn"
                         listener="#{humanResourceManager.doEmployeeSearch}"
-                        update=":appForm:mainTabView:humanResourceTabView:employeesTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:employeesTable"/>
 
             </p:commandButton>                     
             <p:spacer width="20" />
@@ -46,7 +46,7 @@ Email: info@dpbennett.com.jm
                 <p:commandButton id="employeeSearchButton"
                                  class="search-button"   
                                  actionListener="#{humanResourceManager.doEmployeeSearch}"
-                                 update=":appForm:mainTabView:humanResourceTabView:employeesTable"
+                                 update=":mainTabViewForm:mainTabView:humanResourceTabView:employeesTable"
                                  icon="pi pi-search"
                                  process="@form" />
             </h:panelGroup>
@@ -60,7 +60,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeEmployeesOnly"
                                          value="#{humanResourceManager.isActiveEmployeesOnly}" >
-                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:employeesTable"
+                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:employeesTable"
                              listener="#{humanResourceManager.doEmployeeSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -85,10 +85,10 @@ Email: info@dpbennett.com.jm
 
         <p:ajax event="rowEdit" 
                 listener="#{humanResourceManager.onEmployeeRowEdit}" 
-                update=":appForm:growl3"/>
+                update=":headerForm:growl3"/>
         <p:ajax event="rowEditCancel" 
                 listener="#{humanResourceManager.onEmployeeRowCancel}" 
-                update=":appForm:growl3"/>
+                update=":headerForm:growl3"/>
 
         <f:facet name="header">
             Employees
@@ -170,7 +170,7 @@ Email: info@dpbennett.com.jm
                                              target="#{humanResourceManager.selectedEmployee}" />
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doEmployeeSearch}"
-                        update=":appForm:mainTabView:humanResourceTabView:employeesTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:employeesTable"/>
 
             </p:commandButton>           
         </p:column>       

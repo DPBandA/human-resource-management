@@ -35,7 +35,7 @@ Email: info@dpbennett.com.jm
 
                 <p:ajax event="dialogReturn" 
                         listener="#{humanResourceManager.doSubgroupSearch}"
-                        update=":appForm:mainTabView:humanResourceTabView:subgroupsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:subgroupsTable"/>
 
             </p:commandButton> 
             <p:spacer width="20" />
@@ -46,7 +46,7 @@ Email: info@dpbennett.com.jm
                 <p:commandButton id="subgroupSearchButton"
                                  class="search-button"   
                                  actionListener="#{humanResourceManager.doSubgroupSearch}"
-                                 update=":appForm:mainTabView:humanResourceTabView:subgroupsTable"
+                                 update=":mainTabViewForm:mainTabView:humanResourceTabView:subgroupsTable"
                                  icon="pi pi-search"
                                  process="@form" />
             </h:panelGroup>
@@ -60,7 +60,7 @@ Email: info@dpbennett.com.jm
                 <p:selectBooleanCheckbox style="vertical-align: middle"
                                          id="activeSubgroupsOnly"
                                          value="#{humanResourceManager.isActiveSubgroupsOnly}" >
-                    <p:ajax  update=":appForm:mainTabView:humanResourceTabView:subgroupsTable"
+                    <p:ajax  update=":mainTabViewForm:mainTabView:humanResourceTabView:subgroupsTable"
                              listener="#{humanResourceManager.doSubgroupSearch}"
                              event="change"                                      
                              process="@this"/>
@@ -136,7 +136,7 @@ Email: info@dpbennett.com.jm
                 <f:setPropertyActionListener value="#{subgroup}"                                                                    
                                              target="#{humanResourceManager.selectedSubgroup}" />
                 <p:ajax event="dialogReturn" 
-                        update=":appForm:mainTabView:humanResourceTabView:subgroupsTable"/>
+                        update=":mainTabViewForm:mainTabView:humanResourceTabView:subgroupsTable"/>
 
             </p:commandButton>           
         </p:column>
