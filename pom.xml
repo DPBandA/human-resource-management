@@ -7,7 +7,7 @@
     <version>2.0.0</version>
     <packaging>war</packaging>
 
-    <name>HRM</name>
+    <name>d.HRM</name>
     
     <description>Human Resource Management web application.</description>
 
