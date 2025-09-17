@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2024  D P Bennett & Associates Limited
+Copyright (C) 2025  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -59,6 +59,21 @@ Email: info@dpbennett.com.jm
                     process="@this"/>
 
         </p:inputText>      
+        
+        <h:outputLabel for="manufacturerType" value="Type *" style="font-weight: bold"/>
+        <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.type}" 
+                         required="true"
+                         requiredMessage="Manufacturer type is required"
+                         editable="true"
+                         id="manufacturerType">
+
+            <p:ajax
+                listener="#{humanResourceManager.updateManufacturer}"
+                process="@this" />
+
+            <f:selectItems value="#{humanResourceManager.manufacturerTypes}" />
+
+        </p:selectOneMenu>
 
         <h:outputLabel for="manufacturerCode" value="Code" />       
         <p:inputText value="#{humanResourceManager.selectedManufacturer.code}"
@@ -71,9 +86,9 @@ Email: info@dpbennett.com.jm
 
         </p:inputText> 
 
-        <h:outputLabel for="manufacturerId" value="Status *" style="font-weight: bold"/>
+        <h:outputLabel for="manufacturerStatus" value="Status *" style="font-weight: bold"/>
         <p:selectOneMenu value="#{humanResourceManager.selectedManufacturer.status}" 
-                         id="manufacturerId">
+                         id="manufacturerStatus">
 
             <p:ajax
                 listener="#{humanResourceManager.updateManufacturer}"
