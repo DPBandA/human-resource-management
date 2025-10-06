@@ -173,6 +173,7 @@ Email: info@dpbennett.com.jm
 
                                 <p:accordionPanel id="dashboardAccordion" 
                                                   value="#{humanResourceManager.dashboard.tabs}" 
+                                                  activeIndex="#{humanResourceManager.dashboard.tabIndex}"
                                                   var="t"   
                                                   widgetVar="dashboardAccordionVar"
                                                   rendered="true"
@@ -221,6 +222,7 @@ Email: info@dpbennett.com.jm
                                         <p:tabView id="mainTabView"  
                                                    rendered="#{humanResourceManager.mainTabView.render}"
                                                    value="#{humanResourceManager.mainTabView.tabs}" 
+                                                   activeIndex="#{humanResourceManager.dashboard.tabIndex}"
                                                    var="t" 
                                                    dynamic="false"
                                                    widgetVar="mainTabViewVar">
