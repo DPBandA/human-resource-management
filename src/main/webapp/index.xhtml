@@ -172,8 +172,8 @@ Email: info@dpbennett.com.jm
                             <p:panel header="Dashboard">
 
                                 <p:accordionPanel id="dashboardAccordion" 
-                                                  value="#{humanResourceManager.dashboard.tabs}" 
-                                                  activeIndex="#{humanResourceManager.dashboard.tabIndex}"
+                                                  value="#{systemManager.dashboard.tabs}" 
+                                                  activeIndex="#{systemManager.dashboard.tabIndex}"
                                                   var="t"   
                                                   widgetVar="dashboardAccordionVar"
                                                   rendered="true"
@@ -187,7 +187,7 @@ Email: info@dpbennett.com.jm
 
                                     <p:tab title="#{t.name}" >
 
-                                        <p:defaultCommand target="#{humanResourceManager.defaultCommandTarget}" />
+                                        <p:defaultCommand target="#{systemManager.defaultCommandTarget}" />
 
                                         <h:panelGroup rendered="#{t.id == 'Human Resource'}">
                                             <ui:include src="dashboard/hr/hrmTab.xhtml" />
@@ -220,9 +220,9 @@ Email: info@dpbennett.com.jm
                                         <ui:include src="menubar.xhtml" /> 
 
                                         <p:tabView id="mainTabView"  
-                                                   rendered="#{humanResourceManager.mainTabView.render}"
-                                                   value="#{humanResourceManager.mainTabView.tabs}" 
-                                                   activeIndex="#{humanResourceManager.dashboard.tabIndex}"
+                                                   rendered="#{systemManager.mainTabView.render}"
+                                                   value="#{systemManager.mainTabView.tabs}" 
+                                                   activeIndex="#{systemManager.dashboard.tabIndex}"
                                                    var="t" 
                                                    dynamic="false"
                                                    widgetVar="mainTabViewVar">
@@ -230,7 +230,7 @@ Email: info@dpbennett.com.jm
                                             <p:ajax event="tabClose" 
                                                     immediate="true"
                                                     process="@this"
-                                                    listener="#{humanResourceManager.onMainViewTabClose}" />  
+                                                    listener="#{systemManager.onMainViewTabClose}" />  
 
                                             <p:ajax event="tabChange" 
                                                     process="@form"      
@@ -240,7 +240,7 @@ Email: info@dpbennett.com.jm
 
                                             <p:tab title="#{t.name}" closable="true"  >
 
-                                                <p:defaultCommand target="#{humanResourceManager.defaultCommandTarget}" />
+                                                <p:defaultCommand target="#{systemManager.defaultCommandTarget}" />
 
                                                 <h:panelGroup rendered="#{t.id == 'Human Resource'}">                                
                                                     <ui:include src="hr/hrmTab.xhtml" /> 
