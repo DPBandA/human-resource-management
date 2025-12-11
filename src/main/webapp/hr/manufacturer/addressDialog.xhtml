@@ -120,7 +120,8 @@ Email: info@dpbennett.com.jm
                     </h:panelGroup>
 
                     <h:outputLabel for="country" value="Country" />
-                    <p:autoComplete value="#{humanResourceManager.selectedAddress.country}"     
+                    <p:autoComplete value="#{humanResourceManager.selectedAddress.country}"    
+                                    escape="false"
                                     id="country"
                                     forceSelection="true"  
                                     maxlength="40"

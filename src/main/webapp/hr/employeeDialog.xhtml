@@ -135,6 +135,7 @@ Email: info@dpbennett.com.jm
                         <p:outputLabel for="departmentName" value="Department" 
                                        style="font-weight: bold;" />
                         <p:autoComplete var="department"
+                                        escape="false"
                                         dropdown="true"
                                         id="departmentName"
                                         forceSelection="true" 
@@ -149,7 +150,7 @@ Email: info@dpbennett.com.jm
                                         cache="true"
                                         completeMethod="#{humanResourceManager.completeActiveDepartment}" >                
 
-                            <f:converter converterId="activeDepartmentConverter"/>
+                            <f:converter converterId="departmentConverter"/>
 
                             <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
 
@@ -168,6 +169,7 @@ Email: info@dpbennett.com.jm
 
                         <p:outputLabel for="position" value="Position(s)" />       
                         <p:autoComplete id="position"
+                                        escape="false"
                                         var="position"   
                                         value="#{humanResourceManager.selectedEmployee.positions}"
                                         itemLabel="#{position.title}"
