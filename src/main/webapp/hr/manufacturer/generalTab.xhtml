@@ -144,6 +144,7 @@ Email: info@dpbennett.com.jm
                        for="marketProducts" 
                        value="Products" />
         <p:autoComplete id="marketProducts"
+                        escape="false"
                         var="marketProduct"   
                         value="#{humanResourceManager.selectedManufacturer.marketProducts}"
                         itemLabel="#{marketProduct.name} (#{marketProduct.brand})"
