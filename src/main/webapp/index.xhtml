@@ -1,6 +1,6 @@
 <!--
 Human Resource Management (HRM) 
-Copyright (C) 2025  D P Bennett & Associates Limited
+Copyright (C) 2026  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -17,293 +17,75 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 Email: info@dpbennett.com.jm
 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html" 
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:f="http://java.sun.com/jsf/core" >
-
-    <h:head>
-        <ui:include src="head.xhtml" />
-        <title>Human Resource Manager</title>         
-        <script type="text/javascript" src="js/javascripts.js" /> 
-        <h:outputStylesheet library="webjars" name="primeflex/3.2.1/primeflex.min.css" />       
-        <link rel="stylesheet" type="text/css" href="css/main.css" />   
-        <style>
-
-            .ui-sticky {
-                top: 0px !important;
-            }
-            @media (max-width: 960px) {
-                .ui-sticky {
-                    top: 0px !important;
-                }
-            }
-
-            .custom-scrolltop.ui-scrolltop {
-                width: 2rem;
-                height: 2rem;
-                border-radius: 4px;
-                outline: 0 none;
-                background-color: var(--primary-color);
-            }
-            .custom-scrolltop.ui-scrolltop:hover {
-                background-color: var(--primary-color);
-            }
-
-            .custom-scrolltop.ui-scrolltop .ui-scrolltop-icon {
-                font-size: 1rem;
-                color: var(--primary-color-text);
-            }
-
-        </style>
-    </h:head>
-
-    <h:body id="appBody" style="margin: 0;" class="flex flex-column min-h-screen">
-
-        <ui:include src="common/commonDialogs.xhtml" />          
-        <ui:include src="loginDialog.xhtml"/>         
-        <ui:include src="common/userProfileDialog.xhtml"/> 
-
-        <p:panel rendered="#{humanResourceManager.userLoggedIn}">
-
-            <p:scrollTop />
-
-            <h:form id="headerForm" rendered="#{humanResourceManager.userLoggedIn}">
-
-                <p:growl id="growl3" life="5000" showDetail="true" />
-
-                <!-- Header -->
-                <p:panel id="header">
-
-                    <div class="col-12 col-nogutter">
-                        <div class="grid">
-                            <div class="col-12 md:col-3">
-                                <h:panelGroup style="float: left;margin-right: 10px;" >
-                                    <p:graphicImage value="#{humanResourceManager.logoURL}"
-                                                    class="logo"
-                                                    height="#{humanResourceManager.logoURLImageHeight}" 
-                                                    width="#{humanResourceManager.logoURLImageWidth}"/>
-                                </h:panelGroup>
-                                <h:panelGrid columns="1" cellspacing="0" >   
-
-                                    <p:outputLabel value="#{humanResourceManager.applicationHeader}"
-                                                   class="header-text" />
-
-                                    <p:outputLabel value="#{humanResourceManager.applicationSubheader}"
-                                                   class="subheader-text" />  
-
-                                </h:panelGrid>
-                            </div>    
-                            <div class="col-12 md:col-6"></div>  
-                            <div class="col-12 md:col-3">
-                                <h:panelGroup style="float: right;" >
-
-                                    <p:badge value="#{humanResourceManager.sizeOfActiveNotifications}" 
-                                             id="notificationBadge"
-                                             rendered="false"
-                                             visible="#{humanResourceManager.hasActiveNotifications}" 
-                                             severity="danger">
-
-                                        <p:commandButton id="notifications" 
-                                                         class="notification-button"
-                                                         icon="pi pi-bell" />
-                                        <p:overlayPanel for="notifications"   
-                                                        widgetVar="NotificationPanelVar"
-                                                        style="width:400px;border: 0;">
-                                            <p:orderList value="#{humanResourceManager.notifications}" 
-                                                         var="notification" 
-                                                         itemValue="#{notification}"
-                                                         converter="#{notificationConverter}" 
-                                                         controlsLocation="none" responsive="true" >
+<ui:composition
+    template="/jmts-ui/templates/jmts-base.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
-                                                <p:ajax event="select" 
-                                                        update=":headerForm:notificationBadge"
-                                                        oncomplete="PF('NotificationPanelVar').hide()"
-                                                        listener="#{humanResourceManager.onNotificationSelect}" />
+    <ui:define name="head">        
+        <title>#{humanResourceManager.applicationHeader}</title>
 
-                                                <p:column>
-                                                    <p:outputLabel value="#{notification.name}" 
-                                                                   style="#{notification.style}"/>
-                                                </p:column>                                           
+        <script type="text/javascript" src="js/javascripts.js"/>
+        <script type="text/javascript" src="js/app.js"/>
 
-                                            </p:orderList>
-                                        </p:overlayPanel>
+        <link rel="shortcut icon" type="image/x-icon" href="#{humanResourceManager.appShortcutIconURL}" />
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/sm.css"/>
+    </ui:define>
 
-                                    </p:badge>
-                                    <p:spacer width="30"/>                                   
+    <ui:define name="dialogs">
+        <ui:include src="common/commonDialogs.xhtml"/>
+        <ui:include src="loginDialog.xhtml"/>
+    </ui:define>
 
+    <ui:define name="header">
+        <ui:include src="header.xhtml"/>
+    </ui:define>
 
-                                    <p:commandButton actionListener="#{humanResourceManager.viewUserProfile}"                                            
-                                                     update=":userProfileDialogForm"
-                                                     oncomplete="PF('userProfileDialog').show();"
-                                                     icon="pi pi-user"
-                                                     title="Profile"
-                                                     style="margin-right: 10px;"
-                                                     styleClass="rounded-button"
-                                                     process="@this"/>  
-                                    <p:commandButton actionListener="#{humanResourceManager.logout}"                                             
-                                                     icon="pi pi-sign-out"
-                                                     styleClass="rounded-button"
-                                                     title="Logout"
-                                                     oncomplete="location.reload();"
-                                                     process="@this"/>    
+    <ui:define name="upper-divider">
+        <p:divider rendered="#{humanResourceManager.userLoggedIn}" />
+    </ui:define>
 
+    <ui:define name="main-content">
 
-                                </h:panelGroup>
-                            </div>
-                        </div>
-                    </div>     
-                </p:panel>
+        <p:scrollPanel mode="native">
 
-            </h:form>        
+            <main class="flex flex-column md:flex-row flex-auto">
 
-            <!-- Main Content Area -->
-            <p:scrollPanel mode="native">
+                <p:outputPanel styleClass="w-full md:w-3 flex-shrink-0" 
+                               rendered="#{!humanResourceManager.user.renderMobileUI}">                    
+                    <ui:include src="dashboard.xhtml"/>                    
+                </p:outputPanel>
 
-                <main class="flex flex-column md:flex-row flex-auto">                  
-                    <!-- Left Sidebar (30%) -->
-                    <aside class="w-full md:w-3 flex-shrink-0">
+                <p:outputPanel
+                    styleClass="w-full #{humanResourceManager.getUser().isRenderMobileUI() ? 'md:w-12' : 'md:w-9'}">
 
-                        <h:form id="dashboardForm" rendered="#{humanResourceManager.userLoggedIn}" > 
+                    <ui:include src="mainTabView.xhtml"/>
 
-                            <p:panel header="Dashboard">
+                </p:outputPanel>
 
-                                <p:accordionPanel id="dashboardAccordion" 
-                                                  value="#{systemManager.dashboard.tabs}" 
-                                                  activeIndex="#{systemManager.dashboard.tabIndex}"
-                                                  var="t"   
-                                                  widgetVar="dashboardAccordionVar"
-                                                  rendered="true"
-                                                  multiple="false">
+            </main>
 
-                                    <p:ajax event="tabChange"       
-                                            immediate="true"
-                                            process="@this"
-                                            update=":mainTabViewForm"
-                                            listener="#{systemManager.onDashboardTabChange}" />
+            <p:scrollTop target="parent"
+                         threshold="100"
+                         styleClass="custom-scrolltop"
+                         icon="pi pi-arrow-up"/>
 
-                                    <p:tab title="#{t.name}" >
+        </p:scrollPanel>
 
-                                        <p:defaultCommand target="#{systemManager.defaultCommandTarget}" />
+    </ui:define>
 
-                                        <h:panelGroup rendered="#{t.id == 'Human Resource'}">
-                                            <ui:include src="dashboard/hr/hrmTab.xhtml" />
-                                        </h:panelGroup>
+    <ui:define name="lower-divider">
+        <p:divider rendered="#{humanResourceManager.userLoggedIn}" />
+    </ui:define>
 
-                                        <h:panelGroup rendered="#{t.id == 'System Administration'}" >
-                                            <ui:include src="dashboard/admin/generalAdminTab.xhtml" /> 
-                                        </h:panelGroup>  
+    <ui:define name="footer">
+        <ui:include src="footer.xhtml"/>
+    </ui:define>
 
-                                    </p:tab>   
-
-                                </p:accordionPanel>   
-
-                            </p:panel>
-
-                        </h:form>
-
-                    </aside>
-
-                    <!-- Right Main Area (70%) -->
-                    <section class="w-full md:w-9">
-
-                        <h:form id="mainTabViewForm" rendered="#{humanResourceManager.userLoggedIn}"> 
-
-                            <p:panel>
-
-                                <div class="grid">
-                                    <div class="col-12">
-
-                                        <ui:include src="menubar.xhtml" /> 
-
-                                        <p:tabView id="mainTabView"  
-                                                   rendered="#{systemManager.mainTabView.render}"
-                                                   value="#{systemManager.mainTabView.tabs}" 
-                                                   activeIndex="#{systemManager.dashboard.tabIndex}"
-                                                   var="t" 
-                                                   dynamic="false"
-                                                   widgetVar="mainTabViewVar">
-
-                                            <p:ajax event="tabClose" 
-                                                    immediate="true"
-                                                    process="@this"
-                                                    listener="#{systemManager.onMainViewTabClose}" />  
-
-                                            <p:ajax event="tabChange" 
-                                                    process="@form"      
-                                                    update=":mainTabViewForm"
-                                                    listener="#{systemManager.onMainViewTabChange}" />  
-
-
-                                            <p:tab title="#{t.name}" closable="true"  >
-
-                                                <p:defaultCommand target="#{systemManager.defaultCommandTarget}" />
-
-                                                <h:panelGroup rendered="#{t.id == 'Human Resource'}">                                
-                                                    <ui:include src="hr/hrmTab.xhtml" /> 
-                                                </h:panelGroup>
-
-                                                <h:panelGroup rendered="#{t.id == 'System Administration'}" >
-                                                    <ui:include src="admin/generalAdminTab.xhtml" /> 
-                                                </h:panelGroup>  
-
-                                            </p:tab>
-
-                                        </p:tabView> 
-
-                                    </div> 
-
-                                </div>            
-                            </p:panel>
-
-                        </h:form>
-
-                    </section>
-                </main>
-
-                <p:scrollTop target="parent" 
-                             threshold="100" 
-                             styleClass="custom-scrolltop" 
-                             icon="pi pi-arrow-up" />
-
-            </p:scrollPanel>
-
-            <!-- Footer -->
-            <h:form rendered="#{humanResourceManager.userLoggedIn}" >
-                <footer class="footer">
-                    <div class="grid">
-                        <div class="col-12">
-                            <p:toolbar>
-                                <p:toolbarGroup align="left">
-
-                                    <p:outputLabel value=" &copy; #{humanResourceManager.copyrightOrganization}"   
-                                                   onclick="window.open('#{humanResourceManager.organizationWebsite}');"
-                                                   class="header-text" />
-
-                                </p:toolbarGroup>
-
-                                <p:toolbarGroup align="right">
-                                    <p:outputLabel value="#{humanResourceManager.applicationFooter}" 
-                                                   class="header-text" />
-                                </p:toolbarGroup>
-                            </p:toolbar>
-
-                        </div>
-                    </div>
-                </footer>
-
-                <p:poll interval="60" 
-                        global="false"
-                        onerror="PF('connectionErrorDialog').show();"
-                        listener="#{humanResourceManager.handleKeepAlive}" />
-
-            </h:form>
-
-        </p:panel>
-
-    </h:body>
-
-</html>
+</ui:composition>
