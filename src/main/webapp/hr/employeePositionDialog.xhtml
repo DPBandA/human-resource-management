@@ -81,19 +81,6 @@ Email: info@dpbennett.com.jm
 
                         </p:inputText>
 
-                        <p:outputLabel for="manHourRate" value="Man-hour rate ($/hr)" />                   
-                        <p:inputText value="#{humanResourceManager.selectedEmployeePosition.manHourRate}"
-                                     converterMessage="Please enter a valid man-hour rate."
-                                     id="manHourRate"
-                                     styleClass="number-field"
-                                     maxlength="15" >
-                            <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
-
-                            <p:ajax event="change"                                                       
-                                    process="@this"/>
-
-                        </p:inputText> 
-
                         <p:outputLabel for="lowerApprovLimit" value="Lower approv. limit ($)" />                   
                         <p:inputText value="#{humanResourceManager.selectedEmployeePosition.lowerApprovalLevel}"
                                      converterMessage="Please enter a valid lower approval limit."
@@ -159,6 +146,19 @@ Email: info@dpbennett.com.jm
                             <f:selectItems value="#{humanResourceManager.payCycleList}" />
                         </p:selectOneMenu>
 
+                        <p:outputLabel for="manHourRate" value="Man-hour rate ($/hr)" />                   
+                        <p:inputText value="#{humanResourceManager.selectedEmployeePosition.manHourRate}"
+                                     converterMessage="Please enter a valid man-hour rate."
+                                     id="manHourRate"
+                                     styleClass="number-field"
+                                     maxlength="15" >
+                            <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputText>
+
                         <p:outputLabel for="salary" value="Annual salary ($)"/>                   
                         <p:inputText value="#{humanResourceManager.selectedEmployeePosition.salary}"
                                      id="salary"
@@ -177,7 +177,7 @@ Email: info@dpbennett.com.jm
             </p:tabView>
 
             <ui:include src="employeePositionDialogToolbar.xhtml" />    
-            
+
         </h:form> 
 
     </ui:define>
