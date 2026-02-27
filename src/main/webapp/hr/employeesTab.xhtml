@@ -112,21 +112,21 @@ Email: info@dpbennett.com.jm
                 </f:facet>                   
             </p:cellEditor>
         </p:column>
-        
+
         <p:column style="width: 30px;" >
             <p:rowEditor editTitle="Edit Row" 
                          style="display: block;text-align: left;"
                          cancelTitle="Cancel Edit" 
                          saveTitle="Save Row"/>
         </p:column>
-        
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Id/Number"/>
             </f:facet>
             <h:outputText value="#{employee.number}" />
         </p:column>
-        
+
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Firstname"/>
@@ -150,17 +150,17 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Position(s)"/>
-            </f:facet>
-            <h:outputText value="#{employee.allPositions}" />
-        </p:column>  
-
-        <p:column>
-            <f:facet name="header">
                 <h:outputText value="Department"/>
             </f:facet>
             <h:outputText value="#{employee.department.name}" />
-        </p:column>       
+        </p:column>    
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Position(s)"/>
+            </f:facet>
+            <h:outputText value="#{employee.allPositions}" />
+        </p:column>            
 
         <p:column>
             <p:commandButton title="View or edit employee"   
