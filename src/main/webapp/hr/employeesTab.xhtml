@@ -127,14 +127,14 @@ Email: info@dpbennett.com.jm
             <h:outputText value="#{employee.number}" />
         </p:column>
 
-        <p:column>
+        <p:column sortBy="#{employee.firstName}">
             <f:facet name="header">
                 <h:outputText value="Firstname"/>
             </f:facet>
             <h:outputText value="#{employee.firstName}" />
         </p:column>
 
-        <p:column>
+        <p:column sortBy="#{employee.lastName}">
             <f:facet name="header">
                 <h:outputText value="Lastname"/>
             </f:facet>
@@ -148,7 +148,7 @@ Email: info@dpbennett.com.jm
             <h:outputText value="#{employee.internet.email1}" />
         </p:column>
 
-        <p:column>
+        <p:column sortBy="#{employee.department.name}">
             <f:facet name="header">
                 <h:outputText value="Department"/>
             </f:facet>
