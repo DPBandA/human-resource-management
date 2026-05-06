@@ -33,6 +33,10 @@ Email: info@dpbennett.com.jm
 
     <ui:define name="content">
 
+        <ui:include src="addressDialog.xhtml"/>       
+        <ui:include src="contactDialog.xhtml"/>    
+        <ui:include src="removeContactConfirmationDialog.xhtml"/>
+        <ui:include src="removeAddressConfirmationDialog.xhtml"/> 
         <ui:include src="../common/commonDialogs.xhtml"/>
 
         <h:form id="businessDialogForm">     
@@ -108,7 +112,7 @@ Email: info@dpbennett.com.jm
                                  requiredMessage="Domain Name Required"
                                  validator="requiredFieldValidator" 
                                  id="domainName" />
-                    
+
                     <p:outputLabel for="description" value="Description" />   
                     <p:inputTextarea
                         value="#{humanResourceManager.selectedBusiness.description}"
@@ -129,7 +133,7 @@ Email: info@dpbennett.com.jm
 
                 </h:panelGrid>
             </p:panel>
-            <p:tabView id="businessDepartments">
+            <p:tabView id="businessDialogFormTabView">
                 <p:tab title="Departments">
                     <p:toolbar>
                         <p:toolbarGroup align="left" >   
@@ -232,8 +236,13 @@ Email: info@dpbennett.com.jm
                             </p:commandButton>                           
                         </p:toolbarGroup>                    
                     </p:toolbar>
-                </p:tab>                           
-
+                </p:tab>     
+                <p:tab title="Addresses">
+                    <ui:include src="addressesTab.xhtml" />
+                </p:tab>
+                <p:tab title="Contacts">
+                    <ui:include src="contactsTab.xhtml" />
+                </p:tab>
             </p:tabView>
 
             <p:toolbar style="margin-top: 1px;">
