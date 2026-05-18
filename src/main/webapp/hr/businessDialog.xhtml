@@ -112,6 +112,11 @@ Email: info@dpbennett.com.jm
                                  requiredMessage="Domain Name Required"
                                  validator="requiredFieldValidator" 
                                  id="domainName" />
+                    
+                    <p:outputLabel for="taxRegistrationNumber" 
+                                   value="Tax registration #" />
+                    <p:inputText value="#{humanResourceManager.selectedBusiness.taxRegistrationNumber}"
+                                 id="taxRegistrationNumber" />
 
                     <p:outputLabel for="description" value="Description" />   
                     <p:inputTextarea
