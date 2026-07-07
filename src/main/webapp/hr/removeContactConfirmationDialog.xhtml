@@ -25,22 +25,27 @@ Email: info@dpbennett.com.jm
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"> 
-
-    <p:toolbar>
-        <p:toolbarGroup>
-            <p:commandButton value="Ok"
-                             actionListener="#{humanResourceManager.okPickList}"
-                             icon="pi pi-check"
-                             process="@form"/>
-            <p:spacer width="5" />
-            <p:commandButton value="Cancel" 
-                             immediate="true"
-                             actionListener="#{humanResourceManager.closeDialog}"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">   
+    
+    <h:form>
+        <p:confirmDialog severity="alert"
+                         closable="false"
+                         message="Are you sure you wish to delete this contact?"
+                         header="Delete Contact?"
+                         widgetVar="deleteContactDialog"
+                         responsive="true"
+                         width="400">
+            
+            <p:commandButton value="Yes"
+                             actionListener="#{humanResourceManager.removeBusinessContact}"
+                             update=":businessDialogForm:businessDialogFormTabView:contactsTable,:businessDialogForm:businessDialogFormTabView"
+                             oncomplete="PF('deleteContactDialog').hide();"
+                             icon="pi pi-check"/>
+            <p:commandButton value="No"
+                             oncomplete="PF('deleteContactDialog').hide();"
                              icon="pi pi-times"/>
-        </p:toolbarGroup>
-    </p:toolbar> 
+            
+        </p:confirmDialog>
+    </h:form>
 
 </html>
-
-

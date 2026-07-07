@@ -4,7 +4,7 @@
 
     <groupId>jm.com.dpbennett</groupId>
     <artifactId>human-resource-management</artifactId>
-    <version>2.0.0</version>
+    <version>6.0.0</version>
     <packaging>war</packaging>
 
     <name>e.HRM</name>
@@ -23,13 +23,13 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management-lib</artifactId>
-            <version>2.2.2</version>
+            <version>6.0.0</version>
         </dependency>   
         
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>system-management</artifactId>
-            <version>2.2.2</version>
+            <version>6.0.0</version>
             <type>war</type>
         </dependency>
         

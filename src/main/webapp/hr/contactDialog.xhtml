@@ -28,21 +28,22 @@ Email: info@dpbennett.com.jm
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">   
 
     <h:form id="contactForm">
-        <p:dialog width="450"
-                  height="370"
+
+        <p:dialog width="600"
+                  height="350"
                   draggable="true"
                   closable="false"
-                  modal="true"
                   responsive="true"
+                  modal="true"
                   widgetVar="contactFormDialog"
-                  header="Contact Detail" >
+                  header="Contact" >
 
             <p:toolbar>
                 <p:toolbarGroup align="left">
                     <p:commandButton value="Ok"
-                                     actionListener="#{humanResourceManager.okContact}"
+                                     actionListener="#{humanResourceManager.okBusinessContact}"
                                      icon="pi pi-check"                                
-                                     update=":manufacturerForm:manufacturer_growl,:manufacturerForm:manufacturerFormTabView:contactsTable"
+                                     update=":businessDialogForm:businessdialog_growl,:businessDialogForm:businessDialogFormTabView:contactsTable"
                                      process="@form"/>
                     <p:spacer width="10"/>
                     <p:commandButton value="Cancel"                                 
@@ -50,111 +51,141 @@ Email: info@dpbennett.com.jm
                                      oncomplete="PF('contactFormDialog').hide();"
                                      process="@this" />
                 </p:toolbarGroup>
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
+                </p:toolbarGroup>
             </p:toolbar>                
             <p:panel style="margin-top: 1px;margin-bottom: 1px;">
-                <h:panelGrid columns="2">
+                <h:panelGrid columns="2" >
 
-                    <h:outputLabel for="contactType" value="Type" style="font-weight: bold" />
+                    <p:outputLabel value="Type" style="font-weight: bold" 
+                                   for="contactType" />
                     <p:selectOneMenu value="#{humanResourceManager.selectedContact.type}"
                                      id="contactType" 
                                      maxlength="50"
+                                     required="true"
                                      validator="contactValidator">
                         <p:ajax
                             event="change"
                             global="true"
-                            listener="#{humanResourceManager.updateContact}"
+                            listener="#{humanResourceManager.updateBusinessContact}"
                             process="@this" />
 
                         <f:selectItems value="#{humanResourceManager.contactTypes}" />
 
                     </p:selectOneMenu>
 
-                    <h:outputLabel for="contactTitle" value="Title" style="font-weight: bold;" />
-                    <p:selectOneMenu id="contactTitle"
-                                     value="#{humanResourceManager.selectedContact.title}" >
+                    <p:outputLabel value="Title" style="font-weight: bold;"
+                                   for="contactTitle" />
+                    <p:selectOneMenu value="#{humanResourceManager.selectedContact.title}" 
+                                     required="true"
+                                     id="contactTitle">
                         <p:ajax
                             event="change"
                             global="true"
-                            listener="#{humanResourceManager.updateContact}"
+                            listener="#{humanResourceManager.updateBusinessContact}"
                             process="@this" />
 
                         <f:selectItems value="#{humanResourceManager.personalTitles}" />
 
                     </p:selectOneMenu>
                     <ui:remove>
-                        <p:inputText value="#{humanResourceManager.selectedContact.title}">
+                        <p:inputText value="#{humanResourceManager.selectedContact.title}"
+                                     maxlength="50" >
                             <p:ajax event="change"
                                     global="true"                                    
-                                    listener="#{humanResourceManager.updateContact}"
+                                    listener="#{humanResourceManager.updateBusinessContact}"
                                     process="@this"/>
                         </p:inputText>         
                     </ui:remove>
 
-                    <h:outputLabel for="contactFirstname" value="Firstname" 
-                                   style="font-weight: bold" />
+                    <p:outputLabel value="First name" style="font-weight: bold" 
+                                   for="contactFirstname" />
                     <p:inputText value="#{humanResourceManager.selectedContact.firstName}"
                                  id="contactFirstname"
+                                 maxlength="50"
+                                 required="true"
+                                 requiredMessage="First Name Required"
                                  validator="contactValidator" >
                         <p:ajax event="change"
                                 global="true"                                    
-                                listener="#{humanResourceManager.updateContact}"
+                                listener="#{humanResourceManager.updateBusinessContact}"
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputLabel for="contactLastname" value="Lastname" 
-                                   style="font-weight: bold" />
+                    <p:outputLabel value="Last name" style="font-weight: bold"
+                                   for="contactLastname" />                    
                     <p:inputText value="#{humanResourceManager.selectedContact.lastName}"
                                  id="contactLastname"
-                                 validator="contactValidator">
-                        <p:ajax event="change"
-                                global="true"                                    
-                                listener="#{humanResourceManager.updateContact}"
-                                process="@this"/>
-                    </p:inputText>
-
-                    <h:outputLabel for="contactPosition" value="Position" />
-                    <p:inputText value="#{humanResourceManager.selectedContact.position}"
-                                 id="contactPosition" >
-                        <p:ajax event="change"
-                                global="true"                                    
-                                listener="#{humanResourceManager.updateContact}"
-                                process="@this"/>
-                    </p:inputText>
-
-                    <h:outputLabel for="contactPhone" value="Phone" />
-                    <p:inputText value="#{humanResourceManager.selectedContact.mainPhoneNumber.localNumber}"
                                  maxlength="50"
-                                 id="contactPhone" >
+                                 required="true"
+                                 requiredMessage="Last Name Required"
+                                 validator="contactValidator" >
                         <p:ajax event="change"
                                 global="true"                                    
-                                listener="#{humanResourceManager.updateContact}"
+                                listener="#{humanResourceManager.updateBusinessContact}"
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputLabel for="contactEmail" value="Email" />
+                    <p:outputLabel value="Position" for="contactPosition" />
+                    <p:inputText value="#{humanResourceManager.selectedContact.position}"
+                                 id="contactPosition"
+                                 maxlength="50" >
+                        <p:ajax event="change"
+                                global="true"                                    
+                                listener="#{humanResourceManager.updateBusinessContact}"
+                                process="@this"/>
+                    </p:inputText>
+
+                    <p:outputLabel value="Phone" style="font-weight: bold" 
+                                   for="contactPhone" />
+                    <p:inputText value="#{humanResourceManager.selectedContact.mainPhoneNumber.localNumber}"
+                                 id="contactPhone"
+                                 maxlength="50"
+                                 required="true"
+                                 requiredMessage="Phone Required"
+                                 validator="contactValidator" >
+                        <p:ajax event="change"
+                                global="true"                                    
+                                listener="#{humanResourceManager.updateBusinessContact}"
+                                process="@this"/>
+                    </p:inputText>
+
+                    <p:outputLabel value="Email" style="font-weight: bold" 
+                                   for="contactEmail" />
                     <p:inputText value="#{humanResourceManager.selectedContact.internet.email1}"
-                                 id="contactEmail" >                
+                                 id="contactEmail"
+                                 required="true"
+                                 requiredMessage="Email Required"
+                                 validator="contactValidator"
+                                 maxlength="50" >                
                         <p:ajax event="change"
                                 global="true"                                    
-                                listener="#{humanResourceManager.updateContact}"
+                                listener="#{humanResourceManager.updateBusinessContact}"
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputLabel for="contactWebsite" value="Website" />
+                    <p:outputLabel value="Website" for="contactWebsite" />
                     <p:inputText value="#{humanResourceManager.selectedContact.internet.website1}"
-                                 id="contactWebsite" >
+                                 id="contactWebsite"
+                                 maxlength="50" >
                         <p:ajax event="change"
                                 global="true"                                    
-                                listener="#{humanResourceManager.updateContact}"
+                                listener="#{humanResourceManager.updateBusinessContact}"
                                 process="@this"/>
                     </p:inputText>
 
-                    <h:outputLabel for="contactFax" value="Fax" />
+                    <p:outputLabel value="Fax" for="contactFax" />
                     <p:inputText value="#{humanResourceManager.selectedContact.mainFaxNumber.localNumber}"
-                                 id="contactFax">
+                                 id="contactFax"
+                                 maxlength="50" >
                         <p:ajax event="change"
                                 global="true"                                    
-                                listener="#{humanResourceManager.updateContact}"
+                                listener="#{humanResourceManager.updateBusinessContact}"
                                 process="@this"/>
                     </p:inputText>
 
@@ -163,9 +194,9 @@ Email: info@dpbennett.com.jm
             <p:toolbar>
                 <p:toolbarGroup align="left">
                     <p:commandButton value="Ok"
-                                     actionListener="#{humanResourceManager.okContact}"
+                                     actionListener="#{humanResourceManager.okBusinessContact}"
                                      icon="pi pi-check"                                
-                                     update=":manufacturerForm:manufacturer_growl,:manufacturerForm:manufacturerFormTabView:contactsTable"
+                                     update=":businessDialogForm:businessdialog_growl,:businessDialogForm:businessDialogFormTabView:contactsTable"
                                      process="@form"/>
                     <p:spacer width="10"/>
                     <p:commandButton value="Cancel"                                 
@@ -173,8 +204,16 @@ Email: info@dpbennett.com.jm
                                      oncomplete="PF('contactFormDialog').hide();"
                                      process="@this" />
                 </p:toolbarGroup>
-            </p:toolbar>         
+
+                <p:toolbarGroup align="right">
+
+                    <h:outputText value="* Field required." 
+                                  style="font-weight: bold;" /> 
+
+                </p:toolbarGroup>
+            </p:toolbar> 
 
         </p:dialog>
+
     </h:form>    
 </html>

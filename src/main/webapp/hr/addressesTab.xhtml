@@ -1,5 +1,5 @@
 <!--
-Human Resource Management (HRM)
+Human Resource Management (HRM) 
 Copyright (C) 2026  D P Bennett & Associates Limited
 
 This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ Email: info@dpbennett.com.jm
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">    
-
+    
     <p:toolbar style="margin-bottom: 1px;">
         <p:toolbarGroup align="left">
             <p:commandButton value="New"
@@ -34,7 +34,7 @@ Email: info@dpbennett.com.jm
                              update=":addressForm"
                              title="Add new address"
                              oncomplete="PF('addressFormDialog').show();"
-                             actionListener="#{humanResourceManager.createNewAddress}" 
+                             actionListener="#{humanResourceManager.createNewBusinessAddress}" 
                              process="@this" >
 
                 <p:resetInput target=":addressForm" />
@@ -44,11 +44,11 @@ Email: info@dpbennett.com.jm
     </p:toolbar>
     <p:dataTable id="addressesTable"
                  var="address"
-                 reflow="true"
-                 paginator="true"     
+                 paginator="true"   
                  rows="15"
+                 reflow="true"
                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                 value="#{humanResourceManager.addressesModel}">
+                 value="#{humanResourceManager.businessAddressesModel}">
 
         <f:facet name="header">
             Addresses
@@ -63,15 +63,14 @@ Email: info@dpbennett.com.jm
         </p:column>
 
         <p:column>
-            <p:menuButton icon="pi pi-pencil" 
-                          title="Edit or delete this address">
-                
-                <p:menuitem value="Edit"
-                            icon="pi pi-pencil" 
-                            update=":addressForm"
-                            oncomplete="PF('addressFormDialog').show();" 
-                            process="@this"                             
-                            title="View or edit address detail">  
+            <p:menuButton icon="pi pi-pencil" title="Edit or delete this address">
+                <p:menuitem
+                    value="Edit"
+                    icon="pi pi-pencil" 
+                    update=":addressForm"
+                    oncomplete="PF('addressFormDialog').show();" 
+                    process="@this"                             
+                    title="View or edit address detail">  
 
                     <p:resetInput target=":addressForm" />
 
@@ -80,16 +79,15 @@ Email: info@dpbennett.com.jm
 
                 </p:menuitem>
 
-                <p:menuitem 
-                    value="Delete"
-                    icon="pi pi-trash" 
-                    oncomplete="PF('deleteAddressDialog').show();"                                            
-                    process="@this"
-                    title="Delete this address">
+                <p:menuitem
+                        value="Delete"
+                        icon="pi pi-trash" 
+                        oncomplete="PF('deleteAddressDialog').show();"                                            
+                        process="@this"
+                        title="Delete this address">
 
-                    <f:setPropertyActionListener value="#{address}"
-                                                 target="#{humanResourceManager.selectedAddress}" />
-
+                        <f:setPropertyActionListener value="#{address}"
+                                                     target="#{humanResourceManager.selectedAddress}" />
                 </p:menuitem>
             </p:menuButton>    
         </p:column>
@@ -102,7 +100,7 @@ Email: info@dpbennett.com.jm
                              update=":addressForm"
                              title="Add new address"
                              oncomplete="PF('addressFormDialog').show();"
-                             actionListener="#{humanResourceManager.createNewAddress}" 
+                             actionListener="#{humanResourceManager.createNewBusinessAddress}" 
                              process="@this" >
 
                 <p:resetInput target=":addressForm" />
