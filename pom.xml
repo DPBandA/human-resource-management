@@ -33,6 +33,13 @@
             <type>war</type>
         </dependency>
         
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>client-management</artifactId>
+            <version>3.0.0</version>
+            <type>war</type>
+        </dependency> 
+        
     </dependencies>
     
     <build>
@@ -68,6 +75,11 @@
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>system-management</artifactId>
+                        </overlay>
+                        
+                        <overlay>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>client-management</artifactId>
                         </overlay>
                     </overlays> 
                     
