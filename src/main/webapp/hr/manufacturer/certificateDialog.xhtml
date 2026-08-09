@@ -84,19 +84,77 @@ Email: info@dpbennett.com.jm
                                        showEffect="fade" hideEffect="fade" />            
                         </h:panelGroup>
 
-                        <h:outputLabel for="jobNumber"
-                                       value="Job number" />       
-                        <p:inputText value="#{humanResourceManager.selectedCertification.number}"
-                                     id="number" >
 
-                            <p:ajax event="change"
-                                    listener="#{humanResourceManager.updateCertification}"
-                                    process="@this"/>
+                        <ui:remove>
+                            <h:outputLabel for="jobNumber"
+                                           value="Job number" />       
+                            <p:inputText value="#{humanResourceManager.selectedCertification.number}"
+                                         id="number" >
 
-                        </p:inputText>      
+                                <p:ajax event="change"
+                                        listener="#{humanResourceManager.updateCertification}"
+                                        process="@this"/>
+
+                            </p:inputText> 
+                        </ui:remove>
+
+                        <p:outputLabel value="Job number" 
+                                       for="jobNumber" />   
+                        <h:panelGroup>
+                            <p:autoComplete value="#{humanResourceManager.selectedCertification.number}" 
+                                            id="jobNumber"
+                                            escape="false"
+                                            maxResults="10"
+                                            scrollHeight="200"
+                                            forceSelection="false"
+                                            completeMethod="#{jobManager.completeJobNumber}">
+
+                                <p:ajax event="itemSelect"
+                                        global="false"
+                                        update="jobActionsMenu"
+                                        listener="#{humanResourceManager.updateCertification}"
+                                        process="@this"/>
+
+                                <p:ajax event="keyup"
+                                        update="jobActionsMenu"
+                                        listener="#{humanResourceManager.updateCertification}"
+                                        process="@this"/>
+
+                            </p:autoComplete>
+                            <p:menuButton id="jobActionsMenu" 
+                                          icon="pi pi-pencil" 
+                                          title="Add or edit job">
+                                <p:menuitem value="Edit job"
+                                            icon="pi pi-pencil" 
+                                            disabled="${!humanResourceManager.selectedCertification.isJobNumberValid}"                              
+                                            actionListener="#{humanResourceManager.editJob('Certificate')}"  
+                                            update=":certificateForm:certificate_growl"
+                                            process="@this,jobNumber"                             
+                                            title="View or edit this job's detail">  
+
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{humanResourceManager.jobDialogReturn('Certificate')}"
+                                            update=":certificateForm:certificate_growl,jobNumber,jobActionsMenu" />
+
+                                </p:menuitem>
+
+                                <p:menuitem 
+                                    value="Add new job"
+                                    icon="pi pi-plus" 
+                                    actionListener="#{humanResourceManager.createNewJob}"                                            
+                                    process="@this"
+                                    title="Add a new job">
+
+                                    <p:ajax event="dialogReturn" 
+                                            listener="#{humanResourceManager.jobDialogReturn('Certificate')}"
+                                            update=":certificateForm:certificate_growl,jobNumber,jobActionsMenu" />
+
+                                </p:menuitem>
+                            </p:menuButton>
+                        </h:panelGroup>
 
                         <h:outputLabel for="certificateNumber" 
-                                       value="Number *" 
+                                       value="Code/Number *" 
                                        style="font-weight: bold"/>
                         <p:inputText value="#{humanResourceManager.selectedCertification.certificateNumber}" 
                                      required="true"

@@ -106,15 +106,6 @@
             <to-view-id>/hr/divisionDialog.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <!--
-    <navigation-rule>
-        <from-view-id>*</from-view-id>
-        <navigation-case>
-            <from-outcome>manufacturerDialog</from-outcome>
-            <to-view-id>/hr/manufacturer/manufacturerDialog.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    -->    
       
     <managed-bean>
         <managed-bean-name>humanResourceManager</managed-bean-name>
@@ -125,6 +116,30 @@
     <managed-bean>
         <managed-bean-name>financeManager</managed-bean-name>
         <managed-bean-class>jm.com.dpbennett.fm.manager.FinanceManager</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>jobManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.jmts.manager.JobManager</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>jobSampleManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.jmts.manager.JobSampleManager</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+       
+    <managed-bean>
+        <managed-bean-name>jobContractManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.jmts.manager.JobContractManager</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>jobFinanceManager</managed-bean-name>
+        <managed-bean-class>jm.com.dpbennett.jmts.manager.JobFinanceManager</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
