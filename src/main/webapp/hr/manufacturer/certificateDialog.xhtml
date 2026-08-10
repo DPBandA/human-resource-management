@@ -280,6 +280,29 @@ Email: info@dpbennett.com.jm
                 </p:tab>
 
             </p:tabView>
+
+            <h:panelGrid columns="3" 
+                         id="certificateSignedPanelGrid"
+                         cellpadding="5">
+
+                <p:commandButton value="Sign"
+                                 disabled="#{!humanResourceManager.user.can('SignManufacturerCertificate')}"
+                                 title="Sign form"
+                                 actionListener="#{humanResourceManager.updateManufacturerCertificateSigning}"
+                                 update="certificateSignedPanelGrid"
+                                 icon="pi pi-key"
+                                 process="@this" />
+
+                <h:outputText  value="#{humanResourceManager.selectedCertification.certificateSignedBy.name}" />
+
+                <h:outputText  value="#{humanResourceManager.selectedCertification.dateSigned}" >
+
+                    <f:convertDateTime pattern="MMM dd, yyyy" />
+
+                </h:outputText>
+
+            </h:panelGrid>
+
             <p:toolbar>
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"

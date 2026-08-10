@@ -58,9 +58,41 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Number"/>
+                <h:outputText value="Job #"/>
             </f:facet>
             <h:outputText value="#{certificate.number}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Cert. #"/>
+            </f:facet>
+            <h:outputText value="#{certificate.certificateNumber}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Applicant"/>
+            </f:facet>
+            <h:outputText value="#{certificate.applicant.name}" />
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Date issued"/>
+            </f:facet>
+            <h:outputText value="#{certificate.dateIssued}">
+                <f:convertDateTime pattern="MMM dd, yyyy"/>
+            </h:outputText>
+        </p:column>
+        
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Expiry date"/>
+            </f:facet>
+            <h:outputText value="#{certificate.expiryDate}">
+                <f:convertDateTime pattern="MMM dd, yyyy"/>
+            </h:outputText>
         </p:column>
 
         <p:column>
@@ -71,10 +103,10 @@ Email: info@dpbennett.com.jm
                             actionListener="#{humanResourceManager.editSelectedCertification}"
                             icon="pi pi-pencil"       
                             title="View or edit certificate detail">  
-                    
+
                     <p:ajax event="dialogReturn" 
-                        listener="#{humanResourceManager.doManufacturerCertificateSearch}"
-                        update="certificatesTable"/>
+                            listener="#{humanResourceManager.doManufacturerCertificateSearch}"
+                            update="certificatesTable"/>
 
                     <f:setPropertyActionListener value="#{certificate}"
                                                  target="#{humanResourceManager.selectedCertification}" />
