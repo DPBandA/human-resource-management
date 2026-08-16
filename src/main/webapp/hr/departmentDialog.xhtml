@@ -101,7 +101,7 @@ Email: info@dpbennett.com.jm
                                     cache="true"
                                     completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
 
-                        <f:converter converterId="activeEmployeeConverter"/>
+                        <f:converter converterId="employeeConverter"/>
 
                         <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
 
@@ -127,7 +127,7 @@ Email: info@dpbennett.com.jm
                                         requiredMessage="Deparment Acting Head Required"
                                         completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
 
-                            <f:converter converterId="activeEmployeeConverter"/>
+                            <f:converter converterId="employeeConverter"/>
 
                             <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
 

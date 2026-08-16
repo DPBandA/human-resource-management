@@ -3,38 +3,7 @@
               xmlns="http://java.sun.com/xml/ns/javaee" 
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
               xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
-    <converter>
-        <converter-id>activeManufacturerConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ActiveManufacturerConverter</converter-class>
-    </converter>
-    <converter>
-        <converter-id>activeEmployeePositionConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ActiveEmployeePositionConverter</converter-class>
-    </converter> 
-    <converter>
-        <converter-id>activeSubgroupConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ActiveSubgroupConverter</converter-class>
-    </converter>
-    <converter>
-        <converter-id>addressConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.AddressConverter</converter-class>
-    </converter>
-    <converter>
-        <converter-id>businessOfficeConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.BusinessOfficeConverter</converter-class>
-    </converter>      
-    <converter>
-        <converter-id>businessConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.BusinessConverter</converter-class>
-    </converter>   
-    <converter>
-        <converter-id>manufacturerContactConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ManufacturerContactConverter</converter-class>
-    </converter>
-    <converter>
-        <converter-id>manufacturerAddressConverter</converter-id>
-        <converter-class>jm.com.dpbennett.hrm.converter.ManufacturerAddressConverter</converter-class>
-    </converter>  
+     
     <validator>
         <validator-id>subcontractedDepartmentValidator</validator-id>
         <validator-class>jm.com.dpbennett.hrm.validator.SubcontractedDepartmentValidator</validator-class>
