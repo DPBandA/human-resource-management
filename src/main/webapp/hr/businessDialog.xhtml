@@ -68,6 +68,17 @@ Email: info@dpbennett.com.jm
 
             <p:panel style="margin-bottom: 1px;">
                 <h:panelGrid columns="2" cellspacing="5">   
+
+                    <p:outputLabel value="Id" for="id" 
+                                   rendered="#{systemManager.user.hasModule('systemManager')}"
+                                   style="font-weight: bold;"/>
+                    <p:inputNumber id="id" 
+                                   rendered="#{systemManager.user.hasModule('systemManager')}"
+                                   thousandSeparator=""
+                                   inputStyle="background: lightyellow;color: darkblue;"
+                                   readonly="true"
+                                   value="#{humanResourceManager.selectedBusiness.id}" /> 
+
                     <p:outputLabel for="businessActive" value="Active"
                                    style="font-weight: bold;" />               
                     <p:selectBooleanCheckbox id="businessActive"
@@ -112,7 +123,7 @@ Email: info@dpbennett.com.jm
                                  requiredMessage="Domain Name Required"
                                  validator="requiredFieldValidator" 
                                  id="domainName" />
-                    
+
                     <p:outputLabel for="taxRegistrationNumber" 
                                    value="Tax registration #" />
                     <p:inputText value="#{humanResourceManager.selectedBusiness.taxRegistrationNumber}"
