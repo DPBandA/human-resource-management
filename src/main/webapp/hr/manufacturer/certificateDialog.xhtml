@@ -53,7 +53,12 @@ Email: info@dpbennett.com.jm
                 </p:toolbarGroup>
 
                 <p:toolbarGroup align="right" >  
-                    <h:outputText value="* Field required." style="font-weight: bold;" />            
+                    <h:outputText value="* Field required" style="font-weight: bold;" />     
+                    <p:spacer width="20"/>
+                    <p:commandButton value="Export"
+                                     disabled="true"
+                                     immediate="true"
+                                     icon="pi pi-file" />
                 </p:toolbarGroup>
             </p:toolbar>
 
@@ -287,15 +292,15 @@ Email: info@dpbennett.com.jm
                          id="certificateSignedPanelGrid"
                          cellpadding="5">
 
-                <p:commandButton value="Sign"
+                <p:commandButton value="#{humanResourceManager.selectedCertification.signButtonLabel}"
                                  disabled="#{!humanResourceManager.user.can('SignManufacturerCertificate')}"
-                                 title="Sign form"
+                                 title="Sign certificate"
                                  actionListener="#{humanResourceManager.updateManufacturerCertificateSigning}"
                                  update="certificateSignedPanelGrid"
                                  icon="pi pi-key"
                                  process="@this" />
 
-                <h:outputText  value="#{humanResourceManager.selectedCertification.certificateSignedBy}" 
+                <h:outputText  value="#{humanResourceManager.selectedCertification.certificateSignedBy.firstName} #{humanResourceManager.selectedCertification.certificateSignedBy.lastName}" 
                                style="border: 1px!important;" />
 
                 <h:outputText  value="#{humanResourceManager.selectedCertification.dateSigned}" 
