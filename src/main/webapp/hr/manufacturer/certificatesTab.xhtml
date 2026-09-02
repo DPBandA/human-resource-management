@@ -32,7 +32,8 @@ Email: info@dpbennett.com.jm
             <p:commandButton 
                 value="New"
                 icon="pi pi-plus" 
-                actionListener="#{humanResourceManager.createNewManufacturerCertificate}"                                            
+                actionListener="#{humanResourceManager.createNewManufacturerCertificate}" 
+                disabled="#{humanResourceManager.selectedCertification.id == null}"
                 process="@this"
                 title="Add a new manufacturer certificate" >
 
@@ -123,7 +124,8 @@ Email: info@dpbennett.com.jm
             <p:commandButton 
                 value="New"
                 icon="pi pi-plus" 
-                actionListener="#{humanResourceManager.createNewManufacturerCertificate}"                                            
+                actionListener="#{humanResourceManager.createNewManufacturerCertificate}"     
+                disabled="#{humanResourceManager.selectedCertification.id == null}"
                 process="@this"
                 title="Add a new manufacturer certificate" >
 
