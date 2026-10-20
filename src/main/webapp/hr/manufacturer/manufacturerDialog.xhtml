@@ -61,10 +61,10 @@ Email: info@dpbennett.com.jm
                 </p:toolbarGroup>
             </p:toolbar>
 
-            <p:tabView id="manufacturerFormTabView"
-                       dynamic="false"                       
-                       style="margin-top: 1px;margin-bottom: 1px;"
-                       widgetVar="manufacturerFormTabVar" >
+            <p:accordionPanel id="manufacturerFormTabView"
+                              dynamic="false"                       
+                              style="margin-top: 1px;margin-bottom: 1px;"
+                              widgetVar="manufacturerFormTabVar" >
 
                 <p:tab id="manufacturerDetailsTab" title="General">
                     <ui:include src="generalTab.xhtml"/>
@@ -77,12 +77,13 @@ Email: info@dpbennett.com.jm
                 <p:tab title="Contacts">
                     <ui:include src="contactsTab.xhtml" />
                 </p:tab> 
-                
+
                 <p:tab title="Certificates">
                     <ui:include src="certificatesTab.xhtml" />
                 </p:tab> 
 
-            </p:tabView>
+            </p:accordionPanel>
+
             <p:toolbar>
                 <p:toolbarGroup>
                     <p:commandButton value="Ok"

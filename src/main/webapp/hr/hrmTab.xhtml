@@ -28,16 +28,10 @@ Email: info@dpbennett.com.jm
     xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"> 
 
-    <p:tabView id="humanResourceTabView"   
+    <p:accordionPanel id="humanResourceTabView"   
                widgetVar="humanResourceTabVar"
                tabindex="#{humanResourceManager.innerTabIndex}"
-               scrollable="false"
                dynamic="false">
-
-        <p:ajax event="tabClose" 
-                immediate="true"
-                process="@this"
-                listener="#{systemManager.onMainViewTabClose}" />  
 
         <p:ajax event="tabChange" 
                 process="@form"    
@@ -92,7 +86,7 @@ Email: info@dpbennett.com.jm
             
         </p:tab>           
 
-    </p:tabView>
+    </p:accordionPanel>
 
 </html>
 
