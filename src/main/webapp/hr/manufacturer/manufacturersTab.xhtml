@@ -47,7 +47,8 @@ Email: info@dpbennett.com.jm
                              placeholder="Enter search text"
                              value="#{humanResourceManager.manufacturerSearchText}" />
                 <p:commandButton id="manufacturerSearchButton"
-                                 class="search-button"   
+                                 class="search-button" 
+                                 style="margin-top: 5px;"
                                  actionListener="#{humanResourceManager.doManufacturerSearch}"
                                  update=":mainTabViewForm:mainTabView:humanResourceTabView:manufacturersTable"
                                  icon="pi pi-search"
