@@ -31,7 +31,7 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="left" >   
             <p:commandButton title="Add new position"                                  
                              value="New"
-                             actionListener="#{humanResourceManager.createNewEmployeePosition}"
+                             actionListener="#{humanResourceManager.createNewEmployeePosition('employeePositionDialog')}"
                              global="true"
                              process="@this"
                              icon="pi pi-plus">
@@ -129,7 +129,7 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <p:commandButton title="View or edit position"   
-                             actionListener="#{humanResourceManager.editEmployeePosition}"
+                             actionListener="#{humanResourceManager.editEmployeePosition('employeePositionDialog')}"
                              global="true"
                              process="@this"
                              icon="pi pi-pencil">

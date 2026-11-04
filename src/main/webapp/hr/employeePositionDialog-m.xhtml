@@ -1,0 +1,185 @@
+<!--
+Human Resource Management (HRM) 
+Copyright (C) 2026  D P Bennett & Associates Limited
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Email: info@dpbennett.com.jm
+-->
+<ui:composition 
+    template="/jmts-ui/templates/jmts-dialog.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="head">
+        <title>Employee Position</title>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <ui:include src="../common/commonDialogs.xhtml"/>
+
+        <h:form id="employeePositionDialogForm">    
+
+            <p:growl id="employeeposition_growl" life="5000" showDetail="true"/>
+
+            <ui:include src="employeePositionDialogToolbar.xhtml" /> 
+
+            <p:accordionPanel >
+                <p:tab title="General">
+                    <h:panelGrid columns="2">
+                        <p:outputLabel for="employeePositionActive" value="Active"
+                                       style="font-weight: bold;" />               
+                        <p:selectBooleanCheckbox id="employeePositionActive"
+                                                 style="vertical-align: middle"
+                                                 required="true"
+                                                 value="#{humanResourceManager.selectedEmployeePosition.active}" />
+
+                        <p:outputLabel value="Title" for="title" style="font-weight: bold;"/>
+                        <p:inputText id="title"
+                                     required="true"
+                                     requiredMessage="Title Required"
+                                     value="#{humanResourceManager.selectedEmployeePosition.title}"                                 
+                                     validator="requiredFieldValidator" >       
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputText>
+
+                        <p:outputLabel value="Category" for="category" />
+                        <p:inputText id="category"
+                                     value="#{humanResourceManager.selectedEmployeePosition.category}" >       
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputText>
+
+                        <p:outputLabel value="Classification" for="classification" />
+                        <p:inputText id="classification"
+                                     value="#{humanResourceManager.selectedEmployeePosition.classification}" >       
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputText>
+
+                        <p:outputLabel for="lowerApprovLimit" value="Lower approv. limit ($)" />                   
+                        <p:inputText value="#{humanResourceManager.selectedEmployeePosition.lowerApprovalLevel}"
+                                     converterMessage="Please enter a valid lower approval limit."
+                                     id="lowerApprovLimit"
+                                     styleClass="number-field"
+                                     maxlength="15" >
+                            <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputText>
+
+                        <p:outputLabel for="upperApprovLimit" value="Upper approv. limit ($)"/>                   
+                        <p:inputText value="#{humanResourceManager.selectedEmployeePosition.upperApprovalLevel}"
+                                     converterMessage="Please enter a valid upper approval limit."
+                                     id="upperApprovLimit"
+                                     styleClass="number-field"
+                                     maxlength="15" >
+                            <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputText>
+
+                        <p:outputLabel value="Description" for="description" 
+                                       style="font-weight: bold;"/>                    
+                        <p:inputTextarea
+                            id="description"
+                            value="#{humanResourceManager.selectedEmployeePosition.description}" 
+                            rows="2"
+                            counter="instructCharsRemaining"
+                            counterTemplate="{0} characters remaining."
+                            autoResize="false"
+                            maxlength="1000" 
+                            required="true"
+                            requiredMessage="Description Required"
+                            validator="requiredFieldValidator"
+                            styleClass="#{not component.valid ? 'invalid-inputtextarea-field' : ''}" 
+                            style="width: 100%;">
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputTextarea>
+                        <p:outputLabel value="  " />
+                        <p:outputLabel id="instructCharsRemaining" /> 
+                    </h:panelGrid>
+                </p:tab>
+
+                <p:tab title="Remuneration">
+                    <h:panelGrid columns="2">
+                        <p:outputLabel for="employmentType" value="Type *" style="font-weight: bold;" />
+                        <p:selectOneMenu value="#{humanResourceManager.selectedEmployeePosition.type}" 
+                                         id="employmentType" >
+                            <f:selectItems value="#{humanResourceManager.employmentTypeList}" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="payCycle" value="Pay cycle *" style="font-weight: bold;" />
+                        <p:selectOneMenu value="#{humanResourceManager.selectedEmployeePosition.payCycle}" 
+                                         id="payCycle" >
+                            <f:selectItems value="#{humanResourceManager.payCycleList}" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="manHourRate" value="Man-hour rate ($/hr)" />                   
+                        <p:inputText value="#{humanResourceManager.selectedEmployeePosition.manHourRate}"
+                                     converterMessage="Please enter a valid man-hour rate."
+                                     id="manHourRate"
+                                     styleClass="number-field"
+                                     maxlength="15" >
+                            <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputText>
+
+                        <p:outputLabel for="salary" value="Annual salary ($)"/>                   
+                        <p:inputText value="#{humanResourceManager.selectedEmployeePosition.salary}"
+                                     id="salary"
+                                     converterMessage="Please enter a valid salary value."
+                                     styleClass="number-field"
+                                     maxlength="15" >
+                            <f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+
+                            <p:ajax event="change"                                                       
+                                    process="@this"/>
+
+                        </p:inputText>   
+                    </h:panelGrid>
+                </p:tab>
+
+            </p:accordionPanel>
+
+            <ui:include src="employeePositionDialogToolbar.xhtml" />    
+
+        </h:form> 
+
+    </ui:define>
+
+</ui:composition>
