@@ -31,7 +31,7 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="left" >   
             <p:commandButton title="Add new department"                                  
                              value="New"
-                             actionListener="#{humanResourceManager.createNewDepartment}"
+                             actionListener="#{humanResourceManager.createNewDepartment('departmentDialog')}"
                              global="true"
                              process="@this"
                              icon="pi pi-plus">
@@ -115,7 +115,7 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <p:commandButton title="View or edit department"   
-                             actionListener="#{humanResourceManager.editDepartment}"
+                             actionListener="#{humanResourceManager.editDepartment('departmentDialog')}"
                              global="true"
                              process="@this"
                              icon="pi pi-pencil">

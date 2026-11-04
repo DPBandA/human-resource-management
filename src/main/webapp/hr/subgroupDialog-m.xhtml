@@ -1,0 +1,198 @@
+<!--
+Human Resource Management (HRM) 
+Copyright (C) 2026  D P Bennett & Associates Limited
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Email: info@dpbennett.com.jm
+-->
+<ui:composition 
+    template="/jmts-ui/templates/jmts-dialog.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="head">
+        <title>Subgroup</title>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <ui:include src="../common/commonDialogs.xhtml"/>
+
+        <h:form id="subgroupDialogForm">     
+
+            <p:growl id="subgroupdialog_growl" life="5000" showDetail="true"/>
+
+            <ui:include src="subgroupDialogToolbar.xhtml"/>
+
+            <p:panel style="margin-bottom: 1px;margin-top: 1px;">
+                <h:panelGrid columns="2" cellspacing="5">  
+                    <p:outputLabel for="subgroupActive" value="Active"
+                                   style="font-weight: bold;" />               
+                    <p:selectBooleanCheckbox id="subgroupActive"
+                                             style="vertical-align: middle"
+                                             required="true"
+                                             value="#{humanResourceManager.selectedSubgroup.active}" />
+
+                    <p:outputLabel for="subgroupCode" value="Code" style="font-weight: bold;" />
+                    <p:inputText value="#{humanResourceManager.selectedSubgroup.code}"
+                                 id="subgroupCode"
+                                 required="true"
+                                 requiredMessage="Subgroup Code Required"
+                                 validatorMessage="A valid code is required"
+                                 validator="requiredFieldValidator" />
+
+                    <p:outputLabel for="subgroupName" value="Name" style="font-weight: bold;" />
+                    <p:inputText value="#{humanResourceManager.selectedSubgroup.name}"
+                                 id="subgroupName"
+                                 required="true"
+                                 requiredMessage="Subgroup Name Required"
+                                 validator="requiredFieldValidator" /> 
+
+                    <p:outputLabel for="subgroupHead" value="Head" style="font-weight: bold;" />
+                    <p:autoComplete var="subgroupHead"
+                                    escape="false"
+                                    id="subgroupHead"
+                                    dropdown="true"
+                                    scrollHeight="175"
+                                    maxlength="50"
+                                    value="#{humanResourceManager.selectedSubgroup.head}"
+                                    itemLabel="#{subgroupHead.name}"
+                                    itemValue="#{subgroupHead}"
+                                    required="true"
+                                    requiredMessage="Subgroup Head Required"
+                                    validator="requiredFieldValidator"
+                                    validatorMessage="A valid head is required"
+                                    forceSelection="true"
+                                    cache="true"
+                                    completeMethod="#{humanResourceManager.completeActiveEmployee}" >                       
+
+                        <f:converter converterId="employeeConverter"/>
+
+                        <f:attribute name="em" value="#{humanResourceManager.entityManager1}"/>
+
+                    </p:autoComplete>  
+
+                    <p:outputLabel for="notes" value="Notes" />
+                    <p:inputTextarea
+                        value="#{humanResourceManager.selectedSubgroup.notes}"
+                        maxlength="250"
+                        id="notes"
+                        autoResize="false"
+                        rows="3"
+                        style="width:100%" />   
+
+                </h:panelGrid>
+            </p:panel>
+            
+            <p:accordionPanel id="subgroupDepartments">
+                <p:tab title="Departments">
+                    <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit department list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addSubgroupDepartments}"
+                                             update=":subgroupDialogForm:subgroupdialog_growl"
+                                             global="true"
+                                             process="@this"
+                                             icon="pi pi-pencil">
+
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addSubgroupDepartmentsDialogReturn}"
+                                        update="departmentsTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar>    
+                    <p:dataTable id="departmentsTable"
+                                 paginator="true"
+                                 rows="15"
+                                 reflow="true"
+                                 var="department"
+                                 style="margin-bottom: 1px;margin-top: 1px;"
+                                 value="#{humanResourceManager.selectedSubgroup.departments}">
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Name" />
+                            </f:facet>
+                            <h:outputText value="#{department.name}" />
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Head" />
+                            </f:facet>
+                            <h:outputText value="#{department.head}" />
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Code" />
+                            </f:facet>
+                            <h:outputText value="#{department.code}" />
+                        </p:column>
+
+                        <ui:remove>
+                            <p:column>
+                                <p:menuButton id="toolsButton" value="Actions">
+
+                                    <p:menuitem   
+                                        value="Remove"
+                                        icon="pi pi-trash"
+                                        process="@this">
+
+                                        <f:setPropertyActionListener value="#{department}"
+                                                                     target="#{humanResourceManager.selectedDepartment}" />
+
+                                    </p:menuitem>                   
+
+                                </p:menuButton>                   
+                            </p:column>
+                        </ui:remove>
+
+                    </p:dataTable>
+                    <p:toolbar>
+                        <p:toolbarGroup align="left" >   
+                            <p:commandButton title="Edit department list"                                  
+                                             value="Edit"
+                                             actionListener="#{humanResourceManager.addSubgroupDepartments}"
+                                             update=":subgroupDialogForm:subgroupdialog_growl"
+                                             global="true"
+                                             process="@this"
+                                             icon="pi pi-pencil">
+
+                                <p:ajax event="dialogReturn" 
+                                        listener="#{humanResourceManager.addSubgroupDepartmentsDialogReturn}"
+                                        update="departmentsTable"/>
+
+                            </p:commandButton>                           
+                        </p:toolbarGroup>                    
+                    </p:toolbar> 
+                </p:tab>                           
+
+            </p:accordionPanel>
+
+            <ui:include src="subgroupDialogToolbar.xhtml"/>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

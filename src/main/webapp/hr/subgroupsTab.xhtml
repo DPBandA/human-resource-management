@@ -31,7 +31,7 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="left" >   
             <p:commandButton title="Add new subgroup"                                  
                              value="New"
-                             actionListener="#{humanResourceManager.createNewSubgroup}"
+                             actionListener="#{humanResourceManager.createNewSubgroup('subgroupDialog')}"
                              global="true"
                              process="@this"
                              icon="pi pi-plus">
@@ -133,7 +133,7 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <p:commandButton title="View or edit subgroup"   
-                             actionListener="#{humanResourceManager.editSubgroup}"
+                             actionListener="#{humanResourceManager.editSubgroup('subgroupDialog')}"
                              global="true"
                              process="@this"
                              icon="pi pi-pencil">
