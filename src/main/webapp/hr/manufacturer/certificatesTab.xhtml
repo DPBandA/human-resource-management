@@ -32,7 +32,7 @@ Email: info@dpbennett.com.jm
             <p:commandButton 
                 value="New"
                 icon="pi pi-plus" 
-                actionListener="#{humanResourceManager.createNewManufacturerCertificate}" 
+                actionListener="#{humanResourceManager.createNewManufacturerCertificate('certificateDialog')}" 
                 disabled="#{humanResourceManager.selectedManufacturer.id == null}"
                 process="@this"
                 title="Add a new manufacturer certificate" >
@@ -101,7 +101,7 @@ Email: info@dpbennett.com.jm
                           title="View or edit this certificate">
 
                 <p:menuitem value="View/Edit"
-                            actionListener="#{humanResourceManager.editSelectedCertification}"
+                            actionListener="#{humanResourceManager.editSelectedCertification('certificateDialog')}"
                             icon="pi pi-pencil"       
                             title="View or edit certificate detail">  
 

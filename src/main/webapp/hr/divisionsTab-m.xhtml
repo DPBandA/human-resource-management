@@ -31,7 +31,7 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="left" >   
             <p:commandButton title="Add new division"                                  
                              value="New"
-                             actionListener="#{humanResourceManager.createNewDivision}"
+                             actionListener="#{humanResourceManager.createNewDivision('divisionDialog-m')}"
                              global="true"
                              process="@this"
                              icon="pi pi-plus">
@@ -132,7 +132,7 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <p:commandButton title="View or edit division"   
-                             actionListener="#{humanResourceManager.editDivision}"
+                             actionListener="#{humanResourceManager.editDivision('divisionDialog-m')}"
                              global="true"
                              process="@this"
                              icon="pi pi-pencil">
