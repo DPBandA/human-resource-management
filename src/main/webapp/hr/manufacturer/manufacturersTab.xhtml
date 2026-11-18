@@ -32,7 +32,7 @@ Email: info@dpbennett.com.jm
             <p:commandButton 
                 value="New"
                 icon="pi pi-plus" 
-                actionListener="#{humanResourceManager.createNewManufacturer}"                                            
+                actionListener="#{humanResourceManager.createNewManufacturer('manufacturerDialog')}"                                            
                 process="@this"
                 title="Add a new manufacturer to the manufacturer database" >
 
@@ -149,7 +149,7 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <p:commandButton icon="pi pi-pencil"
-                             actionListener="#{humanResourceManager.editSelectedManufacturer}"
+                             actionListener="#{humanResourceManager.editSelectedManufacturer('manufacturerDialog')}"
                              process="@this"
                              title="View or edit this manufacturer's detail">
 

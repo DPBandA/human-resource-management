@@ -20,6 +20,13 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
+        <from-view-id>/index-m.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>employeePositionDialog-m</from-outcome>
+            <to-view-id>/hr/employeePositionDialog-m.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>employeeDialog</from-outcome>
@@ -27,10 +34,24 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
+        <from-view-id>/index-m.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>employeeDialog-m</from-outcome>
+            <to-view-id>/hr/employeeDialog-m.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>departmentDialog</from-outcome>
             <to-view-id>/hr/departmentDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index-m.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>departmentDialog-m</from-outcome>
+            <to-view-id>/hr/departmentDialog-m.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -62,17 +83,52 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
+        <from-view-id>/index-m.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>businessDialog-m</from-outcome>
+            <to-view-id>/hr/businessDialog-m.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>businessOfficeDialog</from-outcome>
+            <to-view-id>/hr/businessOfficeDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index-m.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>businessOfficeDialog-m</from-outcome>
+            <to-view-id>/hr/businessOfficeDialog-m.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>subgroupDialog</from-outcome>
             <to-view-id>/hr/subgroupDialog.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>    
+    </navigation-rule> 
+    <navigation-rule>
+        <from-view-id>/index-m.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>subgroupDialog-m</from-outcome>
+            <to-view-id>/hr/subgroupDialog-m.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>       
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>divisionDialog</from-outcome>
             <to-view-id>/hr/divisionDialog.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index-m.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>divisionDialog-m</from-outcome>
+            <to-view-id>/hr/divisionDialog-m.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
       

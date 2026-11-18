@@ -31,7 +31,7 @@ Email: info@dpbennett.com.jm
         <p:toolbarGroup align="left" >   
             <p:commandButton title="Add new business office"                                  
                              value="New"
-                             actionListener="#{humanResourceManager.createNewBusinessOffice}"
+                             actionListener="#{humanResourceManager.createNewBusinessOffice('businessOfficeDialog')}"
                              global="true"
                              process="@this"
                              icon="pi pi-plus">
@@ -116,7 +116,7 @@ Email: info@dpbennett.com.jm
 
         <p:column>
             <p:commandButton title="View or edit business office"   
-                             actionListener="#{humanResourceManager.editBusinessOffice}"
+                             actionListener="#{humanResourceManager.editBusinessOffice('businessOfficeDialog')}"
                              global="true"
                              process="@this"
                              icon="pi pi-pencil">
