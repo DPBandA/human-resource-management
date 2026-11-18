@@ -96,8 +96,15 @@ Email: info@dpbennett.com.jm
                     </p:badge>
                     <p:spacer width="30"/>                                   
 
+                    <p:commandButton actionListener="#{systemManager.switchPage('/index-m.xhtml')}"   
+                                     title="Switch to mobile view" 
+                                     icon="pi pi-mobile"
+                                     style="margin-right: 10px;"
+                                     styleClass="rounded-button"
+                                     ajax="false"
+                                     process="@this" />
 
-                    <p:commandButton actionListener="#{systemManager.editUserProfile}"   
+                    <p:commandButton actionListener="#{systemManager.editUserProfile('userProfileDialog')}"   
                                      title="View or edit user profile" 
                                      icon="pi pi-user"
                                      style="margin-right: 10px;"
@@ -108,6 +115,7 @@ Email: info@dpbennett.com.jm
                                 oncomplete="window.location.reload();"/>
 
                     </p:commandButton> 
+                    
                     <p:commandButton actionListener="#{humanResourceManager.logout}"                                             
                                      icon="pi pi-sign-out"
                                      styleClass="rounded-button"

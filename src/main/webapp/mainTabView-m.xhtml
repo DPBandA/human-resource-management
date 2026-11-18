@@ -34,7 +34,7 @@ Email: info@dpbennett.com.jm
             <div class="grid">
                 <div class="col-12">
 
-                    <p:tabView id="mainTabView"  
+                    <p:accordionPanel id="mainTabView"  
                                rendered="#{systemManager.mainTabView.render}"
                                value="#{systemManager.mainTabView.tabs}" 
                                activeIndex="#{systemManager.mainTabView.tabIndex}"
@@ -58,16 +58,16 @@ Email: info@dpbennett.com.jm
                             <p:defaultCommand target="#{systemManager.defaultCommandTarget}" />
 
                             <h:panelGroup rendered="#{t.id == 'Human Resource'}">                                
-                                <ui:include src="hr/hrmTab.xhtml" /> 
+                                <ui:include src="hr/hrmTab-m.xhtml" /> 
                             </h:panelGroup>
 
                             <h:panelGroup rendered="#{t.id == 'System Administration'}" >
-                                <ui:include src="admin/generalAdminTab.xhtml" /> 
+                                <ui:include src="admin/generalAdminTab-m.xhtml" /> 
                             </h:panelGroup> 
 
                         </p:tab>
 
-                    </p:tabView> 
+                    </p:accordionPanel> 
 
                 </div> 
 
